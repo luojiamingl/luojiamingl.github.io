@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[零基础搭建Hexo炫酷静态页面博客]]></title>
+    <url>%2F2017%2F09%2F29%2F%E9%9B%B6%E5%9F%BA%E7%A1%80%E6%90%AD%E5%BB%BAHexo%E7%82%AB%E9%85%B7%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[Hexo - 快速、简洁且高效的博客框架1.超快速度Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。 2.支持 MarkdownHexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。 3.一键部署只需一条指令即可部署到 GitHub Pages, Heroku 或其他网站。 4.丰富的插件Hexo 拥有强大的插件系统，安装插件可以让 Hexo 支持 Jade, CoffeeScript。]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Zero的博客]]></title>
     <url>%2F2017%2F09%2F29%2Fhello-world%2F</url>
     <content type="text"><![CDATA[博客终于建完了！ 我的微博 哈哈哈哈哈哈哈哈我的Github: github 嗯……………………………………………………………………]]></content>
