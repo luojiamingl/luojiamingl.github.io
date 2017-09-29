@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://luojiamingl.github.io/"/>
-  <updated>2017-09-29T12:35:15.000Z</updated>
+  <updated>2017-09-29T13:00:48.000Z</updated>
   <id>http://luojiamingl.github.io/</id>
   
   <author>
@@ -21,16 +21,13 @@
     <link href="http://luojiamingl.github.io/2017/09/29/%E9%9B%B6%E5%9F%BA%E7%A1%80%E6%90%AD%E5%BB%BAHexo%E7%82%AB%E9%85%B7%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2%E5%8D%9A%E5%AE%A2/"/>
     <id>http://luojiamingl.github.io/2017/09/29/零基础搭建Hexo炫酷静态页面博客/</id>
     <published>2017-09-29T11:59:22.000Z</published>
-    <updated>2017-09-29T12:35:15.000Z</updated>
+    <updated>2017-09-29T13:00:48.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Hexo - 快速、简洁且高效的博客框架<br>1.超快速度<br>Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</p><p>2.支持 Markdown<br>Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。</p><p>3.一键部署<br>只需一条指令即可部署到 GitHub Pages, Heroku 或其他网站。</p><p>4.丰富的插件<br>Hexo 拥有强大的插件系统，安装插件可以让 Hexo 支持 Jade, CoffeeScript。</p><a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<p>Hexo - 快速、简洁且高效的博客框架</p><a id="more"></a><h4 id="最近花了两天的时间搭建了一个博客，使用GitHubPages-hexo"><a href="#最近花了两天的时间搭建了一个博客，使用GitHubPages-hexo" class="headerlink" title="最近花了两天的时间搭建了一个博客，使用GitHubPages + hexo"></a>最近花了两天的时间搭建了一个博客，使用GitHubPages + hexo</h4><p>为什么选用GitHubPages + hexo   优点如下：</p><p>1.超快速度<br>Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</p><p>2.支持 Markdown<br>Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。</p><p>3.一键部署<br>只需一条指令即可部署到 GitHub Pages, Heroku 或其他网站。</p><p>4.丰富的插件<br>Hexo 拥有强大的插件系统，安装插件可以让 Hexo 支持 Jade, CoffeeScript。</p><p>博客地址：<a href="https://luojiamingl.github.io/tags/">https://luojiamingl.github.io/tags/</a><br><img src="blok.png" alt="image"></p><p>前期准备</p><p>github账号<br>node.js<br>npm<br>hexo<br>注意：（node.js 集成带有npm，因此只要下载 node.js 就可以了）</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Hexo - 快速、简洁且高效的博客框架&lt;br&gt;1.超快速度&lt;br&gt;Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。&lt;/p&gt;
-&lt;p&gt;2.支持 Markdown&lt;br&gt;Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。&lt;/p&gt;
-&lt;p&gt;3.一键部署&lt;br&gt;只需一条指令即可部署到 GitHub Pages, Heroku 或其他网站。&lt;/p&gt;
-&lt;p&gt;4.丰富的插件&lt;br&gt;Hexo 拥有强大的插件系统，安装插件可以让 Hexo 支持 Jade, CoffeeScript。&lt;/p&gt;
+      &lt;p&gt;Hexo - 快速、简洁且高效的博客框架&lt;/p&gt;
     
     </summary>
     
