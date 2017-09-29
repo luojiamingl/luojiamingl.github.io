@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Zero的博客</title>
+    <link>http://luojiamingl.github.io/</link>
+    <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description></description>
+    <pubDate>Fri, 29 Sep 2017 08:48:55 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Zero的博客</title>
+      <link>http://luojiamingl.github.io/2017/09/29/hello-world/</link>
+      <guid>http://luojiamingl.github.io/2017/09/29/hello-world/</guid>
+      <pubDate>Fri, 29 Sep 2017 08:48:55 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;博客终于建完了！ &lt;a href=&quot;http://weibo.com/6326279102/profile?topnav=1&amp;amp;wvr=6&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;我的微博&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;哈哈哈哈哈哈哈哈&quot;&gt;&lt;
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>博客终于建完了！ <a href="http://weibo.com/6326279102/profile?topnav=1&amp;wvr=6" target="_blank" rel="external">我的微博</a></p><h2 id="哈哈哈哈哈哈哈哈"><a href="#哈哈哈哈哈哈哈哈" class="headerlink" title="哈哈哈哈哈哈哈哈"></a>哈哈哈哈哈哈哈哈</h2><p>我的Github: <a href="https://github.com/luojiamingl" target="_blank" rel="external">github</a></p><p>嗯……………………………………………………………………</p>]]></content:encoded>
+      
+      <comments>http://luojiamingl.github.io/2017/09/29/hello-world/#disqus_thread</comments>
+    </item>
+    
+  </channel>
+</rss>
