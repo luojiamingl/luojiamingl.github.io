@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://luojiamingl.github.io/"/>
-  <updated>2017-09-30T03:39:03.000Z</updated>
+  <updated>2017-09-30T07:55:55.000Z</updated>
   <id>http://luojiamingl.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sublime注册码破解及关闭自动更新</title>
+    <link href="http://luojiamingl.github.io/2017/09/30/sublime%E7%A0%B4%E8%A7%A3%E5%8F%8A%E5%85%B3%E9%97%AD%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/"/>
+    <id>http://luojiamingl.github.io/2017/09/30/sublime破解及关闭自动更新/</id>
+    <published>2017-09-30T07:46:22.000Z</published>
+    <updated>2017-09-30T07:55:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>sublime - 丰富的文本编辑器，使用技巧</p><a id="more"></a><h1 id="破解方法"><a href="#破解方法" class="headerlink" title="破解方法"></a>破解方法</h1><p>话不多说，先分享三个注册码！<br>点击最右侧 help add license，添加注册码即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">—– BEGIN LICENSE —–</div><div class="line">Michael Barnes</div><div class="line">Single User License</div><div class="line">EA7E-821385</div><div class="line">8A353C41 872A0D5C DF9B2950 AFF6F667</div><div class="line">C458EA6D 8EA3C286 98D1D650 131A97AB</div><div class="line">AA919AEC EF20E143 B361B1E7 4C8B7F04</div><div class="line">B085E65E 2F5F5360 8489D422 FB8FC1AA</div><div class="line">93F6323C FD7F7544 3F39C318 D95E6480</div><div class="line">FCCC7561 8A4A1741 68FA4223 ADCEDE07</div><div class="line">200C25BE DBBC4855 C4CFB774 C5EC138C</div><div class="line">0FEC1CEF D9DCECEC D3A5DAD1 01316C36</div><div class="line">—— END LICENSE ——</div><div class="line"></div><div class="line">—– BEGIN LICENSE —–</div><div class="line">Nicolas Hennion</div><div class="line">Single User License</div><div class="line">EA7E-866075</div><div class="line">8A01AA83 1D668D24 4484AEBC 3B04512C</div><div class="line">827B0DE5 69E9B07A A39ACCC0 F95F5410</div><div class="line">729D5639 4C37CECB B2522FB3 8D37FDC1</div><div class="line">72899363 BBA441AC A5F47F08 6CD3B3FE</div><div class="line">CEFB3783 B2E1BA96 71AAF7B4 AFB61B1D</div><div class="line">0CC513E7 52FF2333 9F726D2C CDE53B4A</div><div class="line">810C0D4F E1F419A3 CDA0832B 8440565A</div><div class="line">35BF00F6 4CA9F869 ED10E245 469C233E</div><div class="line">—— END LICENSE ——</div><div class="line"></div><div class="line">—– BEGIN LICENSE —–</div><div class="line">Anthony Sansone</div><div class="line">Single User License</div><div class="line">EA7E-878563</div><div class="line">28B9A648 42B99D8A F2E3E9E0 16DE076E</div><div class="line">E218B3DC F3606379 C33C1526 E8B58964</div><div class="line">B2CB3F63 BDF901BE D31424D2 082891B5</div><div class="line">F7058694 55FA46D8 EFC11878 0868F093</div><div class="line">B17CAFE7 63A78881 86B78E38 0F146238</div><div class="line">BAE22DBB D4EC71A1 0EC2E701 C7F9C648</div><div class="line">5CF29CA3 1CB14285 19A46991 E9A98676</div><div class="line">14FD4777 2D8A0AB6 A444EE0D CA009B54</div><div class="line">—— END LICENSE ——</div><div class="line">—– BEGIN LICENSE —–</div><div class="line">Alexey Plutalov</div><div class="line">Single User License</div><div class="line">EA7E-860776</div><div class="line">3DC19CC1 134CDF23 504DC871 2DE5CE55</div><div class="line">585DC8A6 253BB0D9 637C87A2 D8D0BA85</div><div class="line">AAE574AD BA7D6DA9 2B9773F2 324C5DEF</div><div class="line">17830A4E FBCF9D1D 182406E9 F883EA87</div><div class="line">E585BBA1 2538C270 E2E857C2 194283CA</div><div class="line">7234FF9E D0392F93 1D16E021 F1914917</div><div class="line">63909E12 203C0169 3F08FFC8 86D06EA8</div><div class="line">73DDAEF0 AC559F30 A6A67947 B60104C6</div><div class="line">—— END LICENSE ——</div></pre></td></tr></table></figure></p><h1 id="关闭自动更新"><a href="#关闭自动更新" class="headerlink" title="关闭自动更新"></a>关闭自动更新</h1><p>如图打开,添加如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// Settings in here override those in &quot;Default/Preferences.sublime-settings&quot;,</div><div class="line">// and are overridden in turn by file type specific settings.</div><div class="line">&#123;</div><div class="line">&quot;update_check&quot; : false</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><p><img src="sublime.png" alt="image"></p><p><strong><em>注意</em></strong>：博主添加代码时发现自动更新提醒还是会弹出来，后来发现是没有破解，破解之后就不会弹出来了</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;sublime - 丰富的文本编辑器，使用技巧&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="sublime" scheme="http://luojiamingl.github.io/tags/sublime/"/>
+    
+  </entry>
   
   <entry>
     <title>零基础搭建Hexo炫酷静态页面博客</title>
