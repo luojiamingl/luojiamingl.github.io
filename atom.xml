@@ -45,34 +45,6 @@
   </entry>
   
   <entry>
-    <title>shell中条件判断if中的-a到-z的意思</title>
-    <link href="http://luojiamingl.github.io/2018/01/10/shell%E4%B8%AD%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%ADif%E4%B8%AD%E7%9A%84-a%E5%88%B0-z%E7%9A%84%E6%84%8F%E6%80%9D/"/>
-    <id>http://luojiamingl.github.io/2018/01/10/shell中条件判断if中的-a到-z的意思/</id>
-    <published>2018-01-10T11:59:22.000Z</published>
-    <updated>2018-01-10T08:03:15.664Z</updated>
-    
-    <content type="html"><![CDATA[<p>shell中条件判断if中的-a到-z的意思</p><a id="more"></a><p>[-a file] 如果file存在则为真 </p><p>[-b file] 如果file存在且是一个块特殊文件则为真 </p><p>[-c file] 如果file存在且是一个字特殊文件则为真 </p><p>[-d file] 如果file文件存在且是一个目录则为真<br>-d前的!是逻辑非<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">if [ ! -d $lcd_path/$par_date ]</div></pre></td></tr></table></figure></p><p>表示后面的那个目录不存在，则执行后面的then操作 </p><p>[-e file] 如果file文件存在则为真 </p><p>[-f file] 如果file存在且是一个普通文件则为真 </p><p>[-g file] 如果file存在且已经设置了SGID则为真（SUID 是 Set User ID, SGID 是 Set Group ID的意思） </p><p>[-h file] 如果file存在且是一个符号连接则为真 </p><p>[-k file] 如果file存在且已经设置粘制位则为真<br>当一个目录被设置为”粘制位”(用chmod a+t),则该目录下的文件只能由<br>一、超级管理员删除<br>二、该目录的所有者删除<br>三、该文件的所有者删除<br>也就是说,即便该目录是任何人都可以写,但也只有文件的属主才可以删除文件。<br>具体例子如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#ls -dl /tmp </div><div class="line">drwxrwxrwt 4 root    root </div><div class="line">.........</div></pre></td></tr></table></figure></p><p>注意other位置的t，这便是粘连位。 </p><p>[-p file] 如果file存在且是一个名字管道（F如果O）则为真<br>管道是linux里面进程间通信的一种方式，其他的还有像信号（signal）、信号量、消息队列、共享内存、套接字（socket）等。</p><p>[-r file] 如果file存在且是可读的则为真 </p><p>[-s file] 如果file存在且大小不为0则为真</p><p>[-t FD] 如果文件描述符FD打开且指向一个终端则为真 </p><p>[-u file] 如果file存在且设置了SUID（set userID）则为真 </p><p>[-w file] 如果file存在且是可写的则为真</p><p>[-x file] 如果file存在且是可执行的则为真</p><p>[-O file] 如果file存在且属有效用户ID则为真 </p><p>[-G file] 如果file存在且属有效用户组则为真 </p><p>[-L file] 如果file存在且是一个符号连接则为真 </p><p>[-N file] 如果file存在and has been mod如果ied since it was last read则为真 </p><p>[-S file] 如果file存在且是一个套接字则为真 </p><p>[file1 –nt file2] 如果file1 has been changed more recently than file2或者file1 exists and file2 does not则为真 </p><p>[file1 –ot file2] 如果file1比file2要老，或者file2存在且file1不存在则为真 </p><p>[file1 –ef file2] 如果file1和file2指向相同的设备和节点号则为真 </p><p>[-o optionname] 如果shell选项“optionname”开启则为真 </p><p>[-z string] “string”的长度为零则为真 </p><p>[-n string] or [string] “string”的长度为非零non-zero则为真 </p><p>[sting1==string2] 如果2个字符串相同。“=”may be used instead of “==”for strict posix compliance则为真 </p><p>[string1!=string2] 如果字符串不相等则为真<br>[string1&lt;string2] 如果“string1”sorts before“string2”lexicographically in the current locale则为真</p><p>[arg1 OP arg2] “OP”is one of –eq,-ne,-lt,-le,-gt or –ge.These arithmetic binary oprators return true if “arg1”is equal to,not equal to,less than,less than or equal to,greater than,or greater than or equal to“agr2”,respectively.“arg1”and “agr2”are integers. </p><p>参考资料<br><a href="http://blog.csdn.net/vergilgeekopen/article/details/69493321" target="_blank" rel="external">http://blog.csdn.net/vergilgeekopen/article/details/69493321</a></p><p>有问题可以联系博主，博客主页有邮箱，微博，文章底部有微信公众号等联系方式。</p><p>转载请注明出处，谢谢！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;shell中条件判断if中的-a到-z的意思&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="编程" scheme="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="linux" scheme="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/linux/"/>
-    
-    
-      <category term="shell" scheme="http://luojiamingl.github.io/tags/shell/"/>
-    
-      <category term="脚本" scheme="http://luojiamingl.github.io/tags/%E8%84%9A%E6%9C%AC/"/>
-    
-      <category term="linux" scheme="http://luojiamingl.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
     <title>shell 输出重定向（&gt; &gt;&gt; 2&gt;&amp;1）</title>
     <link href="http://luojiamingl.github.io/2018/01/10/shell%20%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%3E%20%3E%3E%202%3E&amp;1%EF%BC%89/"/>
     <id>http://luojiamingl.github.io/2018/01/10/shell 输出重定向（&gt; &gt;&gt; 2&gt;&amp;1）/</id>
@@ -97,6 +69,34 @@
       <category term="脚本" scheme="http://luojiamingl.github.io/tags/%E8%84%9A%E6%9C%AC/"/>
     
       <category term="重定向" scheme="http://luojiamingl.github.io/tags/%E9%87%8D%E5%AE%9A%E5%90%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell中条件判断if中的-a到-z的意思</title>
+    <link href="http://luojiamingl.github.io/2018/01/10/shell%E4%B8%AD%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%ADif%E4%B8%AD%E7%9A%84-a%E5%88%B0-z%E7%9A%84%E6%84%8F%E6%80%9D/"/>
+    <id>http://luojiamingl.github.io/2018/01/10/shell中条件判断if中的-a到-z的意思/</id>
+    <published>2018-01-10T11:59:22.000Z</published>
+    <updated>2018-01-10T08:03:15.664Z</updated>
+    
+    <content type="html"><![CDATA[<p>shell中条件判断if中的-a到-z的意思</p><a id="more"></a><p>[-a file] 如果file存在则为真 </p><p>[-b file] 如果file存在且是一个块特殊文件则为真 </p><p>[-c file] 如果file存在且是一个字特殊文件则为真 </p><p>[-d file] 如果file文件存在且是一个目录则为真<br>-d前的!是逻辑非<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">if [ ! -d $lcd_path/$par_date ]</div></pre></td></tr></table></figure></p><p>表示后面的那个目录不存在，则执行后面的then操作 </p><p>[-e file] 如果file文件存在则为真 </p><p>[-f file] 如果file存在且是一个普通文件则为真 </p><p>[-g file] 如果file存在且已经设置了SGID则为真（SUID 是 Set User ID, SGID 是 Set Group ID的意思） </p><p>[-h file] 如果file存在且是一个符号连接则为真 </p><p>[-k file] 如果file存在且已经设置粘制位则为真<br>当一个目录被设置为”粘制位”(用chmod a+t),则该目录下的文件只能由<br>一、超级管理员删除<br>二、该目录的所有者删除<br>三、该文件的所有者删除<br>也就是说,即便该目录是任何人都可以写,但也只有文件的属主才可以删除文件。<br>具体例子如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#ls -dl /tmp </div><div class="line">drwxrwxrwt 4 root    root </div><div class="line">.........</div></pre></td></tr></table></figure></p><p>注意other位置的t，这便是粘连位。 </p><p>[-p file] 如果file存在且是一个名字管道（F如果O）则为真<br>管道是linux里面进程间通信的一种方式，其他的还有像信号（signal）、信号量、消息队列、共享内存、套接字（socket）等。</p><p>[-r file] 如果file存在且是可读的则为真 </p><p>[-s file] 如果file存在且大小不为0则为真</p><p>[-t FD] 如果文件描述符FD打开且指向一个终端则为真 </p><p>[-u file] 如果file存在且设置了SUID（set userID）则为真 </p><p>[-w file] 如果file存在且是可写的则为真</p><p>[-x file] 如果file存在且是可执行的则为真</p><p>[-O file] 如果file存在且属有效用户ID则为真 </p><p>[-G file] 如果file存在且属有效用户组则为真 </p><p>[-L file] 如果file存在且是一个符号连接则为真 </p><p>[-N file] 如果file存在and has been mod如果ied since it was last read则为真 </p><p>[-S file] 如果file存在且是一个套接字则为真 </p><p>[file1 –nt file2] 如果file1 has been changed more recently than file2或者file1 exists and file2 does not则为真 </p><p>[file1 –ot file2] 如果file1比file2要老，或者file2存在且file1不存在则为真 </p><p>[file1 –ef file2] 如果file1和file2指向相同的设备和节点号则为真 </p><p>[-o optionname] 如果shell选项“optionname”开启则为真 </p><p>[-z string] “string”的长度为零则为真 </p><p>[-n string] or [string] “string”的长度为非零non-zero则为真 </p><p>[sting1==string2] 如果2个字符串相同。“=”may be used instead of “==”for strict posix compliance则为真 </p><p>[string1!=string2] 如果字符串不相等则为真<br>[string1&lt;string2] 如果“string1”sorts before“string2”lexicographically in the current locale则为真</p><p>[arg1 OP arg2] “OP”is one of –eq,-ne,-lt,-le,-gt or –ge.These arithmetic binary oprators return true if “arg1”is equal to,not equal to,less than,less than or equal to,greater than,or greater than or equal to“agr2”,respectively.“arg1”and “agr2”are integers. </p><p>参考资料<br><a href="http://blog.csdn.net/vergilgeekopen/article/details/69493321" target="_blank" rel="external">http://blog.csdn.net/vergilgeekopen/article/details/69493321</a></p><p>有问题可以联系博主，博客主页有邮箱，微博，文章底部有微信公众号等联系方式。</p><p>转载请注明出处，谢谢！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;shell中条件判断if中的-a到-z的意思&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="编程" scheme="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="linux" scheme="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/linux/"/>
+    
+    
+      <category term="shell" scheme="http://luojiamingl.github.io/tags/shell/"/>
+    
+      <category term="脚本" scheme="http://luojiamingl.github.io/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+      <category term="linux" scheme="http://luojiamingl.github.io/tags/linux/"/>
     
   </entry>
   
