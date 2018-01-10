@@ -57,7 +57,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo,github,博客," />
+  <meta name="keywords" content="shell,脚本,重定向," />
 
 
 
@@ -75,22 +75,18 @@
 
 
 
-<meta name="description" content="Hexo - 快速、简洁且高效的博客框架">
-<meta name="keywords" content="hexo,github,博客">
+<meta name="description" content="shell - 输出重定向（&amp;gt; &amp;gt;&amp;gt; 2&amp;gt;&amp;amp;1）">
+<meta name="keywords" content="shell,脚本,重定向">
 <meta property="og:type" content="article">
-<meta property="og:title" content="零基础搭建Hexo炫酷静态页面博客">
-<meta property="og:url" content="http://luojiamingl.github.io/2017/09/29/零基础搭建Hexo炫酷静态页面博客/index.html">
+<meta property="og:title" content="shell 输出重定向（&gt; &gt;&gt; 2&gt;&amp;1）">
+<meta property="og:url" content="http://luojiamingl.github.io/2018/01/10/shell 输出重定向（> >> 2>&1）/index.html">
 <meta property="og:site_name" content="Zero的博客">
-<meta property="og:description" content="Hexo - 快速、简洁且高效的博客框架">
+<meta property="og:description" content="shell - 输出重定向（&amp;gt; &amp;gt;&amp;gt; 2&amp;gt;&amp;amp;1）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://luojiamingl.github.io/2017/09/29/零基础搭建Hexo炫酷静态页面博客/blok.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2017/09/29/零基础搭建Hexo炫酷静态页面博客/githubkey1.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2017/09/29/零基础搭建Hexo炫酷静态页面博客/githubkey2.png">
-<meta property="og:updated_time" content="2018-01-10T03:17:22.972Z">
+<meta property="og:updated_time" content="2018-01-10T03:40:09.919Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="零基础搭建Hexo炫酷静态页面博客">
-<meta name="twitter:description" content="Hexo - 快速、简洁且高效的博客框架">
-<meta name="twitter:image" content="http://luojiamingl.github.io/2017/09/29/零基础搭建Hexo炫酷静态页面博客/blok.png">
+<meta name="twitter:title" content="shell 输出重定向（&gt; &gt;&gt; 2&gt;&amp;1）">
+<meta name="twitter:description" content="shell - 输出重定向（&amp;gt; &amp;gt;&amp;gt; 2&amp;gt;&amp;amp;1）">
 
 
 
@@ -120,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="http://luojiamingl.github.io/2017/09/29/零基础搭建Hexo炫酷静态页面博客/"/>
+  <link rel="canonical" href="http://luojiamingl.github.io/2018/01/10/shell 输出重定向（> >> 2>&1）/"/>
 
 
 
 
 
-  <title>零基础搭建Hexo炫酷静态页面博客 | Zero的博客</title>
+  <title>shell 输出重定向（> >> 2>&1） | Zero的博客</title>
   
 
 
@@ -287,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://luojiamingl.github.io/2017/09/29/零基础搭建Hexo炫酷静态页面博客/">
+    <link itemprop="mainEntityOfPage" href="http://luojiamingl.github.io/2018/01/10/shell 输出重定向（> >> 2>&1）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zero">
@@ -304,7 +300,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">零基础搭建Hexo炫酷静态页面博客</h1>
+          <h1 class="post-title" itemprop="name headline">shell 输出重定向（> >> 2>&1）</h1>
         
 
         <div class="post-meta">
@@ -316,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-29T19:59:22+08:00">
-                2017-09-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-10T19:59:22+08:00">
+                2018-01-10
               </time>
             
 
@@ -334,7 +330,7 @@
 
           
           
-             <span id="/2017/09/29/零基础搭建Hexo炫酷静态页面博客/" class="leancloud_visitors" data-flag-title="零基础搭建Hexo炫酷静态页面博客">
+             <span id="/2018/01/10/shell 输出重定向（> >> 2>&1）/" class="leancloud_visitors" data-flag-title="shell 输出重定向（> >> 2>&1）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -365,45 +361,22 @@
       
 
       
-        <p>Hexo - 快速、简洁且高效的博客框架</p>
+        <p>shell - 输出重定向（&gt; &gt;&gt; 2&gt;&amp;1）</p>
 <a id="more"></a>
-<h1 id="GitHubPages-hexo-简介"><a href="#GitHubPages-hexo-简介" class="headerlink" title="GitHubPages + hexo 简介"></a>GitHubPages + hexo 简介</h1><p>最近花了两天的时间搭建了一个博客，使用GitHubPages + hexo </p>
-<p>为什么选用GitHubPages + hexo   优点如下：</p>
-<p><strong><em>1</em>.超快速度</strong><br>Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</p>
-<p><strong><em>2</em>.支持 Markdown</strong><br>Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。</p>
-<p><strong><em>3</em>.一键部署</strong><br>只需一条指令即可部署到 GitHub Pages, Heroku 或其他网站。</p>
-<p><strong><em>4</em>.丰富的插件</strong><br>Hexo 拥有强大的插件系统，安装插件可以让 Hexo 支持 Jade, CoffeeScript。</p>
-<p><a href="https://luojiamingl.github.io/"><font color="green"><strong><em>博客地址</em></strong></font></a></p>
-<p><img src="blok.png" alt="image"></p>
-<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><p>github账号<br>node.js<br>npm<br>hexo<br>注意：（node.js 集成带有npm，因此只要下载 node.js 就可以了）</p>
-<p>github上创建GitHubPages仓库<br>GitHubPages<br><a href="https://pages.github.com" target="_blank" rel="external"><font color="blue">官方参考地址</font></a></p>
-<p><strong><em>注意</em></strong>：</p>
-<p>创建仓库的时候仓库名一定严格按照 git用户名.github.io 来命名<br>创建仓库完成之后，在本地创建一个站点文件夹 git用户名.github.io/blog</p>
-<h2 id="下载node-js"><a href="#下载node-js" class="headerlink" title="下载node.js"></a>下载node.js</h2><p>我是在mac系统上搭建的，下载用的终端<a href="https://brew.sh/index_zh-cn.html" target="_blank" rel="external"><font color="blue">brew</font></a>命令，如果其他系统或者没有翻墙，可能会有问题，如果下载失败可以移步<a href="https://nodejs.org/zh-cn/" target="_blank" rel="external"><font color="blue">Node.js</font></a>官网，下载最新版本一路安装即可。<br>检测安装是否成功 终端输入 node -v ,npm -v 成功则显示版本号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">➜  blog git:(master) ✗ npm -v</div><div class="line">5.3.0</div><div class="line">➜  blog git:(master) ✗</div></pre></td></tr></table></figure></p>
-<h2 id="下载-hexo"><a href="#下载-hexo" class="headerlink" title="下载 hexo"></a>下载 hexo</h2><p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external"><font color="blue">hexo官方</font></a> 有详细的windows和mac用户的安装文档，如果因为防火墙等原因安装失败，请使用下面命令安装，sudo赋予命令最高权限，避免权限不足</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">➜  blog git:(master)  sudo npm install hexo --no-optional</div></pre></td></tr></table></figure>
-<h2 id="下载git"><a href="#下载git" class="headerlink" title="下载git"></a>下载git</h2><p><a href="https://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" target="_blank" rel="external"><font color="blue">文档说明</font></a>，上面有各个平台的git下载安装步骤，按照步骤安装即可</p>
-<h2 id="本地关联github仓库"><a href="#本地关联github仓库" class="headerlink" title="本地关联github仓库"></a>本地关联github仓库</h2><p>git下载安装完成之后，需要跟你的github仓库关联起来，你需要一个私钥和公钥，首先查看本地有没有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">➜  ~ git:(master) ✗ cd ~/.ssh </div><div class="line">➜  .ssh git:(master) ✗ ls</div><div class="line">config      id_rsa      id_rsa.pub  known_hosts</div><div class="line">➜  .ssh git:(master) ✗</div></pre></td></tr></table></figure></p>
-<p>如果没有id_rsa（私钥）和id_rsa.pub（公钥）就需要手动生成一个，执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">➜  ~ git:(master) ✗ ssh-keygen</div></pre></td></tr></table></figure></p>
-<p>生成双钥，然后把公钥放到github仓库上，点击头像选择settings<br><img src="githubkey1.png" alt="image"><br>左侧找到SSH，然后点击New SSH key，把公钥的文本内容粘贴进去，就可以了<br><img src="githubkey2.png" alt="image"></p>
-<h1 id="部署hexo"><a href="#部署hexo" class="headerlink" title="部署hexo"></a>部署hexo</h1><h2 id="命令介绍"><a href="#命令介绍" class="headerlink" title="命令介绍"></a>命令介绍</h2><p>准备工作完成，就可以部署看一下博客界面效果了,先介绍一下hexo常用命令</p>
-<ul>
-<li>hexo clean 清除编辑后生成的静态文件，一般部署前都会执行一遍，防止上次部署结果影响新的文件内容</li>
-<li>hexo generate 编辑生成静态页面等</li>
-<li>hexo server 启动服务</li>
-<li>hexo develop 部署到远程github，需要修改配置文件，稍后介绍</li>
-</ul>
-<p>基本上用到的就是这些命令，为了方便可以设置快捷指令，执行如下命令，会在跟目录生成一个.bash_profile文件，同时打开.bash_profile进入编辑模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">➜  ~ git:(master) ✗ cd ~</div><div class="line">➜  ~ git:(master) ✗ vi .bash_profile</div></pre></td></tr></table></figure></p>
-<p>然后输入以下内容,进行保存，<a href="http://man.linuxde.net/par/1/page/3" target="_blank" rel="external"><font color="blue">linux命令</font></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">alias hexo clean=hexo c</div><div class="line">alias hexo generate=hexo g</div><div class="line">alias hexo server=hexo s</div><div class="line">alias hexo develop=hexo d</div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">~                                                                               </div><div class="line">-- INSERT --</div></pre></td></tr></table></figure></p>
-<p>执行如下命令，让文件生效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">➜  ~ git:(master) ✗ source .bash_profile</div></pre></td></tr></table></figure></p>
-<p>至此，快捷指令设置完成</p>
-<h2 id="本地部署"><a href="#本地部署" class="headerlink" title="本地部署"></a>本地部署</h2><p>然后cd进入本地博客根目录，执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">➜  ~ git:(master) ✗ hexo c</div><div class="line">➜  ~ git:(master) ✗ hexo d</div><div class="line">➜  ~ git:(master) ✗ hexo s</div><div class="line">INFO  Start processing</div><div class="line">INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</div></pre></td></tr></table></figure></p>
-<p>看到如下信息就可以在本地访问<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 查看博客主页了</p>
-<h2 id="远程部署"><a href="#远程部署" class="headerlink" title="远程部署"></a>远程部署</h2><p>部署到元辰github上需要修改一下本地博客配置文件，找到根目录的_config.yml文件，修改以下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:你的github名/你的github名.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
-<p>然后就可以执行如下命令部署到github<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">➜  ~ git:(master) ✗ hexo d</div></pre></td></tr></table></figure></p>
-<p>看到如下信息说明部署完成，就可以通过<a href="https://你的github名.github.io/" target="_blank" rel="external">https://你的github名.github.io/</a> 访问你的主页了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INFO  Deploy done: git</div></pre></td></tr></table></figure></p>
-<h1 id="部署完成"><a href="#部署完成" class="headerlink" title="部署完成"></a>部署完成</h1><p>至此，一个博客模板搭建完成，hexo还支持丰富的插件，包括RSS订阅，评论系统的接入，文章阅读量，打赏功能，第三方链接，如微博，发邮件等。</p>
-<p>接入以上功能，让自己的博客更加炫酷！可以联系博主，博客主页有邮箱，微博，文章底部有微信公众号等联系方式。</p>
+<h1 id="一、bash中0，1，2"><a href="#一、bash中0，1，2" class="headerlink" title="一、bash中0，1，2"></a>一、bash中0，1，2</h1><p>bash中0，1，2三个数字分别代表STDIN_FILENO、STDOUT_FILENO、STDERR_FILENO，即标准输入（一般是键盘），标准输出（一般是显示屏，准确的说是用户终端控制台），标准错误（出错信息输出）</p>
+<h1 id="二、输入输出重定向"><a href="#二、输入输出重定向" class="headerlink" title="二、输入输出重定向"></a>二、输入输出重定向</h1><p>所谓重定向输入就是在命令中指定具体的输入来源，譬如 cat &lt; test.c 将test.c重定向为cat命令的输入源。输出重定向是指定具体的输出目标以替换默认的标准输出，譬如ls &gt; 1.txt将ls的结果从标准输出重定向为1.txt文本。有时候会看到如 ls &gt;&gt; 1.txt这类的写法，&gt; 和 &gt;&gt; 的区别在于：&gt; 用于新建而&gt;&gt;用于追加。即ls &gt; 1.txt会新建一个1.txt文件并且将ls的内容输出到新建的1.txt中，而ls &gt;&gt; 1.txt则用在1.txt已经存在，而我们只是想将ls的内容追加到1.txt文本中的时候。</p>
+<p>默认输入只有一个（0，STDIN_FILENO），而默认输出有两个（标准输出1 STDOUT_FILENO，标准错误2 STDERR_FILENO）。因此默认情况下，shell输出的错误信息会被输出到2，而普通输出信息会输出到1。但是某些情况下，我们希望在一个终端下看到所有的信息（包括标准输出信息和错误信息），要怎么办呢？<br>对了，你可以使用我们上面讲到的输出重定向。思路有了，怎么写呢？ 非常直观的想法就是2&gt;1（将2重定向到1嘛），行不行呢？试一试就知道了。我们进行以下测试步骤：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1）mkdir test &amp;&amp; cd test; 创建test文件夹并进入test目录</div><div class="line">2）touch a.txt b.c c; 创建a.txt b.c c 三个文件</div><div class="line">3）ls &gt; 1; 按我们的猜测，这句应该是将ls的结果重定向到标准输出，因此效果和直接ls应该一样。但是实际这句执行后，标准输出中并没有任何信息。</div><div class="line">4）ls; 执行3之后再次ls，则会看到test文件夹中多了一个文件1</div><div class="line">5）cat 1 ; 查看文件1的内容，实际结果为：1 a.txt b.c c</div></pre></td></tr></table></figure>
+<p>可见步骤3中 ls &gt; 1并不是将ls的结果重定向为标准输出，而是将结果重定向到了一个文件1中。即1在此处不被解释为STDOUT_FILENO，而是文件1。</p>
+<p>4、到了此时，你应该也能猜到2&gt;&amp;1的用意了。不错，2&gt;&amp;1就是用来将标准错误2重定向到标准输出1中的。此处1前面的&amp;就是为了让bash将1解释成标准输出而不是文件1。至于最后一个&amp;，则是让bash在后台执行           </p>
+<h1 id="三、例子🌰"><a href="#三、例子🌰" class="headerlink" title="三、例子🌰"></a>三、例子🌰</h1><p><strong><em>1</em>.输出重定向</strong></p>
+<p>1.1把标准输出重定向到文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[~]# echo &quot;hello&quot; &gt; test.sh</div><div class="line">[~]# cat test.sh</div><div class="line">hello</div><div class="line">&apos;&gt;&apos;输出方式默认等价&apos;1&gt;&apos;</div><div class="line">[~]# echo &quot;hello&quot; 1&gt; test.sh</div><div class="line">[~]# cat test.sh</div><div class="line">hello</div></pre></td></tr></table></figure>
+<p>但是错误内容还是会显示在屏幕上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[~]$cat edit.sql /root/test.sh &gt; temp.sh</div><div class="line"> cat: /root/test.sh: Permission denied</div></pre></td></tr></table></figure></p>
+<p>可以把错误内容也输出到文件中（利用文件描述符）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[~]$cat edit.sql /root/test.sh 1&gt; temp.sh 2&gt; error.sh</div><div class="line"> [~]$cat temp.sh</div><div class="line"> select dbms_rowid.rowid_object(&apos;AAAZdQAAGAAATxjAAk&apos;) data_object_id#,</div><div class="line"> dbms_rowid.rowid_relative_fno(&apos;AAAZdQAAGAAATxjAAk&apos;) rfile#,</div><div class="line"> dbms_rowid.rowid_block_number(&apos;AAAZdQAAGAAATxjAAk&apos;) block#,</div><div class="line"> dbms_rowid.rowid_row_number(&apos;AAAZdQAAGAAATxjAAk&apos;) row# from dual</div><div class="line"> /</div><div class="line"> [~]$cat error.sh</div><div class="line"> cat: /root/test.sh: Permission denied</div></pre></td></tr></table></figure></p>
+<p>把标准输出和错误信息写入同一个文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">[~]$cat edit.sql /root/test.sh &lt;span style=&quot;color: #ff0000;&quot;&gt;&gt; temp.sh 2&gt;&amp;1&lt;/span&gt;</div><div class="line">[~]$cat temp.sh</div><div class="line">select dbms_rowid.rowid_object(&apos;AAAZdQAAGAAATxjAAk&apos;) data_object_id#,</div><div class="line"> dbms_rowid.rowid_relative_fno(&apos;AAAZdQAAGAAATxjAAk&apos;) rfile#,</div><div class="line"> dbms_rowid.rowid_block_number(&apos;AAAZdQAAGAAATxjAAk&apos;) block#,</div><div class="line"> dbms_rowid.rowid_row_number(&apos;AAAZdQAAGAAATxjAAk&apos;) row# from dual</div><div class="line"> /</div><div class="line">cat: /root/test.sh: Permission denied</div></pre></td></tr></table></figure></p>
+<p>参考资料<br><a href="http://qinqianshan.com/shell-output-redirection-21/" target="_blank" rel="external">http://qinqianshan.com/shell-output-redirection-21/</a></p>
+<p>有问题可以联系博主，博客主页有邮箱，微博，文章底部有微信公众号等联系方式。</p>
 <p>谢谢！</p>
 
       
@@ -459,11 +432,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/shell/" rel="tag"># shell</a>
           
-            <a href="/tags/github/" rel="tag"># github</a>
+            <a href="/tags/脚本/" rel="tag"># 脚本</a>
           
-            <a href="/tags/博客/" rel="tag"># 博客</a>
+            <a href="/tags/重定向/" rel="tag"># 重定向</a>
           
         </div>
       
@@ -476,15 +449,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/09/30/sublime破解及关闭自动更新/" rel="next" title="sublime注册码破解及关闭自动更新">
+                <i class="fa fa-chevron-left"></i> sublime注册码破解及关闭自动更新
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/30/sublime破解及关闭自动更新/" rel="prev" title="sublime注册码破解及关闭自动更新">
-                sublime注册码破解及关闭自动更新 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -647,7 +620,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GitHubPages-hexo-简介"><span class="nav-number">1.</span> <span class="nav-text">GitHubPages + hexo 简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前期准备"><span class="nav-number">2.</span> <span class="nav-text">前期准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载node-js"><span class="nav-number">2.1.</span> <span class="nav-text">下载node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载-hexo"><span class="nav-number">2.2.</span> <span class="nav-text">下载 hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载git"><span class="nav-number">2.3.</span> <span class="nav-text">下载git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地关联github仓库"><span class="nav-number">2.4.</span> <span class="nav-text">本地关联github仓库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署hexo"><span class="nav-number">3.</span> <span class="nav-text">部署hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#命令介绍"><span class="nav-number">3.1.</span> <span class="nav-text">命令介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地部署"><span class="nav-number">3.2.</span> <span class="nav-text">本地部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程部署"><span class="nav-number">3.3.</span> <span class="nav-text">远程部署</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署完成"><span class="nav-number">4.</span> <span class="nav-text">部署完成</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、bash中0，1，2"><span class="nav-number">1.</span> <span class="nav-text">一、bash中0，1，2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、输入输出重定向"><span class="nav-number">2.</span> <span class="nav-text">二、输入输出重定向</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、例子🌰"><span class="nav-number">3.</span> <span class="nav-text">三、例子🌰</span></a></li></ol></div>
             
 
           </div>
