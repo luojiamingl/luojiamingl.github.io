@@ -57,7 +57,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="shell,脚本,重定向," />
+  <meta name="keywords" content="shell,脚本,linux," />
 
 
 
@@ -75,18 +75,18 @@
 
 
 
-<meta name="description" content="shell - 输出重定向（&amp;gt; &amp;gt;&amp;gt; 2&amp;gt;&amp;amp;1）">
-<meta name="keywords" content="shell,脚本,重定向">
+<meta name="description" content="Linux中date命令的各种实用方法">
+<meta name="keywords" content="shell,脚本,linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shell 输出重定向（&gt; &gt;&gt; 2&gt;&amp;1）">
-<meta property="og:url" content="http://luojiamingl.github.io/2018/01/10/shell 输出重定向（> >> 2>&1）/index.html">
+<meta property="og:title" content="Linux中date命令的各种实用方法">
+<meta property="og:url" content="http://luojiamingl.github.io/2018/01/10/Linux中date命令的各种实用方法/index.html">
 <meta property="og:site_name" content="Zero的博客">
-<meta property="og:description" content="shell - 输出重定向（&amp;gt; &amp;gt;&amp;gt; 2&amp;gt;&amp;amp;1）">
+<meta property="og:description" content="Linux中date命令的各种实用方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-10T04:11:20.175Z">
+<meta property="og:updated_time" content="2018-01-10T07:26:46.134Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shell 输出重定向（&gt; &gt;&gt; 2&gt;&amp;1）">
-<meta name="twitter:description" content="shell - 输出重定向（&amp;gt; &amp;gt;&amp;gt; 2&amp;gt;&amp;amp;1）">
+<meta name="twitter:title" content="Linux中date命令的各种实用方法">
+<meta name="twitter:description" content="Linux中date命令的各种实用方法">
 
 
 
@@ -116,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="http://luojiamingl.github.io/2018/01/10/shell 输出重定向（> >> 2>&1）/"/>
+  <link rel="canonical" href="http://luojiamingl.github.io/2018/01/10/Linux中date命令的各种实用方法/"/>
 
 
 
 
 
-  <title>shell 输出重定向（> >> 2>&1） | Zero的博客</title>
+  <title>Linux中date命令的各种实用方法 | Zero的博客</title>
   
 
 
@@ -283,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://luojiamingl.github.io/2018/01/10/shell 输出重定向（> >> 2>&1）/">
+    <link itemprop="mainEntityOfPage" href="http://luojiamingl.github.io/2018/01/10/Linux中date命令的各种实用方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zero">
@@ -300,7 +300,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">shell 输出重定向（> >> 2>&1）</h1>
+          <h1 class="post-title" itemprop="name headline">Linux中date命令的各种实用方法</h1>
         
 
         <div class="post-meta">
@@ -330,7 +330,7 @@
 
           
           
-             <span id="/2018/01/10/shell 输出重定向（> >> 2>&1）/" class="leancloud_visitors" data-flag-title="shell 输出重定向（> >> 2>&1）">
+             <span id="/2018/01/10/Linux中date命令的各种实用方法/" class="leancloud_visitors" data-flag-title="Linux中date命令的各种实用方法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -361,28 +361,58 @@
       
 
       
-        <p>shell - 输出重定向（&gt; &gt;&gt; 2&gt;&amp;1）</p>
+        <p> Linux中date命令的各种实用方法</p>
 <a id="more"></a>
-<h1 id="一、bash中0，1，2"><a href="#一、bash中0，1，2" class="headerlink" title="一、bash中0，1，2"></a>一、bash中0，1，2</h1><p>bash中0，1，2三个数字分别代表STDIN_FILENO、STDOUT_FILENO、STDERR_FILENO，即标准输入（一般是键盘），标准输出（一般是显示屏，准确的说是用户终端控制台），标准错误（出错信息输出）</p>
-<h1 id="二、输入输出重定向"><a href="#二、输入输出重定向" class="headerlink" title="二、输入输出重定向"></a>二、输入输出重定向</h1><p>所谓重定向输入就是在命令中指定具体的输入来源，譬如 cat &lt; test.c 将test.c重定向为cat命令的输入源。输出重定向是指定具体的输出目标以替换默认的标准输出，譬如ls &gt; 1.txt将ls的结果从标准输出重定向为1.txt文本。有时候会看到如 ls &gt;&gt; 1.txt这类的写法，&gt; 和 &gt;&gt; 的区别在于：&gt; 用于新建而&gt;&gt;用于追加。即ls &gt; 1.txt会新建一个1.txt文件并且将ls的内容输出到新建的1.txt中，而ls &gt;&gt; 1.txt则用在1.txt已经存在，而我们只是想将ls的内容追加到1.txt文本中的时候。</p>
-<p>默认输入只有一个（0，STDIN_FILENO），而默认输出有两个（标准输出1 STDOUT_FILENO，标准错误2 STDERR_FILENO）。因此默认情况下，shell输出的错误信息会被输出到2，而普通输出信息会输出到1。但是某些情况下，我们希望在一个终端下看到所有的信息（包括标准输出信息和错误信息），要怎么办呢？<br>对了，你可以使用我们上面讲到的输出重定向。思路有了，怎么写呢？ 非常直观的想法就是2&gt;1（将2重定向到1嘛），行不行呢？试一试就知道了。我们进行以下测试步骤：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1）mkdir test &amp;&amp; cd test; 创建test文件夹并进入test目录</div><div class="line">2）touch a.txt b.c c; 创建a.txt b.c c 三个文件</div><div class="line">3）ls &gt; 1; 按我们的猜测，这句应该是将ls的结果重定向到标准输出，因此效果和直接ls应该一样。但是实际这句执行后，标准输出中并没有任何信息。</div><div class="line">4）ls; 执行3之后再次ls，则会看到test文件夹中多了一个文件1</div><div class="line">5）cat 1 ; 查看文件1的内容，实际结果为：1 a.txt b.c c</div></pre></td></tr></table></figure>
-<p>可见步骤3中 ls &gt; 1并不是将ls的结果重定向为标准输出，而是将结果重定向到了一个文件1中。即1在此处不被解释为STDOUT_FILENO，而是文件1。</p>
-<p>4、到了此时，你应该也能猜到2&gt;&amp;1的用意了。不错，2&gt;&amp;1就是用来将标准错误2重定向到标准输出1中的。此处1前面的&amp;就是为了让bash将1解释成标准输出而不是文件1。至于最后一个&amp;，则是让bash在后台执行           </p>
-<h1 id="三、例子🌰"><a href="#三、例子🌰" class="headerlink" title="三、例子🌰"></a>三、例子🌰</h1><p><strong><em>1</em>.输出重定向</strong></p>
-<p>1.1把标准输出重定向到文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[~]# echo &quot;hello&quot; &gt; test.sh</div><div class="line">[~]# cat test.sh</div><div class="line">hello</div><div class="line">&apos;&gt;&apos;输出方式默认等价&apos;1&gt;&apos;</div><div class="line">[~]# echo &quot;hello&quot; 1&gt; test.sh</div><div class="line">[~]# cat test.sh</div><div class="line">hello</div></pre></td></tr></table></figure>
-<p>输入、输出及标准错误输出主要用于 I/O 的重定向，就是说需要改变他们的默认设置。先看这个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ls &gt; ls_result $ ls -l &gt;&gt; ls_result</div></pre></td></tr></table></figure></p>
-<p>上面这两个命令分别将 ls 命令的结果输出重定向到 ls_result 文件中和追加到 ls_result 文件中，而不是输出到屏幕上。”&gt;”就是输出（标准输出和标准错误输出）重定向的代表符号，连续两个 “&gt;” 符号，即 “&gt;&gt;” 则表示不清除原来的而追加输出。下面再来看一个稍微复杂的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ find /home -name lost* 2&gt; err_result</div></pre></td></tr></table></figure></p>
-<p>这个命令在 “&gt;” 符号之前多了一个 “2”，”2&gt;” 表示将标准错误输出重定向。由于 /home 目录下有些目录由于权限限制不能访问，因此会产生一些标准错误输出被存放在 err_result 文件中。</p>
-<p>大家可以设想一下 find /home -name lost<em> 2&gt;&gt;err_result 命令会产生什么结果？<br>如果直接执行 find /home -name lost</em> &gt; all_result ，其结果是只有标准输出被存入 all_result 文件中，要想让标准错误输出和标准输入一样都被存入到文件中，那该怎么办呢？看下面这个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ find /home -name lost* &gt; all_result 2&gt;&amp; 1</div></pre></td></tr></table></figure></p>
-<p>上面这个例子中将首先将标准错误输出也重定向到标准输出中，再将标准输出重定向到 all_result 这个文件中。这样我们就可以将所有的输出都存储到文件中了。为实现上述功能，还有一种简便的写法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ find /home -name lost* &gt;&amp; all_result</div></pre></td></tr></table></figure></p>
-<p>如果那些出错信息并不重要，下面这个命令可以让你避开众多无用出错信息的干扰：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ find /home -name lost* 2&gt; /dev/null</div></pre></td></tr></table></figure></p>
-<p>同学们回去后还可以再试验一下如下几种重定向方式，看看会出什么结果，为什么？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ find /home -name lost* &gt; all_result 1&gt;&amp; 2 $ find /home -name lost* 2&gt; all_result 1&gt;&amp; 2 $ find /home -name lost* 2&gt;&amp; 1 &gt; all_result</div></pre></td></tr></table></figure></p>
-<p>另外一个非常有用的重定向操作符是 “-“，请看下面这个例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ (cd /source/directory &amp;&amp; tar cf - . ) | (cd /dest/directory &amp;&amp; tar xvfp -)</div></pre></td></tr></table></figure></p>
-<p>该命令表示把 /source/directory 目录下的所有文件通过压缩和解压，快速的全部移动到 /dest/directory 目录下去，这个命令在 /source/directory 和 /dest/directory 不处在同一个文件系统下时将显示出特别的优势。<br>下面还几种不常见的用法：<br>n&lt;&amp;- 表示将 n 号输入关闭 &lt;&amp;- 表示关闭标准输入（键盘） n&gt;&amp;- 表示将 n 号输出关闭 &gt;&amp;- 表示将标准输出关闭</p>
-<p>参考资料<br><a href="http://qinqianshan.com/shell-output-redirection-21/" target="_blank" rel="external">http://qinqianshan.com/shell-output-redirection-21/</a></p>
-<p><a href="http://blog.csdn.net/feng27156/article/details/38980543" target="_blank" rel="external">http://blog.csdn.net/feng27156/article/details/38980543</a></p>
+<p>用法：date [选项]… [+格式]<br>　或：date [-u|–utc|–universal] [MMDDhhmm[[CC]YY][.ss]]<br>以给定的格式显示当前时间，或是设置系统日期。</p>
+<p>  -d,–date=字符串              显示指定字符串所描述的时间，而非当前时间</p>
+<p>  -f,–file=日期文件            类似–date，从日期文件中按行读入时间描述</p>
+<p>  -r, –reference=文件          显示文件指定文件的最后修改时间</p>
+<p>  -s, –set=字符串              设置指定字符串来分开时间</p>
+<p>  -u, –utc, –universal        输出或者设置协调的通用时间<br>      –help            显示此帮助信息并退出<br>      –version         显示版本信息并退出</p>
+<p>读者可以设定特定的格式，格式设定规则：一个加号后接数个标记，每个标记中都有%，其中可用的标记列表和说明如下:</p>
+<p>%n : 下一行</p>
+<p>%t : 跳格</p>
+<p>%H : 小时(00..23)</p>
+<p>%I : 小时(01..12)</p>
+<p>%k : 小时(0..23)</p>
+<p>%l : 小时(1..12)</p>
+<p>%M : 分钟(00..59)</p>
+<p>%p : 显示本地 AM 或 PM</p>
+<p>%r : 直接显示时间 (12 小时制，格式为 hh:mm:ss [AP]M)</p>
+<p>%s : 从 1970 年 1 月 1 日 00:00:00 UTC 到目前为止的秒数<br>%S : 秒(00..59)</p>
+<p>%T : 直接显示时间 (24 小时制)</p>
+<p>%X : 相当于 %H:%M:%S</p>
+<p>%Z : 显示时区 %a : 星期几 (Sun..Sat)</p>
+<p>%A : 星期几<br>(Sunday..Saturday)</p>
+<p>%b : 月份 (Jan..Dec)</p>
+<p>%B : 月份 (January..December)</p>
+<p>%c : 直接显示日期与时间</p>
+<p>%d : 日 (01..31)</p>
+<p>%D : 直接显示日期 (mm/dd/yy)</p>
+<p>%h : 同 %b</p>
+<p>%j : 一年中的第几天 (001..366)</p>
+<p>%m : 月份 (01..12)</p>
+<p>%U : 一年中的第几周 (00..53) (以 Sunday 为一周的第一天的情形)</p>
+<p>%w : 一周中的第几天 (0..6)</p>
+<p>%W : 一年中的第几周 (00..53) (以 Monday 为一周的第一天的情形)</p>
+<p>%x : 直接显示日期 (mm/dd/yy)</p>
+<p>%y : 年份的最后两位数字 (00.99)</p>
+<p>%Y : 完整年份 (0000..9999)</p>
+<p>##1.按照特定的格式输出时间：短接符”-“、空格” “和冒号”:” 为分隔符，其中空格前面加了转义符号”\”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@RHEL601 tmp]# date +%Y-%m-%d\ %H:%M:%S</div><div class="line">2012-07-19 21:10:28</div></pre></td></tr></table></figure>
+<p>在当前时间的基础上往前推或者往后推三天<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@RHEL601 tmp]# date -d &quot;+3 day&quot; </div><div class="line">2012年 07月 22日 星期日 20:12:08 CST</div><div class="line">[root@RHEL601 tmp]# date -d &quot;-3 day&quot;  </div><div class="line">2012年 07月 16日 星期一 20:12:12 CST</div></pre></td></tr></table></figure></p>
+<p>在当前时间的基础上往前推或者往后推三个月<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@RHEL601 tmp]# date -d &quot;-3 month&quot;    </div><div class="line">2012年 04月 19日 星期四 20:12:39 CST</div><div class="line">[root@RHEL601 tmp]# date -d &quot;+3 month&quot;  </div><div class="line">2012年 10月 19日 星期五 20:12:48 CST</div></pre></td></tr></table></figure></p>
+<p>在当前时间的基础上往前推或者往后推三年<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@RHEL601 tmp]# date -d &quot;+3 year&quot;      </div><div class="line">2015年 07月 19日 星期日 20:13:06 CST</div><div class="line">[root@RHEL601 tmp]# date -d &quot;-3 year&quot;   </div><div class="line">2009年 07月 19日 星期日 20:13:11 CST</div></pre></td></tr></table></figure></p>
+<p>在当前时间的基础上往前推或者往后推三小时<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@RHEL601 tmp]# date -d &quot;-3 hour&quot;     </div><div class="line">2012年 07月 19日 星期四 17:13:20 CST</div><div class="line">[root@RHEL601 tmp]# date -d &quot;+3 hour&quot;  </div><div class="line">2012年 07月 19日 星期四 23:13:24 CST</div></pre></td></tr></table></figure></p>
+<p>在当前时间的基础上往前推或者往后推三分钟<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@RHEL601 tmp]# date -d &quot;+3 minute&quot;       </div><div class="line">2012年 07月 19日 星期四 20:16:56 CST</div><div class="line">[root@RHEL601 tmp]# date -d &quot;-3 minute&quot;  </div><div class="line">2012年 07月 19日 星期四 20:10:59 CST</div></pre></td></tr></table></figure></p>
+<p>在当前时间的基础上往前推或者往后推三十秒<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@RHEL601 tmp]# date &amp;&amp; date -d &quot;-30 second&quot;         </div><div class="line">2012年 07月 19日 星期四 20:14:24 CST</div><div class="line">2012年 07月 19日 星期四 20:13:54 CST</div><div class="line">[root@RHEL601 tmp]# date &amp;&amp; date -d &quot;+30 second&quot;  </div><div class="line">2012年 07月 19日 星期四 20:14:29 CST</div><div class="line">2012年 07月 19日 星期四 20:14:59 CST</div></pre></td></tr></table></figure></p>
+<p>##2、接下来的范例说明如何用date来表示各种各样的时间，表示的都是某一天的零点时间，也可以在当前的时分秒的基础上表示时间，(特别注意中间用到了反单引号`)参见范例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">date -d `date +%y%m01` #本月第一天</div><div class="line">[root@RHEL601 tmp]# date -d `date +%y%m01`</div><div class="line">2012年 07月 01日 星期日 00:00:00 CST</div><div class="line"></div><div class="line">date -d `date +%y%m01`&quot;-1 day&quot;  #上个月最后一天</div><div class="line">[root@RHEL601 tmp]# date -d `date +%y%m01`&quot;-1 day&quot;</div><div class="line">2012年 06月 30日 星期六 00:00:00 CST</div><div class="line"></div><div class="line">date -d `date -d &quot;-3 month&quot; +%y%m01`&quot;-1 day&quot; #4个月前的第一天</div><div class="line">[root@RHEL601 tmp]# date -d `date -d &quot;-3 month&quot; +%y%m01`&quot;-1 day&quot;</div><div class="line">2012年 03月 31日 星期六 00:00:00 CST</div><div class="line"></div><div class="line">date -d `date -d &quot;+12 month&quot; +%y%m01`&quot;-1 day&quot; #第11个月后的第一天</div><div class="line">[root@RHEL601 tmp]# date -d `date -d &quot;+12 month&quot; +%y%m01`&quot;-1 day&quot;</div><div class="line">2013年 06月 30日 星期日 00:00:00 CST</div><div class="line"></div><div class="line">date -d `date -d &quot;-1 month&quot; +%y%m01` #上个月第一天</div><div class="line">[root@RHEL601 tmp]# date -d `date -d &quot;-1 month&quot; +%y%m01`</div><div class="line">2012年 06月 01日 星期五 00:00:00 CST</div><div class="line"></div><div class="line"></div><div class="line">date -d `date -d &quot;+12 month&quot; +%y%m01` #第12个月后的第一天</div><div class="line">[root@RHEL601 tmp]# date -d `date -d &quot;+12 month&quot; +%y%m01`</div><div class="line">2013年 07月 01日 星期一 00:00:00 CST</div><div class="line"></div><div class="line">date -d `date -d &quot;-1 day&quot; +%Y%m%d` #前一天零点时间</div><div class="line">[root@RHEL601 tmp]# date -d `date -d &quot;-1 day&quot; +%Y%m%d`</div><div class="line">2012年 07月 18日 星期三 00:00:00 CST</div><div class="line"></div><div class="line">date -d `date -d &quot;-3 day&quot; +%Y%m%d` #前三天零点时间</div><div class="line">[root@RHEL601 tmp]# date -d `date -d &quot;-3 day&quot; +%Y%m%d` </div><div class="line">2012年 07月 16日 星期一 00:00:00 CST</div><div class="line"></div><div class="line">date -d `date -d &quot;+1 day&quot; +%Y%m%d` #明天零点时间</div><div class="line">[root@RHEL601 tmp]# date -d `date -d &quot;+1 day&quot; +%Y%m%d`  </div><div class="line">2012年 07月 20日 星期五 00:00:00 CST</div><div class="line"></div><div class="line">date -d `date -d &quot;+3 day&quot; +%Y%m%d` #往后推三天零点时间</div><div class="line">[root@RHEL601 tmp]# date -d `date -d &quot;+3 day&quot; +%Y%m%d` </div><div class="line">2012年 07月 22日 星期日 00:00:00 CST</div></pre></td></tr></table></figure></p>
+<p>##3、以下简单示范了字母大小写在date命令中的区别<br>Y #代表完整的年份，例如:2012年 将显示 2012<br>y #代表缩写年份，例如：2012年 缩写为 12<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@RHEL601 tmp]# date +&quot;%y%m01%H%M%S&quot;</div><div class="line">121201121556</div><div class="line">[root@RHEL601 tmp]# date +&quot;%Y%m01%H%M%S&quot;</div><div class="line">20121201121610</div></pre></td></tr></table></figure></p>
+<p>##4、以下范例说明如何调整服务器的时间<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ntpdate 210.72.145.44</div></pre></td></tr></table></figure></p>
+<p>将服务器时间调整为正常时间，210.72.145.44 是国家授时中心服务器IP地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@RHEL601 tmp]# ntpdate 210.72.145.44</div><div class="line">19 Jul 13:07:07 ntpdate[15150]: adjust time server 210.72.145.44 offset -0.020920 sec</div></pre></td></tr></table></figure></p>
+<p>date 121212122012</p>
+<p>将时间设置为2012年 12月 12日 星期三 12:12:00，date后面的数字代表月日时分年，还可以加秒，需要后面跟英文状态下的句号字符”.”，例如：121212122012.12<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">[root@RHEL601 tmp]# date 121212122012</div><div class="line">2012年 12月 12日 星期三 12:12:00 CST</div><div class="line">[root@RHEL601 tmp]# date 121212122012.12</div><div class="line">2012年 12月 12日 星期三 12:12:12 CST</div><div class="line"></div><div class="line">[root@RHEL601 tmp]# date `date -d &quot;1 day ago&quot; +%m%d%H%M%Y.%S`</div><div class="line">2012年 07月 18日 星期三 20:13:04 CST</div><div class="line">[root@RHEL601 tmp]# date</div><div class="line">2012年 07月 18日 星期三 20:13:10 CST</div><div class="line">[root@RHEL601 tmp]# date `date -d &quot;3 days ago&quot; +%m%d%H%M%Y.%S`</div><div class="line">2012年 07月 15日 星期日 20:13:18 CST</div><div class="line">[root@RHEL601 tmp]# date `date -d &quot;5 days ago&quot; +%m%d%H%M%Y.%S`</div><div class="line">2012年 07月 10日 星期二 20:13:28 CST</div><div class="line">[root@RHEL601 tmp]# date `date -d &quot;$((3600*24)) seconds ago&quot; +%m%d%H%M%Y.%S`</div><div class="line">2012年 07月 09日 星期一 20:13:39 CST</div><div class="line">[root@RHEL601 tmp]# date `date -d &quot;$((3600*24)) seconds ago&quot; +%m%d%H%M%Y.%S`</div><div class="line">2012年 07月 08日 星期日 20:14:01 CST</div><div class="line">[root@RHEL601 tmp]# ntpdate 210.72.145.44</div><div class="line">19 Jul 20:14:15 ntpdate[26846]: step time server 210.72.145.44 offset 950404.037565 sec</div></pre></td></tr></table></figure></p>
+<p>参考资料<br><a href="http://blog.chinaunix.net/uid-22823163-id-3293784.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-22823163-id-3293784.html</a></p>
 <p>有问题可以联系博主，博客主页有邮箱，微博，文章底部有微信公众号等联系方式。</p>
 <p>谢谢！</p>
 
@@ -443,7 +473,7 @@
           
             <a href="/tags/脚本/" rel="tag"># 脚本</a>
           
-            <a href="/tags/重定向/" rel="tag"># 重定向</a>
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
         </div>
       
@@ -456,8 +486,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/30/sublime破解及关闭自动更新/" rel="next" title="sublime注册码破解及关闭自动更新">
-                <i class="fa fa-chevron-left"></i> sublime注册码破解及关闭自动更新
+              <a href="/2018/01/10/shell 输出重定向（> >> 2>&1）/" rel="next" title="shell 输出重定向（> >> 2>&1）">
+                <i class="fa fa-chevron-left"></i> shell 输出重定向（> >> 2>&1）
               </a>
             
           </div>
@@ -465,10 +495,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/10/Linux中date命令的各种实用方法/" rel="prev" title="Linux中date命令的各种实用方法">
-                Linux中date命令的各种实用方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -522,17 +548,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -621,22 +638,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、bash中0，1，2"><span class="nav-number">1.</span> <span class="nav-text">一、bash中0，1，2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、输入输出重定向"><span class="nav-number">2.</span> <span class="nav-text">二、输入输出重定向</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、例子🌰"><span class="nav-number">3.</span> <span class="nav-text">三、例子🌰</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
