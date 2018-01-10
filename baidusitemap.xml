@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://luojiamingl.github.io/2018/01/10/shell%20%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%3E%20%3E%3E%202%3E&1%EF%BC%89/</loc>
-    <lastmod>2018-01-10T08:00:21.381Z</lastmod>
+    <lastmod>2018-01-10T08:03:15.669Z</lastmod>
     <data>
         <display>
         <title>shell 输出重定向（> >> 2>&1）</title>
@@ -20,7 +20,37 @@
          
            
              
-              <breadCrumb title="编程 - linux" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B-linux/"/>
+              <breadCrumb title="编程" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+             
+              <breadCrumb title="linux" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://luojiamingl.github.io/2018/01/10/shell%E4%B8%AD%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%ADif%E4%B8%AD%E7%9A%84-a%E5%88%B0-z%E7%9A%84%E6%84%8F%E6%80%9D/</loc>
+    <lastmod>2018-01-10T08:03:15.664Z</lastmod>
+    <data>
+        <display>
+        <title>shell中条件判断if中的-a到-z的意思</title>
+        <pubTime>2018-01-10T11:59:22.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+        <tag>脚本</tag>
+         
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+             
+              <breadCrumb title="linux" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/linux/"/>
           
         </display>
     </data>
@@ -46,30 +76,6 @@
           
              
               <breadCrumb title="软件破解" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/%E8%BD%AF%E4%BB%B6%E7%A0%B4%E8%A7%A3/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://luojiamingl.github.io/2018/01/10/shell%E4%B8%AD%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%ADif%E4%B8%AD%E7%9A%84-a%E5%88%B0-z%E7%9A%84%E6%84%8F%E6%80%9D/</loc>
-    <lastmod>2018-01-10T08:00:21.374Z</lastmod>
-    <data>
-        <display>
-        <title>shell中条件判断if中的-a到-z的意思</title>
-        <pubTime>2018-01-10T11:59:22.000Z</pubTime>
-        
-        <tag>shell</tag>
-         
-        <tag>脚本</tag>
-         
-        <tag>linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="编程 - linux" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B-linux/"/>
           
         </display>
     </data>
