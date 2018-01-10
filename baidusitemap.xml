@@ -4,29 +4,8 @@
 
     
   <url>
-    <loc>http://luojiamingl.github.io/2018/01/10/Linux%E4%B8%ADdate%E5%91%BD%E4%BB%A4%E7%9A%84%E5%90%84%E7%A7%8D%E5%AE%9E%E7%94%A8%E6%96%B9%E6%B3%95/</loc>
-    <lastmod>2018-01-10T07:26:46.134Z</lastmod>
-    <data>
-        <display>
-        <title>Linux中date命令的各种实用方法</title>
-        <pubTime>2018-01-10T11:59:22.000Z</pubTime>
-        
-        <tag>shell</tag>
-         
-        <tag>脚本</tag>
-         
-        <tag>linux</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://luojiamingl.github.io/2018/01/10/shell%20%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%3E%20%3E%3E%202%3E&1%EF%BC%89/</loc>
-    <lastmod>2018-01-10T04:11:20.175Z</lastmod>
+    <lastmod>2018-01-10T08:00:21.381Z</lastmod>
     <data>
         <display>
         <title>shell 输出重定向（> >> 2>&1）</title>
@@ -40,6 +19,9 @@
          
          
            
+             
+              <breadCrumb title="编程 - linux" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B-linux/"/>
+          
         </display>
     </data>
     </url>
@@ -47,7 +29,7 @@
     
   <url>
     <loc>http://luojiamingl.github.io/2017/09/30/sublime%E7%A0%B4%E8%A7%A3%E5%8F%8A%E5%85%B3%E9%97%AD%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/</loc>
-    <lastmod>2018-01-10T03:17:22.982Z</lastmod>
+    <lastmod>2018-01-10T08:00:21.377Z</lastmod>
     <data>
         <display>
         <title>sublime注册码破解及关闭自动更新</title>
@@ -59,6 +41,36 @@
          
          
            
+             
+              <breadCrumb title="编程" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+             
+              <breadCrumb title="软件破解" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/%E8%BD%AF%E4%BB%B6%E7%A0%B4%E8%A7%A3/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://luojiamingl.github.io/2018/01/10/shell%E4%B8%AD%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%ADif%E4%B8%AD%E7%9A%84-a%E5%88%B0-z%E7%9A%84%E6%84%8F%E6%80%9D/</loc>
+    <lastmod>2018-01-10T08:00:21.374Z</lastmod>
+    <data>
+        <display>
+        <title>shell中条件判断if中的-a到-z的意思</title>
+        <pubTime>2018-01-10T11:59:22.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+        <tag>脚本</tag>
+         
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程 - linux" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B-linux/"/>
+          
         </display>
     </data>
     </url>
@@ -66,7 +78,7 @@
     
   <url>
     <loc>http://luojiamingl.github.io/2017/09/29/%E9%9B%B6%E5%9F%BA%E7%A1%80%E6%90%AD%E5%BB%BAHexo%E7%82%AB%E9%85%B7%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2018-01-10T03:17:22.972Z</lastmod>
+    <lastmod>2018-01-10T08:00:21.370Z</lastmod>
     <data>
         <display>
         <title>零基础搭建Hexo炫酷静态页面博客</title>
@@ -80,6 +92,39 @@
          
          
            
+             
+              <breadCrumb title="编程" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+             
+              <breadCrumb title="博客搭建" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://luojiamingl.github.io/2018/01/10/Linux%E4%B8%ADdate%E5%91%BD%E4%BB%A4%E7%9A%84%E5%90%84%E7%A7%8D%E5%AE%9E%E7%94%A8%E6%96%B9%E6%B3%95/</loc>
+    <lastmod>2018-01-10T07:59:20.474Z</lastmod>
+    <data>
+        <display>
+        <title>Linux中date命令的各种实用方法</title>
+        <pubTime>2018-01-10T11:59:22.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+        <tag>脚本</tag>
+         
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+             
+              <breadCrumb title="linux" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/linux/"/>
+          
         </display>
     </data>
     </url>

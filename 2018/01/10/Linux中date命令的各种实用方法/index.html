@@ -83,7 +83,7 @@
 <meta property="og:site_name" content="Zero的博客">
 <meta property="og:description" content="Linux中date命令的各种实用方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-10T07:26:46.134Z">
+<meta property="og:updated_time" content="2018-01-10T07:59:20.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux中date命令的各种实用方法">
 <meta name="twitter:description" content="Linux中date命令的各种实用方法">
@@ -323,6 +323,39 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -414,7 +447,7 @@
 <p>将时间设置为2012年 12月 12日 星期三 12:12:00，date后面的数字代表月日时分年，还可以加秒，需要后面跟英文状态下的句号字符”.”，例如：121212122012.12<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">[root@RHEL601 tmp]# date 121212122012</div><div class="line">2012年 12月 12日 星期三 12:12:00 CST</div><div class="line">[root@RHEL601 tmp]# date 121212122012.12</div><div class="line">2012年 12月 12日 星期三 12:12:12 CST</div><div class="line"></div><div class="line">[root@RHEL601 tmp]# date `date -d &quot;1 day ago&quot; +%m%d%H%M%Y.%S`</div><div class="line">2012年 07月 18日 星期三 20:13:04 CST</div><div class="line">[root@RHEL601 tmp]# date</div><div class="line">2012年 07月 18日 星期三 20:13:10 CST</div><div class="line">[root@RHEL601 tmp]# date `date -d &quot;3 days ago&quot; +%m%d%H%M%Y.%S`</div><div class="line">2012年 07月 15日 星期日 20:13:18 CST</div><div class="line">[root@RHEL601 tmp]# date `date -d &quot;5 days ago&quot; +%m%d%H%M%Y.%S`</div><div class="line">2012年 07月 10日 星期二 20:13:28 CST</div><div class="line">[root@RHEL601 tmp]# date `date -d &quot;$((3600*24)) seconds ago&quot; +%m%d%H%M%Y.%S`</div><div class="line">2012年 07月 09日 星期一 20:13:39 CST</div><div class="line">[root@RHEL601 tmp]# date `date -d &quot;$((3600*24)) seconds ago&quot; +%m%d%H%M%Y.%S`</div><div class="line">2012年 07月 08日 星期日 20:14:01 CST</div><div class="line">[root@RHEL601 tmp]# ntpdate 210.72.145.44</div><div class="line">19 Jul 20:14:15 ntpdate[26846]: step time server 210.72.145.44 offset 950404.037565 sec</div></pre></td></tr></table></figure></p>
 <p>参考资料<br><a href="http://blog.chinaunix.net/uid-22823163-id-3293784.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-22823163-id-3293784.html</a></p>
 <p>有问题可以联系博主，博客主页有邮箱，微博，文章底部有微信公众号等联系方式。</p>
-<p>谢谢！</p>
+<p>转载请注明出处，谢谢！</p>
 
       
     </div>
@@ -567,12 +600,21 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
           
 
           
