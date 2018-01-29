@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="wGAG_kF3XnKxPB93X2fHQnTF0ILI0Rz6n0slGeDDmeE" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="ZRScaXAIvE" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Zero的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="meerkat进行服务监控和服务降级meerkat 是用于服务监控以及服务降级基础组件，主要为了解决调用外部接口的时候进行成功率，响应时间，QPS指标的监控，同时在成功率下降到预设的阈值以下的时候自动切断外部接口的调用，外部接口成功率恢复后自动恢复请求。本文将对使用方式以及进阶特性进行介绍。 项目主页： https://github.com/ChanningBJ… 为什么要进行监控和熔断在我们的J">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用meerkat进行服务监控和服务降级">
+<meta property="og:url" content="http://luojiamingl.github.io/2018/01/29/使用meerkat进行服务监控和服务降级/index.html">
+<meta property="og:site_name" content="Zero的博客">
+<meta property="og:description" content="meerkat进行服务监控和服务降级meerkat 是用于服务监控以及服务降级基础组件，主要为了解决调用外部接口的时候进行成功率，响应时间，QPS指标的监控，同时在成功率下降到预设的阈值以下的时候自动切断外部接口的调用，外部接口成功率恢复后自动恢复请求。本文将对使用方式以及进阶特性进行介绍。 项目主页： https://github.com/ChanningBJ… 为什么要进行监控和熔断在我们的J">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://luojiamingl.github.io/2018/01/29/使用meerkat进行服务监控和服务降级/alert.png">
+<meta property="og:updated_time" content="2018-01-29T07:18:16.550Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用meerkat进行服务监控和服务降级">
+<meta name="twitter:description" content="meerkat进行服务监控和服务降级meerkat 是用于服务监控以及服务降级基础组件，主要为了解决调用外部接口的时候进行成功率，响应时间，QPS指标的监控，同时在成功率下降到预设的阈值以下的时候自动切断外部接口的调用，外部接口成功率恢复后自动恢复请求。本文将对使用方式以及进阶特性进行介绍。 项目主页： https://github.com/ChanningBJ… 为什么要进行监控和熔断在我们的J">
+<meta name="twitter:image" content="http://luojiamingl.github.io/2018/01/29/使用meerkat进行服务监控和服务降级/alert.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://luojiamingl.github.io/2018/01/29/使用meerkat进行服务监控和服务降级/"/>
+
+
+
+
+
+  <title>使用meerkat进行服务监控和服务降级 | Zero的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zero的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://luojiamingl.github.io/2018/01/29/使用meerkat进行服务监控和服务降级/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zero">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zero的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">使用meerkat进行服务监控和服务降级</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-29T11:59:22+08:00">
+                2018-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/01/29/使用meerkat进行服务监控和服务降级/" class="leancloud_visitors" data-flag-title="使用meerkat进行服务监控和服务降级">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="meerkat进行服务监控和服务降级"><a href="#meerkat进行服务监控和服务降级" class="headerlink" title="meerkat进行服务监控和服务降级"></a>meerkat进行服务监控和服务降级</h1><p>meerkat 是用于服务监控以及服务降级基础组件，主要为了解决调用外部接口的时候进行成功率，响应时间，QPS指标的监控，同时在成功率下降到预设的阈值以下的时候自动切断外部接口的调用，外部接口成功率恢复后自动恢复请求。本文将对使用方式以及进阶特性进行介绍。</p>
+<p>项目主页： <a href="https://github.com/ChanningBJ" target="_blank" rel="external">https://github.com/ChanningBJ</a>…</p>
+<h2 id="为什么要进行监控和熔断"><a href="#为什么要进行监控和熔断" class="headerlink" title="为什么要进行监控和熔断"></a>为什么要进行监控和熔断</h2><p>在我们的Java服务中，经常会调用外部的一些接口进行数据的获取操作，当这些外部接口的成功率比较低的时候会直接影响到服务本身的成功率，因此我们添加了对外部接口调用的成功率和响应时间监控，这样可以在造成大量用户影响之前预先发现并解决问题。同时，对于接口中的非关键数据，我们采取了更具成功率判断进行触发熔断的方式，当成功率下降到预定的阀值以下的时候自动停止对这个外部接口的访问以便保证关键数据能够正常提供，当成功率恢复以后自动恢复请求。</p>
+<h2 id="meerkat主要功能"><a href="#meerkat主要功能" class="headerlink" title="meerkat主要功能"></a>meerkat主要功能</h2><p>监控：监控Java内部操作的成功率以及响应时间指标<br>上报：log文件和Grafhite两种监控指标上报方式，支持扩展其他的上报方式<br>熔断：（可选功能）成功率下降到预设的阈值以下触发熔断保护，暂定对外部接口的访问，成功率恢复以后自动恢复访问</p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;com.github.channingbj&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;meerkat&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.2&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure>
+<h3 id="定义受监控的操作"><a href="#定义受监控的操作" class="headerlink" title="定义受监控的操作"></a>定义受监控的操作</h3><p>假设我们的服务中需要从HTTP接口查询一个节目的播放次数，为了防止这个HTTP接口大量超时影响我们自身服务的质量，可以定义一个查询Command：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public class GetPlayCountCommand extends FusingCommand&lt;Long&gt; &#123;</div><div class="line"></div><div class="line">    private final Long videoID;</div><div class="line"></div><div class="line">    public GetPlayCountCommand(Long videoID) &#123;</div><div class="line">        this.videoID = videoID;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    protected Optional&lt;Long&gt; run() &#123;</div><div class="line">        Long result = 0l;</div><div class="line">        // 调用HTTP接口获取视频的播放次数信息</div><div class="line">        // 如果调用失败，返回 null 或者抛出异常，会将这次操作记录为失败</div><div class="line">        // 如果ID非法，返回 Optional.absent(),会将这次操作记录为成功</div><div class="line">        return Optional.fromNullable(result);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">执行查询：</div><div class="line"></div><div class="line">//获取视频ID为123的视频的播放次数</div><div class="line">GetPlayCountCommand command = new GetPlayCountCommand(123l);</div><div class="line">Long result = command.execute(); // 执行查询操作，如果执行失败或者处于熔断状态，返回 null</div></pre></td></tr></table></figure></p>
+<h2 id="配置监控上报"><a href="#配置监控上报" class="headerlink" title="配置监控上报"></a>配置监控上报</h2><p>在服务初始化的时候需要对监控上报进行设置。下面的例子中开启了监控数据向日志文件的打印<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MeterCenter.INSTANCE</div><div class="line">    .enableReporter(new EnablingLogReporter(&quot;org.apache.log4j.RollingFileAppender&quot;))</div><div class="line">    .init();</div></pre></td></tr></table></figure></p>
+<h2 id="查看统计结果"><a href="#查看统计结果" class="headerlink" title="查看统计结果"></a>查看统计结果</h2><p>统计结果会以熔断命令类名为进行分组。例如前面我们定义的 GetPlayCountCommand 类,package name 是 com.test，那么在日志中的输出将会是这个样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">type=GAUGE, name=com.test.GetPlayCountCommand.normal-rate, value=0.0</div><div class="line">type=GAUGE, name=com.test.GetPlayCountCommand.success-rate, value=61.0</div><div class="line">type=TIMER, name=com.test.GetPlayCountCommand.time, count=25866500, min=0.0, max=0.001, mean=3.963926781047921E-5, stddev=1.951102156677818E-4, median=0.0, p75=0.0, p95=0.0, p98=0.001, p99=0.001, p999=0.001, mean_rate=649806.0831335272, m1=1665370.7316699813, m5=2315813.300713087, m15=2446572.324069477, rate_unit=events/second, duration_unit=milliseconds</div></pre></td></tr></table></figure>
+<h2 id="单独使用监控功能"><a href="#单独使用监控功能" class="headerlink" title="单独使用监控功能"></a>单独使用监控功能</h2><p>如果不想使用熔断功能，只是想监控Java方法调用的耗时和成功率，可以直接使用 OperationMeter 进行实现，只需要在函数调用的前后添加开始和结束的调用即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//创建一个操作的计数器</div><div class="line">    OperationMeter meter = MeterCenter.INSTANCE.getOrCreateMeter(OperationMeterTest.class, OperationMeter.class);</div><div class="line"></div><div class="line">    //模拟成功率60%</div><div class="line">    for(int k=0; k&lt;100; k++)&#123;</div><div class="line">        Timer.Context context = meter.startOperation();</div><div class="line">        if(k%10&lt;6)&#123;</div><div class="line">            meter.endOperation(context, OperationMeter.Result.SUCCESS);</div><div class="line">        &#125; else &#123;</div><div class="line">            meter.endOperation(context, OperationMeter.Result.FAILURE);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<h2 id="开启熔断并配置阀值和持续时间"><a href="#开启熔断并配置阀值和持续时间" class="headerlink" title="开启熔断并配置阀值和持续时间"></a>开启熔断并配置阀值和持续时间</h2><p>首先创建一个接口，继承自FusingConfig，用于指定配置文件的加载路径，同时还可以设定配置文件的刷新时间，具体定义方法请参照 <a href="http://owner.aeonbits.org/" target="_blank" rel="external">++owner++</a> 文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@Config.Sources(&quot;classpath:app_config.properties&quot;)</div><div class="line">@Config.HotReload(</div><div class="line">        value = 1, unit = java.util.concurrent.TimeUnit.MINUTES,</div><div class="line">        type = Config.HotReloadType.ASYNC)</div><div class="line">public interface APPFusingConfig extends FusingConfig &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>创建查询Command的时候在构造函数中传入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public class GetPlayCountCommand extends FusingCommand&lt;Long&gt; &#123;</div><div class="line"></div><div class="line">    private final Long videoID;</div><div class="line"></div><div class="line">    public GetPlayCountCommand(Long videoID) &#123;</div><div class="line">        super( APPFusingConfig.class);  //设定配置文件</div><div class="line">        this.videoID = videoID;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    protected Optional&lt;Long&gt; run() &#123;</div><div class="line">        Long result = 0l;</div><div class="line">        // 调用HTTP接口获取视频的播放次数信息</div><div class="line">        // 如果调用失败，返回 null 或者抛出异常，会将这次操作记录为失败</div><div class="line">        // 如果ID非法，返回 Optional.absent(),会将这次操作记录为成功</div><div class="line">        return Optional.fromNullable(result);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>配置文件内容如下：</p>
+<table>
+<thead>
+<tr>
+<th>监控项</th>
+<th>含义</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fusing.[CommandClassName].mode</td>
+<td>熔断模式：FORCE_NORMAL－关闭熔断功能;AUTO_FUSING－自动进入熔断模式;FORCE_NORMAL－强制进行熔断</td>
+<td>FORCE_NORMAL</td>
+</tr>
+<tr>
+<td>fusing.[CommandClassName].duration</td>
+<td>触发一次熔断以后持续的时间，支持ms,sec,min 单位。例如 10sec</td>
+<td>50sec</td>
+</tr>
+<tr>
+<td>fusing.[CommandClassName].success_rate_threshold</td>
+<td>触发熔断的成功率阀值，降低到这个成功率以下将触发熔断，例如0.9表示成功率90%</td>
+<td>0.9</td>
+</tr>
+</tbody>
+</table>
+<p>配置文件中的 CommandClassName 是每个操作类的名称，可以为每个操作单独设置上述参数。同时，这个配置文件支持动态加载，乐意通过修改fusing.[CommandClassName].mode 手工触发或者关闭熔断。</p>
+<h2 id="监控指标上报Graphite"><a href="#监控指标上报Graphite" class="headerlink" title="监控指标上报Graphite"></a>监控指标上报Graphite</h2><p>我们的服务中使用的是Metric+Graphite+Gafana进行监控数据的采集存储和展现，下面将介绍如何配置监控数据上报Grafana，关于Graphite+Grafana的配置，可以参考文章：使用<a href="https://segmentfault.com/a/1190000007540752" target="_blank" rel="external">graphite和grafana进行应用程序监控</a></p>
+<h2 id="定义配置文件"><a href="#定义配置文件" class="headerlink" title="定义配置文件"></a>定义配置文件</h2><p>首先定义一个接口，继承自GraphiteReporterConfig，通过这个接口定义配置文件的加载路径。配置文件路径的定义方法请参照 <a href="http://owner.aeonbits.org/" target="_blank" rel="external">++owner++</a>  文档, 下面是一个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@Config.Sources(&quot;classpath:config.properties&quot;)</div><div class="line">public interface MyConfig extends GraphiteReporterConfig &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>配置文件中需要定义下列内容：</p>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>meter.reporter.enabled.hosts</td>
+<td>开启监控上报的服务器列表</td>
+</tr>
+<tr>
+<td>meter.reporter.perfix</td>
+<td>上报使用的前缀</td>
+</tr>
+<tr>
+<td>meter.reporter.carbon.host</td>
+<td>grafana(carbon-cache) 的 IP 地址，用于存储监控数据</td>
+</tr>
+<tr>
+<td>meter.reporter.carbon.port</td>
+<td>grafana(carbon-cache) 的端口</td>
+</tr>
+</tbody>
+</table>
+<p>下面这个例子是在192.168.0.0.1和192.168.0.0.2两台服务器上开启监控数据上报，上报监控指标的前缀是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">project_name.dc：</div><div class="line"></div><div class="line">meter.reporter.enabled.hosts = 192.168.0.0.1,192.168.0.0.2</div><div class="line">meter.reporter.perfix = project_name.dc</div><div class="line">meter.reporter.carbon.host = hostname.graphite</div></pre></td></tr></table></figure></p>
+<p>由于相同机房的不同服务器对外部接口的访问情况一般比较类似，所以仅选取部分机器上报，也是为了节省资源。仅选择部分机器上报不影响熔断效果。</p>
+<h2 id="初始化配置上报"><a href="#初始化配置上报" class="headerlink" title="初始化配置上报"></a>初始化配置上报</h2><p>在服务初始化的时候需要对监控上报进行设置。下面的例子中开启了监控数据向日志文件的打印，同时通过MyConfig指定的配置文件加载Graphite配置信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">MeterCenter.INSTANCE</div><div class="line">    .enableReporter(new EnablingLogReporter(&quot;org.apache.log4j.RollingFileAppender&quot;))</div><div class="line">    .enableReporter(new EnablingGraphiteReporter(MyConfig.class))   //监控数据上报Grafana</div><div class="line">    .init();</div></pre></td></tr></table></figure></p>
+<h2 id="查看统计结果-1"><a href="#查看统计结果-1" class="headerlink" title="查看统计结果"></a>查看统计结果</h2><p>统计结果会以熔断命令类名为进行分组。例如前面我们定义的 GetPlayCountCommand 类,package name 是 com.test，那么在日志中的输出将会是这个样子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">type=GAUGE, name=com.test.GetPlayCountCommand.normal-rate, value=0.0</div><div class="line">type=GAUGE, name=com.test.GetPlayCountCommand.success-rate, value=61.0</div><div class="line">type=TIMER, name=com.test.GetPlayCountCommand.time, count=25866500, min=0.0, max=0.001, mean=3.963926781047921E-5, stddev=1.951102156677818E-4, median=0.0, p75=0.0, p95=0.0, p98=0.001, p99=0.001, p999=0.001, mean_rate=649806.0831335272, m1=1665370.7316699813, m5=2315813.300713087, m15=2446572.324069477, rate_unit=events/second, duration_unit=milliseconds</div></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>监控项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[classname].success-rate</td>
+<td>成功率</td>
+</tr>
+<tr>
+<td>[classname].time.m1</td>
+<td>QPS</td>
+</tr>
+<tr>
+<td>[classname].time.mean</td>
+<td>平均响应时间</td>
+</tr>
+<tr>
+<td>[classname].normal-rate</td>
+<td>过去1分钟内处于正常访问（非熔断）的时间比例</td>
+</tr>
+</tbody>
+</table>
+<p>在Grafanna中可以看到下面的监控图：<br><img src="alert.png" alt="image"></p>
+<h2 id="自定义监控上报"><a href="#自定义监控上报" class="headerlink" title="自定义监控上报"></a>自定义监控上报</h2><p>meerkat使用<a href="http://metrics.dropwizard.io/" target="_blank" rel="external">++Metrics++</a>进行监控数据的统计，因此可以使用Metrics支持的所有reporter进行上报。添加一种上报的时候，只需要实现 EnablingReporter 并在 MeterCenter 初始化之前进行调用即可。下面是log reporter的实现，可以作为参考<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public class EnablingLogReporter implements EnablingReporter &#123;</div><div class="line">    private String loggername;</div><div class="line"></div><div class="line">    public EnablingLogReporter(String loggername) &#123;</div><div class="line">        this.loggername = loggername;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void invoke(MetricRegistry metricRegistry, long period, TimeUnit timeUnit) &#123;</div><div class="line">        Slf4jReporter.forRegistry(metricRegistry)</div><div class="line">                .outputTo(LoggerFactory.getLogger(loggername))</div><div class="line">                .convertRatesTo(java.util.concurrent.TimeUnit.SECONDS)</div><div class="line">                .convertDurationsTo(java.util.concurrent.TimeUnit.MILLISECONDS)</div><div class="line">                .build().start(period, timeUnit);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>MeterCenter 初始化的时候开启reporter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MeterCenter.INSTANCE</div><div class="line">    .enableReporter(new EnablingLogReporter(&quot;org.apache.log4j.RollingFileAppender&quot;))</div><div class="line">    .init();</div></pre></td></tr></table></figure></p>
+<h2 id="多实例监控"><a href="#多实例监控" class="headerlink" title="多实例监控"></a>多实例监控</h2><p>多实例监控主要是为了解决一个被监控操作的实现类需要根据输入参数的不同分别进行监控和熔断的情况，通过定义实例的名称进行实现。例如获取视频播放次数的例子，获取视频播放次数的接口对于不同的视频类型而言请求逻辑是一样的，所以使用同一个类进行实现；但是对于不同的视频类型，接口实现的复杂程度不同导致成功率不同，当用户上传的视频的播次接口大量失败的时候我们不希望同时熔断电影电视剧这类视频的播放次数获取，这时就需要使用多实例这种特性进行监控和熔断。</p>
+<p>下面是一个单实例的实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public class GetPlayCountCommand extends FusingCommand&lt;Long&gt; &#123;</div><div class="line"></div><div class="line">    private final Long videoID;</div><div class="line"></div><div class="line">    public GetPlayCountCommand(Long videoID) &#123;</div><div class="line">        super( APPFusingConfig.class);</div><div class="line">        this.videoID = videoID;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    protected Optional&lt;Long&gt; run() &#123;</div><div class="line">        Long result = 0l;</div><div class="line">        // 调用HTTP接口获取视频的播放次数信息</div><div class="line">        // 如果调用失败，返回 null 或者抛出异常，会将这次操作记录为失败</div><div class="line">        // 如果ID非法，返回 Optional.absent(),会将这次操作记录为成功</div><div class="line">        return Optional.fromNullable(result);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>假设业务上我们可以根据视频ID判断视频类型，可以在类初始化的时候根据类型创建多种监控实例，添加了多实例支持的实现如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class GetPlayCountCommand extends FusingCommand&lt;Long&gt; &#123;</div><div class="line"></div><div class="line">    private final Long videoID;</div><div class="line"></div><div class="line">    public GetPlayCountCommand(Long videoID) &#123;</div><div class="line">        super( getVideoType(videoID), APPFusingConfig.class);</div><div class="line">        this.videoID = videoID;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private static String getVideoType(Long videoID)&#123;</div><div class="line">        return &quot;PGC&quot;; //根据videoID进行判断，返回 &quot;PGC&quot; 或者 &quot;UGC&quot; 这两个类别</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    protected Optional&lt;Long&gt; run() &#123;</div><div class="line">        Long result = 0l;</div><div class="line">        // 调用HTTP接口获取视频的播放次数信息</div><div class="line">        // 如果调用失败，返回 null 或者抛出异常，会将这次操作记录为失败</div><div class="line">        // 如果ID非法，返回 Optional.absent(),会将这次操作记录为成功</div><div class="line">        return Optional.fromNullable(result);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>由于每个实例独享一个监控指标，日志中的监控个结果是这个样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">type=GAUGE, name=com.test.GetPlayCountCommand.PGC.normal-rate, value=100.0</div><div class="line">type=GAUGE, name=com.test.GetPlayCountCommand.PGC.success-rate, value=100.0</div><div class="line">type=GAUGE, name=com.test.GetPlayCountCommand.UGC.normal-rate, value=100.0</div><div class="line">type=GAUGE, name=com.test.GetPlayCountCommand.UGC.success-rate, value=60.0</div><div class="line">type=TIMER, name=com.test.GetPlayCountCommand.PGC.time, count=100, min=0.0, max=0.509, mean=0.00635, stddev=0.05052135687013958, median=0.001, p75=0.002, p95=0.002, p98=0.003, p99=0.003, p999=0.509, mean_rate=1.6680162586215173, m1=8.691964170141569, m5=16.929634497812284, m15=18.919189378135307, rate_unit=events/second, duration_unit=milliseconds</div><div class="line">type=TIMER, name=com.test.GetPlayCountCommand.UGC.time, count=100, min=0.0, max=0.027, mean=0.00132, stddev=0.0026939933184772376, median=0.001, p75=0.001, p95=0.002, p98=0.005, p99=0.006, p999=0.027, mean_rate=1.6715904477699361, m1=8.691964170141569, m5=16.929634497812284, m15=18.919189378135307, rate_unit=events/second, duration_unit=milliseconds</div></pre></td></tr></table></figure>
+<p>相应的，对熔断阀值以及持续时间的配置也需要明确指出实例的名字：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">fusing.GetPlayCountCommand.UGC.mode = AUTO_FUSING</div><div class="line">fusing.GetPlayCountCommand.UGC.duration = 50sec</div><div class="line">fusing.GetPlayCountCommand.UGC.success_rate_threshold = 0.9</div><div class="line"></div><div class="line">fusing.GetPlayCountCommand.PGC.mode = AUTO_FUSING</div><div class="line">fusing.GetPlayCountCommand.PGC.duration = 50sec</div><div class="line">fusing.GetPlayCountCommand.PGC.success_rate_threshold = 0.9</div></pre></td></tr></table></figure>
+<p>参考资料<br><a href="https://segmentfault.com/a/1190000009730789" target="_blank" rel="external">https://segmentfault.com/a/1190000009730789</a></p>
+<p>有问题可以联系博主，博客主页有邮箱，微博，文章底部有微信公众号等联系方式。</p>
+<p>转载请注明出处，谢谢！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/gongzhonghao.jpg" alt="Zero wechat" style="width: 200px; max-width: 100%;"/>
+    <div>扫一扫上面的微信公众号,我们就有故事！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.jpeg" alt="Zero 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.jpeg" alt="Zero 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/10/Linux中date命令的各种实用方法/" rel="next" title="Linux中date命令的各种实用方法">
+                <i class="fa fa-chevron-left"></i> Linux中date命令的各种实用方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTA2My83NjEx"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/touxiang.jpeg"
+              alt="Zero" />
+          
+            <p class="site-author-name" itemprop="name">Zero</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/luojiamingl" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-globe"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:luojiamingl@163.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/6326279102/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://plus.google.com/111923286686440042539" target="_blank" title="Google">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Google</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#meerkat进行服务监控和服务降级"><span class="nav-number">1.</span> <span class="nav-text">meerkat进行服务监控和服务降级</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要进行监控和熔断"><span class="nav-number">1.1.</span> <span class="nav-text">为什么要进行监控和熔断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#meerkat主要功能"><span class="nav-number">1.2.</span> <span class="nav-text">meerkat主要功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本使用"><span class="nav-number">1.3.</span> <span class="nav-text">基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义受监控的操作"><span class="nav-number">1.3.1.</span> <span class="nav-text">定义受监控的操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置监控上报"><span class="nav-number">1.4.</span> <span class="nav-text">配置监控上报</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看统计结果"><span class="nav-number">1.5.</span> <span class="nav-text">查看统计结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单独使用监控功能"><span class="nav-number">1.6.</span> <span class="nav-text">单独使用监控功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启熔断并配置阀值和持续时间"><span class="nav-number">1.7.</span> <span class="nav-text">开启熔断并配置阀值和持续时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监控指标上报Graphite"><span class="nav-number">1.8.</span> <span class="nav-text">监控指标上报Graphite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义配置文件"><span class="nav-number">1.9.</span> <span class="nav-text">定义配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化配置上报"><span class="nav-number">1.10.</span> <span class="nav-text">初始化配置上报</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看统计结果-1"><span class="nav-number">1.11.</span> <span class="nav-text">查看统计结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义监控上报"><span class="nav-number">1.12.</span> <span class="nav-text">自定义监控上报</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多实例监控"><span class="nav-number">1.13.</span> <span class="nav-text">多实例监控</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zero</span>
+
+  
+</div>
+
+
+  <div class="powered-by">遇见你</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("PwWliYESlSssF5h8fr4Btkvg-gzGzoHsz", "lda7qlMjQ7eqVf1b9qFm7Nu1");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
