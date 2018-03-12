@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://luojiamingl.github.io/"/>
-  <updated>2018-01-29T07:18:16.550Z</updated>
+  <updated>2018-03-12T02:30:43.716Z</updated>
   <id>http://luojiamingl.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>grep统计某个单词的个数，行数等</title>
+    <link href="http://luojiamingl.github.io/2018/03/12/grep%E7%BB%9F%E8%AE%A1%E6%9F%90%E4%B8%AA%E5%8D%95%E8%AF%8D%E7%9A%84%E4%B8%AA%E6%95%B0%EF%BC%8C%E8%A1%8C%E6%95%B0%E7%AD%89/"/>
+    <id>http://luojiamingl.github.io/2018/03/12/grep统计某个单词的个数，行数等/</id>
+    <published>2018-03-12T03:59:22.000Z</published>
+    <updated>2018-03-12T02:30:43.716Z</updated>
+    
+    <content type="html"><![CDATA[<p>文件内容</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">j@j:~$ cat hello.c</div><div class="line">#include&lt;stdio.h&gt;</div><div class="line">//include include</div><div class="line">int main()&#123;</div><div class="line">  printf(&quot;hello world/n&quot;);</div><div class="line">  exit(0);</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>grep命令查看include关键词</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">j@j:~$ grep -o include  hello.c</div><div class="line">include</div><div class="line">include</div><div class="line">include</div></pre></td></tr></table></figure><p>如上所示， 所有的include都显示出来了， 包括有两个include的行。</p><p>命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grep -c -o include  hello.c</div></pre></td></tr></table></figure></p><p>的结果是2， -c参数只能统计行。如果要统计个数， 可以再来个重定向：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grep -o include hello.c| grep -c include</div></pre></td></tr></table></figure><p>得到include的个数 3</p><p>有问题可以联系博主，博客主页有邮箱，微博，文章底部有微信公众号等联系方式。</p><p>转载请注明出处，谢谢！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;文件内容&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=
+      
+    
+    </summary>
+    
+      <category term="linux" scheme="http://luojiamingl.github.io/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://luojiamingl.github.io/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>使用meerkat进行服务监控和服务降级</title>
@@ -70,34 +96,6 @@
   </entry>
   
   <entry>
-    <title>shell中条件判断if中的-a到-z的意思</title>
-    <link href="http://luojiamingl.github.io/2018/01/10/shell%E4%B8%AD%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%ADif%E4%B8%AD%E7%9A%84-a%E5%88%B0-z%E7%9A%84%E6%84%8F%E6%80%9D/"/>
-    <id>http://luojiamingl.github.io/2018/01/10/shell中条件判断if中的-a到-z的意思/</id>
-    <published>2018-01-10T11:59:22.000Z</published>
-    <updated>2018-01-10T08:03:15.664Z</updated>
-    
-    <content type="html"><![CDATA[<p>shell中条件判断if中的-a到-z的意思</p><a id="more"></a><p>[-a file] 如果file存在则为真 </p><p>[-b file] 如果file存在且是一个块特殊文件则为真 </p><p>[-c file] 如果file存在且是一个字特殊文件则为真 </p><p>[-d file] 如果file文件存在且是一个目录则为真<br>-d前的!是逻辑非<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">if [ ! -d $lcd_path/$par_date ]</div></pre></td></tr></table></figure></p><p>表示后面的那个目录不存在，则执行后面的then操作 </p><p>[-e file] 如果file文件存在则为真 </p><p>[-f file] 如果file存在且是一个普通文件则为真 </p><p>[-g file] 如果file存在且已经设置了SGID则为真（SUID 是 Set User ID, SGID 是 Set Group ID的意思） </p><p>[-h file] 如果file存在且是一个符号连接则为真 </p><p>[-k file] 如果file存在且已经设置粘制位则为真<br>当一个目录被设置为”粘制位”(用chmod a+t),则该目录下的文件只能由<br>一、超级管理员删除<br>二、该目录的所有者删除<br>三、该文件的所有者删除<br>也就是说,即便该目录是任何人都可以写,但也只有文件的属主才可以删除文件。<br>具体例子如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#ls -dl /tmp </div><div class="line">drwxrwxrwt 4 root    root </div><div class="line">.........</div></pre></td></tr></table></figure></p><p>注意other位置的t，这便是粘连位。 </p><p>[-p file] 如果file存在且是一个名字管道（F如果O）则为真<br>管道是linux里面进程间通信的一种方式，其他的还有像信号（signal）、信号量、消息队列、共享内存、套接字（socket）等。</p><p>[-r file] 如果file存在且是可读的则为真 </p><p>[-s file] 如果file存在且大小不为0则为真</p><p>[-t FD] 如果文件描述符FD打开且指向一个终端则为真 </p><p>[-u file] 如果file存在且设置了SUID（set userID）则为真 </p><p>[-w file] 如果file存在且是可写的则为真</p><p>[-x file] 如果file存在且是可执行的则为真</p><p>[-O file] 如果file存在且属有效用户ID则为真 </p><p>[-G file] 如果file存在且属有效用户组则为真 </p><p>[-L file] 如果file存在且是一个符号连接则为真 </p><p>[-N file] 如果file存在and has been mod如果ied since it was last read则为真 </p><p>[-S file] 如果file存在且是一个套接字则为真 </p><p>[file1 –nt file2] 如果file1 has been changed more recently than file2或者file1 exists and file2 does not则为真 </p><p>[file1 –ot file2] 如果file1比file2要老，或者file2存在且file1不存在则为真 </p><p>[file1 –ef file2] 如果file1和file2指向相同的设备和节点号则为真 </p><p>[-o optionname] 如果shell选项“optionname”开启则为真 </p><p>[-z string] “string”的长度为零则为真 </p><p>[-n string] or [string] “string”的长度为非零non-zero则为真 </p><p>[sting1==string2] 如果2个字符串相同。“=”may be used instead of “==”for strict posix compliance则为真 </p><p>[string1!=string2] 如果字符串不相等则为真<br>[string1&lt;string2] 如果“string1”sorts before“string2”lexicographically in the current locale则为真</p><p>[arg1 OP arg2] “OP”is one of –eq,-ne,-lt,-le,-gt or –ge.These arithmetic binary oprators return true if “arg1”is equal to,not equal to,less than,less than or equal to,greater than,or greater than or equal to“agr2”,respectively.“arg1”and “agr2”are integers. </p><p>参考资料<br><a href="http://blog.csdn.net/vergilgeekopen/article/details/69493321" target="_blank" rel="external">http://blog.csdn.net/vergilgeekopen/article/details/69493321</a></p><p>有问题可以联系博主，博客主页有邮箱，微博，文章底部有微信公众号等联系方式。</p><p>转载请注明出处，谢谢！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;shell中条件判断if中的-a到-z的意思&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="编程" scheme="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="linux" scheme="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/linux/"/>
-    
-    
-      <category term="shell" scheme="http://luojiamingl.github.io/tags/shell/"/>
-    
-      <category term="脚本" scheme="http://luojiamingl.github.io/tags/%E8%84%9A%E6%9C%AC/"/>
-    
-      <category term="linux" scheme="http://luojiamingl.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
     <title>shell 输出重定向（&gt; &gt;&gt; 2&gt;&amp;1）</title>
     <link href="http://luojiamingl.github.io/2018/01/10/shell%20%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%3E%20%3E%3E%202%3E&amp;1%EF%BC%89/"/>
     <id>http://luojiamingl.github.io/2018/01/10/shell 输出重定向（&gt; &gt;&gt; 2&gt;&amp;1）/</id>
@@ -122,6 +120,34 @@
       <category term="脚本" scheme="http://luojiamingl.github.io/tags/%E8%84%9A%E6%9C%AC/"/>
     
       <category term="重定向" scheme="http://luojiamingl.github.io/tags/%E9%87%8D%E5%AE%9A%E5%90%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell中条件判断if中的-a到-z的意思</title>
+    <link href="http://luojiamingl.github.io/2018/01/10/shell%E4%B8%AD%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%ADif%E4%B8%AD%E7%9A%84-a%E5%88%B0-z%E7%9A%84%E6%84%8F%E6%80%9D/"/>
+    <id>http://luojiamingl.github.io/2018/01/10/shell中条件判断if中的-a到-z的意思/</id>
+    <published>2018-01-10T11:59:22.000Z</published>
+    <updated>2018-01-10T08:03:15.664Z</updated>
+    
+    <content type="html"><![CDATA[<p>shell中条件判断if中的-a到-z的意思</p><a id="more"></a><p>[-a file] 如果file存在则为真 </p><p>[-b file] 如果file存在且是一个块特殊文件则为真 </p><p>[-c file] 如果file存在且是一个字特殊文件则为真 </p><p>[-d file] 如果file文件存在且是一个目录则为真<br>-d前的!是逻辑非<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">if [ ! -d $lcd_path/$par_date ]</div></pre></td></tr></table></figure></p><p>表示后面的那个目录不存在，则执行后面的then操作 </p><p>[-e file] 如果file文件存在则为真 </p><p>[-f file] 如果file存在且是一个普通文件则为真 </p><p>[-g file] 如果file存在且已经设置了SGID则为真（SUID 是 Set User ID, SGID 是 Set Group ID的意思） </p><p>[-h file] 如果file存在且是一个符号连接则为真 </p><p>[-k file] 如果file存在且已经设置粘制位则为真<br>当一个目录被设置为”粘制位”(用chmod a+t),则该目录下的文件只能由<br>一、超级管理员删除<br>二、该目录的所有者删除<br>三、该文件的所有者删除<br>也就是说,即便该目录是任何人都可以写,但也只有文件的属主才可以删除文件。<br>具体例子如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#ls -dl /tmp </div><div class="line">drwxrwxrwt 4 root    root </div><div class="line">.........</div></pre></td></tr></table></figure></p><p>注意other位置的t，这便是粘连位。 </p><p>[-p file] 如果file存在且是一个名字管道（F如果O）则为真<br>管道是linux里面进程间通信的一种方式，其他的还有像信号（signal）、信号量、消息队列、共享内存、套接字（socket）等。</p><p>[-r file] 如果file存在且是可读的则为真 </p><p>[-s file] 如果file存在且大小不为0则为真</p><p>[-t FD] 如果文件描述符FD打开且指向一个终端则为真 </p><p>[-u file] 如果file存在且设置了SUID（set userID）则为真 </p><p>[-w file] 如果file存在且是可写的则为真</p><p>[-x file] 如果file存在且是可执行的则为真</p><p>[-O file] 如果file存在且属有效用户ID则为真 </p><p>[-G file] 如果file存在且属有效用户组则为真 </p><p>[-L file] 如果file存在且是一个符号连接则为真 </p><p>[-N file] 如果file存在and has been mod如果ied since it was last read则为真 </p><p>[-S file] 如果file存在且是一个套接字则为真 </p><p>[file1 –nt file2] 如果file1 has been changed more recently than file2或者file1 exists and file2 does not则为真 </p><p>[file1 –ot file2] 如果file1比file2要老，或者file2存在且file1不存在则为真 </p><p>[file1 –ef file2] 如果file1和file2指向相同的设备和节点号则为真 </p><p>[-o optionname] 如果shell选项“optionname”开启则为真 </p><p>[-z string] “string”的长度为零则为真 </p><p>[-n string] or [string] “string”的长度为非零non-zero则为真 </p><p>[sting1==string2] 如果2个字符串相同。“=”may be used instead of “==”for strict posix compliance则为真 </p><p>[string1!=string2] 如果字符串不相等则为真<br>[string1&lt;string2] 如果“string1”sorts before“string2”lexicographically in the current locale则为真</p><p>[arg1 OP arg2] “OP”is one of –eq,-ne,-lt,-le,-gt or –ge.These arithmetic binary oprators return true if “arg1”is equal to,not equal to,less than,less than or equal to,greater than,or greater than or equal to“agr2”,respectively.“arg1”and “agr2”are integers. </p><p>参考资料<br><a href="http://blog.csdn.net/vergilgeekopen/article/details/69493321" target="_blank" rel="external">http://blog.csdn.net/vergilgeekopen/article/details/69493321</a></p><p>有问题可以联系博主，博客主页有邮箱，微博，文章底部有微信公众号等联系方式。</p><p>转载请注明出处，谢谢！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;shell中条件判断if中的-a到-z的意思&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="编程" scheme="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="linux" scheme="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/linux/"/>
+    
+    
+      <category term="shell" scheme="http://luojiamingl.github.io/tags/shell/"/>
+    
+      <category term="脚本" scheme="http://luojiamingl.github.io/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+      <category term="linux" scheme="http://luojiamingl.github.io/tags/linux/"/>
     
   </entry>
   
