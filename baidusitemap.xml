@@ -4,12 +4,144 @@
 
     
   <url>
-    <loc>http://luojiamingl.github.io/2018/03/23/Redis%E5%92%8CMemcached%E6%AF%94%E8%BE%83/</loc>
-    <lastmod>2018-03-26T03:18:11.868Z</lastmod>
+    <loc>http://luojiamingl.github.io/2018/01/10/shell%E4%B8%AD%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%ADif%E4%B8%AD%E7%9A%84-a%E5%88%B0-z%E7%9A%84%E6%84%8F%E6%80%9D/</loc>
+    <lastmod>2018-03-26T03:23:23.947Z</lastmod>
+    <data>
+        <display>
+        <title>shell中条件判断if中的-a到-z的意思</title>
+        <pubTime>2018-01-10T11:59:22.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://luojiamingl.github.io/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://luojiamingl.github.io/2018/01/10/shell%20%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%3E%20%3E%3E%202%3E&1%EF%BC%89/</loc>
+    <lastmod>2018-03-26T03:23:23.943Z</lastmod>
+    <data>
+        <display>
+        <title>shell 输出重定向（> >> 2>&1）</title>
+        <pubTime>2018-01-10T11:59:22.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://luojiamingl.github.io/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://luojiamingl.github.io/2018/01/10/Linux%E4%B8%ADdate%E5%91%BD%E4%BB%A4%E7%9A%84%E5%90%84%E7%A7%8D%E5%AE%9E%E7%94%A8%E6%96%B9%E6%B3%95/</loc>
+    <lastmod>2018-03-26T03:23:23.940Z</lastmod>
+    <data>
+        <display>
+        <title>Linux中date命令的各种实用方法</title>
+        <pubTime>2018-01-10T11:59:22.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://luojiamingl.github.io/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://luojiamingl.github.io/2017/09/30/sublime%E7%A0%B4%E8%A7%A3%E5%8F%8A%E5%85%B3%E9%97%AD%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/</loc>
+    <lastmod>2018-03-26T03:23:23.937Z</lastmod>
+    <data>
+        <display>
+        <title>sublime注册码破解及关闭自动更新</title>
+        <pubTime>2017-09-30T07:46:22.000Z</pubTime>
+        
+        <tag>sublime</tag>
+         
+        <tag>破解</tag>
+         
+         
+           
+             
+              <breadCrumb title="软件破解" url="http://luojiamingl.github.io/categories/%E8%BD%AF%E4%BB%B6%E7%A0%B4%E8%A7%A3/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://luojiamingl.github.io/2018/01/29/%E4%BD%BF%E7%94%A8meerkat%E8%BF%9B%E8%A1%8C%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7%E5%92%8C%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7/</loc>
+    <lastmod>2018-03-26T03:23:23.933Z</lastmod>
+    <data>
+        <display>
+        <title>使用meerkat进行服务监控和服务降级</title>
+        <pubTime>2018-01-29T03:59:22.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>熔断</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://luojiamingl.github.io/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://luojiamingl.github.io/2017/09/29/%E9%9B%B6%E5%9F%BA%E7%A1%80%E6%90%AD%E5%BB%BAHexo%E7%82%AB%E9%85%B7%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2018-03-26T03:23:23.912Z</lastmod>
+    <data>
+        <display>
+        <title>零基础搭建Hexo炫酷静态页面博客</title>
+        <pubTime>2017-09-29T11:59:22.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>github</tag>
+         
+         
+           
+             
+              <breadCrumb title="博客搭建" url="http://luojiamingl.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://luojiamingl.github.io/2018/03/26/Redis%E5%92%8CMemcached%E6%AF%94%E8%BE%83/</loc>
+    <lastmod>2018-03-26T03:19:03.605Z</lastmod>
     <data>
         <display>
         <title>Redis 和 Memcached比较</title>
-        <pubTime>2018-03-23T03:59:22.000Z</pubTime>
+        <pubTime>2018-03-26T03:59:22.000Z</pubTime>
         
         <tag>redis</tag>
          
@@ -59,159 +191,6 @@
            
              
               <breadCrumb title="linux" url="http://luojiamingl.github.io/categories/linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://luojiamingl.github.io/2018/01/29/%E4%BD%BF%E7%94%A8meerkat%E8%BF%9B%E8%A1%8C%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7%E5%92%8C%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7/</loc>
-    <lastmod>2018-01-29T07:18:16.550Z</lastmod>
-    <data>
-        <display>
-        <title>使用meerkat进行服务监控和服务降级</title>
-        <pubTime>2018-01-29T03:59:22.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://luojiamingl.github.io/categories/java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://luojiamingl.github.io/2018/01/10/shell%20%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%3E%20%3E%3E%202%3E&1%EF%BC%89/</loc>
-    <lastmod>2018-01-10T08:03:15.669Z</lastmod>
-    <data>
-        <display>
-        <title>shell 输出重定向（> >> 2>&1）</title>
-        <pubTime>2018-01-10T11:59:22.000Z</pubTime>
-        
-        <tag>shell</tag>
-         
-        <tag>脚本</tag>
-         
-        <tag>重定向</tag>
-         
-         
-           
-             
-              <breadCrumb title="编程" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
-          
-             
-              <breadCrumb title="linux" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://luojiamingl.github.io/2018/01/10/shell%E4%B8%AD%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%ADif%E4%B8%AD%E7%9A%84-a%E5%88%B0-z%E7%9A%84%E6%84%8F%E6%80%9D/</loc>
-    <lastmod>2018-01-10T08:03:15.664Z</lastmod>
-    <data>
-        <display>
-        <title>shell中条件判断if中的-a到-z的意思</title>
-        <pubTime>2018-01-10T11:59:22.000Z</pubTime>
-        
-        <tag>shell</tag>
-         
-        <tag>脚本</tag>
-         
-        <tag>linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="编程" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
-          
-             
-              <breadCrumb title="linux" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://luojiamingl.github.io/2017/09/30/sublime%E7%A0%B4%E8%A7%A3%E5%8F%8A%E5%85%B3%E9%97%AD%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/</loc>
-    <lastmod>2018-01-10T08:00:21.377Z</lastmod>
-    <data>
-        <display>
-        <title>sublime注册码破解及关闭自动更新</title>
-        <pubTime>2017-09-30T07:46:22.000Z</pubTime>
-        
-        <tag>sublime</tag>
-         
-        <tag>破解</tag>
-         
-         
-           
-             
-              <breadCrumb title="编程" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
-          
-             
-              <breadCrumb title="软件破解" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/%E8%BD%AF%E4%BB%B6%E7%A0%B4%E8%A7%A3/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://luojiamingl.github.io/2017/09/29/%E9%9B%B6%E5%9F%BA%E7%A1%80%E6%90%AD%E5%BB%BAHexo%E7%82%AB%E9%85%B7%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2018-01-10T08:00:21.370Z</lastmod>
-    <data>
-        <display>
-        <title>零基础搭建Hexo炫酷静态页面博客</title>
-        <pubTime>2017-09-29T11:59:22.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>github</tag>
-         
-        <tag>博客</tag>
-         
-         
-           
-             
-              <breadCrumb title="编程" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
-          
-             
-              <breadCrumb title="博客搭建" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://luojiamingl.github.io/2018/01/10/Linux%E4%B8%ADdate%E5%91%BD%E4%BB%A4%E7%9A%84%E5%90%84%E7%A7%8D%E5%AE%9E%E7%94%A8%E6%96%B9%E6%B3%95/</loc>
-    <lastmod>2018-01-10T07:59:20.474Z</lastmod>
-    <data>
-        <display>
-        <title>Linux中date命令的各种实用方法</title>
-        <pubTime>2018-01-10T11:59:22.000Z</pubTime>
-        
-        <tag>shell</tag>
-         
-        <tag>脚本</tag>
-         
-        <tag>linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="编程" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
-          
-             
-              <breadCrumb title="linux" url="http://luojiamingl.github.io/categories/%E7%BC%96%E7%A8%8B/linux/"/>
           
         </display>
     </data>
