@@ -84,7 +84,7 @@
 <meta property="og:description" content="meerkat进行服务监控和服务降级meerkat 是用于服务监控以及服务降级基础组件，主要为了解决调用外部接口的时候进行成功率，响应时间，QPS指标的监控，同时在成功率下降到预设的阈值以下的时候自动切断外部接口的调用，外部接口成功率恢复后自动恢复请求。本文将对使用方式以及进阶特性进行介绍。 项目主页： https://github.com/ChanningBJ… 为什么要进行监控和熔断在我们的J">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://luojiamingl.github.io/2018/01/29/使用meerkat进行服务监控和服务降级/alert.png">
-<meta property="og:updated_time" content="2018-03-26T03:23:23.933Z">
+<meta property="og:updated_time" content="2018-04-11T11:03:33.656Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用meerkat进行服务监控和服务降级">
 <meta name="twitter:description" content="meerkat进行服务监控和服务降级meerkat 是用于服务监控以及服务降级基础组件，主要为了解决调用外部接口的时候进行成功率，响应时间，QPS指标的监控，同时在成功率下降到预设的阈值以下的时候自动切断外部接口的调用，外部接口成功率恢复后自动恢复请求。本文将对使用方式以及进阶特性进行介绍。 项目主页： https://github.com/ChanningBJ… 为什么要进行监控和熔断在我们的J">
@@ -495,9 +495,7 @@
 <p>相应的，对熔断阀值以及持续时间的配置也需要明确指出实例的名字：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">fusing.GetPlayCountCommand.UGC.mode = AUTO_FUSING</div><div class="line">fusing.GetPlayCountCommand.UGC.duration = 50sec</div><div class="line">fusing.GetPlayCountCommand.UGC.success_rate_threshold = 0.9</div><div class="line"></div><div class="line">fusing.GetPlayCountCommand.PGC.mode = AUTO_FUSING</div><div class="line">fusing.GetPlayCountCommand.PGC.duration = 50sec</div><div class="line">fusing.GetPlayCountCommand.PGC.success_rate_threshold = 0.9</div></pre></td></tr></table></figure>
 <p>参考资料<br><a href="https://segmentfault.com/a/1190000009730789" target="_blank" rel="external">https://segmentfault.com/a/1190000009730789</a></p>
-<p>有问题可以联系博主，博客主页有邮箱，微博，文章底部有微信公众号等联系方式。</p>
-<p>转载请注明出处，谢谢！</p>
-
+<h3 id="有问题可以联系博主。"><a href="#有问题可以联系博主。" class="headerlink" title="有问题可以联系博主。"></a><strong>有问题可以联系博主</strong>。</h3><h3 id="转载请注明出处，谢谢！"><a href="#转载请注明出处，谢谢！" class="headerlink" title="转载请注明出处，谢谢！"></a><strong>转载请注明出处，谢谢</strong>！</h3>
       
     </div>
     
@@ -566,8 +564,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/10/Linux中date命令的各种实用方法/" rel="next" title="Linux中date命令的各种实用方法">
-                <i class="fa fa-chevron-left"></i> Linux中date命令的各种实用方法
+              <a href="/2018/01/10/shell 输出重定向（> >> 2>&1）/" rel="next" title="shell 输出重定向（> >> 2>&1）">
+                <i class="fa fa-chevron-left"></i> shell 输出重定向（> >> 2>&1）
               </a>
             
           </div>
@@ -660,7 +658,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -671,7 +669,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -682,7 +680,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -750,7 +748,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#meerkat进行服务监控和服务降级"><span class="nav-number">1.</span> <span class="nav-text">meerkat进行服务监控和服务降级</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要进行监控和熔断"><span class="nav-number">1.1.</span> <span class="nav-text">为什么要进行监控和熔断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#meerkat主要功能"><span class="nav-number">1.2.</span> <span class="nav-text">meerkat主要功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本使用"><span class="nav-number">1.3.</span> <span class="nav-text">基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义受监控的操作"><span class="nav-number">1.3.1.</span> <span class="nav-text">定义受监控的操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置监控上报"><span class="nav-number">1.4.</span> <span class="nav-text">配置监控上报</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看统计结果"><span class="nav-number">1.5.</span> <span class="nav-text">查看统计结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单独使用监控功能"><span class="nav-number">1.6.</span> <span class="nav-text">单独使用监控功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启熔断并配置阀值和持续时间"><span class="nav-number">1.7.</span> <span class="nav-text">开启熔断并配置阀值和持续时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监控指标上报Graphite"><span class="nav-number">1.8.</span> <span class="nav-text">监控指标上报Graphite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义配置文件"><span class="nav-number">1.9.</span> <span class="nav-text">定义配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化配置上报"><span class="nav-number">1.10.</span> <span class="nav-text">初始化配置上报</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看统计结果-1"><span class="nav-number">1.11.</span> <span class="nav-text">查看统计结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义监控上报"><span class="nav-number">1.12.</span> <span class="nav-text">自定义监控上报</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多实例监控"><span class="nav-number">1.13.</span> <span class="nav-text">多实例监控</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#meerkat进行服务监控和服务降级"><span class="nav-number">1.</span> <span class="nav-text">meerkat进行服务监控和服务降级</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要进行监控和熔断"><span class="nav-number">1.1.</span> <span class="nav-text">为什么要进行监控和熔断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#meerkat主要功能"><span class="nav-number">1.2.</span> <span class="nav-text">meerkat主要功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本使用"><span class="nav-number">1.3.</span> <span class="nav-text">基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义受监控的操作"><span class="nav-number">1.3.1.</span> <span class="nav-text">定义受监控的操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置监控上报"><span class="nav-number">1.4.</span> <span class="nav-text">配置监控上报</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看统计结果"><span class="nav-number">1.5.</span> <span class="nav-text">查看统计结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单独使用监控功能"><span class="nav-number">1.6.</span> <span class="nav-text">单独使用监控功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启熔断并配置阀值和持续时间"><span class="nav-number">1.7.</span> <span class="nav-text">开启熔断并配置阀值和持续时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监控指标上报Graphite"><span class="nav-number">1.8.</span> <span class="nav-text">监控指标上报Graphite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义配置文件"><span class="nav-number">1.9.</span> <span class="nav-text">定义配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化配置上报"><span class="nav-number">1.10.</span> <span class="nav-text">初始化配置上报</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看统计结果-1"><span class="nav-number">1.11.</span> <span class="nav-text">查看统计结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义监控上报"><span class="nav-number">1.12.</span> <span class="nav-text">自定义监控上报</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多实例监控"><span class="nav-number">1.13.</span> <span class="nav-text">多实例监控</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#有问题可以联系博主。"><span class="nav-number">1.13.1.</span> <span class="nav-text">有问题可以联系博主。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转载请注明出处，谢谢！"><span class="nav-number">1.13.2.</span> <span class="nav-text">转载请注明出处，谢谢！</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

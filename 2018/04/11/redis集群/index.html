@@ -57,7 +57,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="redis," />
 
 
 
@@ -75,13 +75,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zero的博客">
-<meta property="og:url" content="http://luojiamingl.github.io/categories/软件破解/index.html">
+<meta name="description" content="为什么用集群？通常，为了提高网站响应速度，总是把热点数据保存在内存中而不是直接从后端数据库中读取。Redis是一个很好的Cache工具。大型网站应用，热点数据量往往巨大，几十G上百G是很正常的事儿，在这种情况下，如何正确架构Redis呢？ 首先，无论我们是使用自己的物理主机，还是使用云服务主机，内存资源往往是有限制的，scaleup不是一个好办法，我们需要scaleout横向可伸缩扩展，这需要由多">
+<meta name="keywords" content="redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis集群分析">
+<meta property="og:url" content="http://luojiamingl.github.io/2018/04/11/redis集群/index.html">
 <meta property="og:site_name" content="Zero的博客">
+<meta property="og:description" content="为什么用集群？通常，为了提高网站响应速度，总是把热点数据保存在内存中而不是直接从后端数据库中读取。Redis是一个很好的Cache工具。大型网站应用，热点数据量往往巨大，几十G上百G是很正常的事儿，在这种情况下，如何正确架构Redis呢？ 首先，无论我们是使用自己的物理主机，还是使用云服务主机，内存资源往往是有限制的，scaleup不是一个好办法，我们需要scaleout横向可伸缩扩展，这需要由多">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://luojiamingl.github.io/2018/04/11/redis集群/1.jpg">
+<meta property="og:updated_time" content="2018-04-11T11:03:33.679Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zero的博客">
+<meta name="twitter:title" content="redis集群分析">
+<meta name="twitter:description" content="为什么用集群？通常，为了提高网站响应速度，总是把热点数据保存在内存中而不是直接从后端数据库中读取。Redis是一个很好的Cache工具。大型网站应用，热点数据量往往巨大，几十G上百G是很正常的事儿，在这种情况下，如何正确架构Redis呢？ 首先，无论我们是使用自己的物理主机，还是使用云服务主机，内存资源往往是有限制的，scaleup不是一个好办法，我们需要scaleout横向可伸缩扩展，这需要由多">
+<meta name="twitter:image" content="http://luojiamingl.github.io/2018/04/11/redis集群/1.jpg">
 
 
 
@@ -111,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://luojiamingl.github.io/categories/软件破解/"/>
+  <link rel="canonical" href="http://luojiamingl.github.io/2018/04/11/redis集群/"/>
 
 
 
 
 
-  <title>分类: 软件破解 | Zero的博客</title>
+  <title>redis集群分析 | Zero的博客</title>
   
 
 
@@ -136,7 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -264,55 +271,264 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>软件破解<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://luojiamingl.github.io/2018/04/11/redis集群/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zero">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zero的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/09/30/sublime破解及关闭自动更新/" itemprop="url">
-              
-                <span itemprop="name">sublime注册码破解及关闭自动更新</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">redis集群分析</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-30T15:46:22+08:00"
-              content="2017-09-30" >
-          09-30
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T19:59:22+08:00">
+                2018-04-11
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/04/11/redis集群/" class="leancloud_visitors" data-flag-title="redis集群分析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    </div>
+      
 
+      
+        <h1 id="为什么用集群？"><a href="#为什么用集群？" class="headerlink" title="为什么用集群？"></a>为什么用集群？</h1><p>通常，为了提高网站响应速度，总是把热点数据保存在内存中而不是直接从后端数据库中读取。Redis是一个很好的Cache工具。大型网站应用，热点数据量往往巨大，几十G上百G是很正常的事儿，在这种情况下，如何正确架构Redis呢？</p>
+<p>首先，无论我们是使用自己的物理主机，还是使用云服务主机，内存资源往往是有限制的，scaleup不是一个好办法，我们需要scaleout横向可伸缩扩展，这需要由多台主机协同提供服务，即分布式多个Redis实例协同运行。</p>
+<p>其次，目前硬件资源成本降低，多核CPU，几十G内存的主机很普遍，对于主进程是单线程工作的Redis，只运行一个实例就显得有些浪费。同时，管理一个巨大内存不如管理相对较小的内存高效。因此，实际使用中，通常一台机器上同时跑多个Redis实例。</p>
+<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><h3 id="1-Redis官方集群方案-Redis-Cluster"><a href="#1-Redis官方集群方案-Redis-Cluster" class="headerlink" title="1.Redis官方集群方案 Redis Cluster"></a>1.Redis官方集群方案 Redis Cluster</h3><p>Redis Cluster是一种服务器Sharding技术，3.0版本开始正式提供。</p>
+<p>Redis Cluster中，Sharding采用slot(槽)的概念，一共分成16384个槽，这有点儿类pre sharding思路。对于每个进入Redis的键值对，根据key进行散列，分配到这16384个slot中的某一个中。使用的hash算法也比较简单，就是CRC16后16384取模。</p>
+<p>Redis集群中的每个node(节点)负责分摊这16384个slot中的一部分，也就是说，每个slot都对应一个node负责处理。当动态添加或减少node节点时，需要将16384个槽做个再分配，槽中的键值也要迁移。当然，这一过程，在目前实现中，还处于半自动状态，需要人工介入。</p>
+<p>Redis集群，要保证16384个槽对应的node都正常工作，如果某个node发生故障，那它负责的slots也就失效，整个集群将不能工作。</p>
+<p>为了增加集群的可访问性，官方推荐的方案是将node配置成主从结构，即一个master主节点，挂n个slave从节点。这时，如果主节点失效，Redis Cluster会根据选举算法从slave节点中选择一个上升为主节点，整个集群继续对外提供服务。这非常类似前篇文章提到的Redis Sharding场景下服务器节点通过Sentinel监控架构成主从结构，只是Redis Cluster本身提供了故障转移容错的能力。</p>
+<p>Redis Cluster的新节点识别能力、故障判断及故障转移能力是通过集群中的每个node都在和其它nodes进行通信，这被称为集群总线(cluster bus)。它们使用特殊的端口号，即对外服务端口号加10000。例如如果某个node的端口号是6379，那么它与其它nodes通信的端口号是16379。nodes之间的通信采用特殊的二进制协议。</p>
+<p>对客户端来说，整个cluster被看做是一个整体，客户端可以连接任意一个node进行操作，就像操作单一Redis实例一样，当客户端操作的key没有分配到该node上时，Redis会返回转向指令，指向正确的node，这有点儿像浏览器页面的302 redirect跳转。</p>
+<p>Redis Cluster是Redis 3.0以后才正式推出，时间较晚，目前能证明在大规模生产环境下成功的案例还不是很多，需要时间检验。</p>
+<h3 id="2-Redis-Sharding集群"><a href="#2-Redis-Sharding集群" class="headerlink" title="2.Redis Sharding集群"></a>2.Redis Sharding集群</h3><p>Redis 3正式推出了官方集群技术，解决了多Redis实例协同服务问题。Redis Cluster可以说是服务端Sharding分片技术的体现，即将键值按照一定算法合理分配到各个实例分片上，同时各个实例节点协调沟通，共同对外承担一致服务。</p>
+<p>多Redis实例服务，比单Redis实例要复杂的多，这涉及到定位、协同、容错、扩容等技术难题。这里，我们介绍一种轻量级的客户端Redis Sharding技术。</p>
+<p>Redis Sharding可以说是Redis Cluster出来之前，业界普遍使用的多Redis实例集群方法。其主要思想是采用哈希算法将Redis数据的key进行散列，通过hash函数，特定的key会映射到特定的Redis节点上。这样，客户端就知道该向哪个Redis节点操作数据。Sharding架构如图：</p>
+<p><img src="1.jpg" alt="image"></p>
+<p>庆幸的是，java redis客户端驱动jedis，已支持Redis Sharding功能，即ShardedJedis以及结合缓存池的ShardedJedisPool。</p>
+<p>Jedis的Redis Sharding实现具有如下特点：</p>
+<p><strong>1</strong>.采用一致性哈希算法(consistent hashing)，将key和节点name同时hashing，然后进行映射匹配，采用的算法是MURMUR_HASH。采用一致性哈希而不是采用简单类似哈希求模映射的主要原因是当增加或减少节点时，不会产生由于重新匹配造成的rehashing。一致性哈希只影响相邻节点key分配，影响量小。</p>
+<p><strong>2</strong>.为了避免一致性哈希只影响相邻节点造成节点分配压力，ShardedJedis会对每个Redis节点根据名字(没有，Jedis会赋予缺省名字)会虚拟化出160个虚拟节点进行散列。根据权重weight，也可虚拟化出160倍数的虚拟节点。用虚拟节点做映射匹配，可以在增加或减少Redis节点时，key在各Redis节点移动再分配更均匀，而不是只有相邻节点受影响。</p>
+<p><strong>3</strong>.ShardedJedis支持keyTagPattern模式，即抽取key的一部分keyTag做sharding，这样通过合理命名key，可以将一组相关联的key放入同一个Redis节点，这在避免跨节点访问相关数据时很重要。</p>
+<h1 id="扩容问题"><a href="#扩容问题" class="headerlink" title="扩容问题"></a>扩容问题</h1><p>Redis Sharding采用客户端Sharding方式，服务端Redis还是一个个相对独立的Redis实例节点，没有做任何变动。同时，我们也不需要增加额外的中间处理组件，这是一种非常轻量、灵活的Redis多实例集群方法。</p>
+<p>当然，Redis Sharding这种轻量灵活方式必然在集群其它能力方面做出妥协。比如扩容，当想要增加Redis节点时，尽管采用一致性哈希，毕竟还是会有key匹配不到而丢失，这时需要键值迁移。</p>
+<p>作为轻量级客户端sharding，处理Redis键值迁移是不现实的，这就要求应用层面允许Redis中数据丢失或从后端数据库重新加载数据。但有些时候，击穿缓存层，直接访问数据库层，会对系统访问造成很大压力。有没有其它手段改善这种情况？</p>
+<p>Redis作者给出了一个比较讨巧的办法–presharding，即预先根据系统规模尽量部署好多个Redis实例，这些实例占用系统资源很小，一台物理机可部署多个，让他们都参与sharding，当需要扩容时，选中一个实例作为主节点，新加入的Redis节点作为从节点进行数据复制。数据同步后，修改sharding配置，让指向原实例的Shard指向新机器上扩容后的Redis节点，同时调整新Redis节点为主节点，原实例可不再使用。</p>
+<p>presharding是预先分配好足够的分片，扩容时只是将属于某一分片的原Redis实例替换成新的容量更大的Redis实例。参与sharding的分片没有改变，所以也就不存在key值从一个区转移到另一个分片区的现象，只是将属于同分片区的键值从原Redis实例同步到新Redis实例。</p>
+<p>并不是只有增删Redis节点引起键值丢失问题，更大的障碍来自Redis节点突然宕机。在《Redis持久化》一文中已提到，为不影响Redis性能，尽量不开启AOF和RDB文件保存功能，可架构Redis主备模式，主Redis宕机，数据不会丢失，备Redis留有备份。</p>
+<p>这样，我们的架构模式变成一个Redis节点切片包含一个主Redis和一个备Redis。在主Redis宕机时，备Redis接管过来，上升为主Redis，继续提供服务。主备共同组成一个Redis节点，通过自动故障转移，保证了节点的高可用性。则Sharding架构演变成：</p>
+<p>Redis Sentinel提供了主备模式下Redis监控、故障转移功能达到系统的高可用性。</p>
+<p>高访问量下，即使采用Sharding分片，一个单独节点还是承担了很大的访问压力，这时我们还需要进一步分解。通常情况下，应用访问Redis读操作量和写操作量差异很大，读常常是写的数倍，这时我们可以将读写分离，而且读提供更多的实例数。</p>
+<p>可以利用主从模式实现读写分离，主负责写，从负责只读，同时一主挂多个从。在Sentinel监控下，还可以保障节点故障的自动监测。</p>
+<h2 id="3-利用代理中间件实现大规模Redis集群"><a href="#3-利用代理中间件实现大规模Redis集群" class="headerlink" title="3.利用代理中间件实现大规模Redis集群"></a>3.利用代理中间件实现大规模Redis集群</h2><p>上面分别介绍了多Redis服务器集群的两种方式，它们是基于客户端sharding的Redis Sharding和基于服务端sharding的Redis Cluster。</p>
+<p>客户端sharding技术其优势在于服务端的Redis实例彼此独立，相互无关联，每个Redis实例像单服务器一样运行，非常容易线性扩展，系统的灵活性很强。其不足之处在于：</p>
+<p>1.由于sharding处理放到客户端，规模进步扩大时给运维带来挑战。</p>
+<p>2.服务端Redis实例群拓扑结构有变化时，每个客户端都需要更新调整。</p>
+<p>3.连接不能共享，当应用规模增大时，资源浪费制约优化。</p>
+<p>服务端sharding的Redis Cluster其优势在于服务端Redis集群拓扑结构变化时，客户端不需要感知，客户端像使用单Redis服务器一样使用Redis集群，运维管理也比较方便。</p>
+<p>不过Redis Cluster正式版推出时间不长，系统稳定性、性能等都需要时间检验，尤其在大规模使用场合。</p>
+<p>能不能结合二者优势？即能使服务端各实例彼此独立，支持线性可伸缩，同时sharding又能集中处理，方便统一管理？本篇介绍的Redis代理中间件twemproxy就是这样一种利用中间件做sharding的技术。</p>
+<p>twemproxy处于客户端和服务器的中间，将客户端发来的请求，进行一定的处理后(如sharding)，再转发给后端真正的Redis服务器。也就是说，客户端不直接访问Redis服务器，而是通过twemproxy代理中间件间接访问。</p>
+<p>参照Redis Sharding架构，增加代理中间件的Redis集群架构如下：</p>
+<p>twemproxy中间件的内部处理是无状态的，它本身可以很轻松地集群，这样可避免单点压力或故障。</p>
+<p>twemproxy又叫nutcracker，起源于twitter系统中redis/memcached集群开发实践，twemproxy后端不仅支持redis，同时也支持memcached，这是twitter系统具体环境造成的。</p>
+<p>由于使用了中间件，twemproxy可以通过共享与后端系统的连接，降低客户端直接连接后端服务器的连接数量。同时，它也提供sharding功能，支持后端服务器集群水平扩展。统一运维管理也带来了方便。</p>
+<p>当然，也是由于使用了中间件代理，相比客户端直连服务器方式，性能上会有所损耗，实测结果大约降低了20%左右。</p>
+<h3 id="有问题可以联系博主。"><a href="#有问题可以联系博主。" class="headerlink" title="有问题可以联系博主。"></a><strong>有问题可以联系博主</strong>。</h3><h3 id="转载请注明出处，谢谢！"><a href="#转载请注明出处，谢谢！" class="headerlink" title="转载请注明出处，谢谢！"></a><strong>转载请注明出处，谢谢</strong>！</h3>
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/gongzhonghao.jpg" alt="Zero wechat" style="width: 200px; max-width: 100%;"/>
+    <div>扫一扫上面的微信公众号,我们就有故事！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.jpeg" alt="Zero 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.jpeg" alt="Zero 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/redis/" rel="tag"># redis</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/26/判断一个单链表是否有环/" rel="next" title="判断一个单链表是否有环">
+                <i class="fa fa-chevron-left"></i> 判断一个单链表是否有环
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/22/Python远程部署命令Fabric/" rel="prev" title="Python远程部署命令Fabric">
+                Python远程部署命令Fabric <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -320,6 +536,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTA2My83NjEx"></div>
+    
+  </div>
+
 
         </div>
         
@@ -340,8 +562,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -439,6 +670,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么用集群？"><span class="nav-number">1.</span> <span class="nav-text">为什么用集群？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方案"><span class="nav-number">1.1.</span> <span class="nav-text">方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Redis官方集群方案-Redis-Cluster"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.Redis官方集群方案 Redis Cluster</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Redis-Sharding集群"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.Redis Sharding集群</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#扩容问题"><span class="nav-number">2.</span> <span class="nav-text">扩容问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-利用代理中间件实现大规模Redis集群"><span class="nav-number">2.1.</span> <span class="nav-text">3.利用代理中间件实现大规模Redis集群</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#有问题可以联系博主。"><span class="nav-number">2.1.1.</span> <span class="nav-text">有问题可以联系博主。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转载请注明出处，谢谢！"><span class="nav-number">2.1.2.</span> <span class="nav-text">转载请注明出处，谢谢！</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -593,6 +840,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
