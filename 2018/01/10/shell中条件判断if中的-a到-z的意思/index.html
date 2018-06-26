@@ -388,13 +388,13 @@
 <p>[-a file] 如果file存在则为真 </p>
 <p>[-b file] 如果file存在且是一个块特殊文件则为真 </p>
 <p>[-c file] 如果file存在且是一个字特殊文件则为真 </p>
-<p>[-d file] 如果file文件存在且是一个目录则为真<br>-d前的!是逻辑非<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">if [ ! -d $lcd_path/$par_date ]</div></pre></td></tr></table></figure></p>
+<p>[-d file] 如果file文件存在且是一个目录则为真<br>-d前的!是逻辑非<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if [ ! -d $lcd_path/$par_date ]</span><br></pre></td></tr></table></figure></p>
 <p>表示后面的那个目录不存在，则执行后面的then操作 </p>
 <p>[-e file] 如果file文件存在则为真 </p>
 <p>[-f file] 如果file存在且是一个普通文件则为真 </p>
 <p>[-g file] 如果file存在且已经设置了SGID则为真（SUID 是 Set User ID, SGID 是 Set Group ID的意思） </p>
 <p>[-h file] 如果file存在且是一个符号连接则为真 </p>
-<p>[-k file] 如果file存在且已经设置粘制位则为真<br>当一个目录被设置为”粘制位”(用chmod a+t),则该目录下的文件只能由<br>一、超级管理员删除<br>二、该目录的所有者删除<br>三、该文件的所有者删除<br>也就是说,即便该目录是任何人都可以写,但也只有文件的属主才可以删除文件。<br>具体例子如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#ls -dl /tmp </div><div class="line">drwxrwxrwt 4 root    root </div><div class="line">.........</div></pre></td></tr></table></figure></p>
+<p>[-k file] 如果file存在且已经设置粘制位则为真<br>当一个目录被设置为”粘制位”(用chmod a+t),则该目录下的文件只能由<br>一、超级管理员删除<br>二、该目录的所有者删除<br>三、该文件的所有者删除<br>也就是说,即便该目录是任何人都可以写,但也只有文件的属主才可以删除文件。<br>具体例子如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#ls -dl /tmp </span><br><span class="line">drwxrwxrwt 4 root    root </span><br><span class="line">.........</span><br></pre></td></tr></table></figure></p>
 <p>注意other位置的t，这便是粘连位。 </p>
 <p>[-p file] 如果file存在且是一个名字管道（F如果O）则为真<br>管道是linux里面进程间通信的一种方式，其他的还有像信号（signal）、信号量、消息队列、共享内存、套接字（socket）等。</p>
 <p>[-r file] 如果file存在且是可读的则为真 </p>
@@ -417,7 +417,7 @@
 <p>[sting1==string2] 如果2个字符串相同。“=”may be used instead of “==”for strict posix compliance则为真 </p>
 <p>[string1!=string2] 如果字符串不相等则为真<br>[string1&lt;string2] 如果“string1”sorts before“string2”lexicographically in the current locale则为真</p>
 <p>[arg1 OP arg2] “OP”is one of –eq,-ne,-lt,-le,-gt or –ge.These arithmetic binary oprators return true if “arg1”is equal to,not equal to,less than,less than or equal to,greater than,or greater than or equal to“agr2”,respectively.“arg1”and “agr2”are integers. </p>
-<p>参考资料<br><a href="http://blog.csdn.net/vergilgeekopen/article/details/69493321" target="_blank" rel="external">http://blog.csdn.net/vergilgeekopen/article/details/69493321</a></p>
+<p>参考资料<br><a href="http://blog.csdn.net/vergilgeekopen/article/details/69493321" target="_blank" rel="noopener">http://blog.csdn.net/vergilgeekopen/article/details/69493321</a></p>
 <h3 id="有问题可以联系博主。"><a href="#有问题可以联系博主。" class="headerlink" title="有问题可以联系博主。"></a><strong>有问题可以联系博主</strong>。</h3><h3 id="转载请注明出处，谢谢！"><a href="#转载请注明出处，谢谢！" class="headerlink" title="转载请注明出处，谢谢！"></a><strong>转载请注明出处，谢谢</strong>！</h3>
       
     </div>
@@ -487,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/30/sublime破解及关闭自动更新/" rel="next" title="sublime注册码破解及关闭自动更新">
-                <i class="fa fa-chevron-left"></i> sublime注册码破解及关闭自动更新
+              <a href="/2018/01/10/shell 输出重定向（> >> 2>&1）/" rel="next" title="shell 输出重定向（> >> 2>&1）">
+                <i class="fa fa-chevron-left"></i> shell 输出重定向（> >> 2>&1）
               </a>
             
           </div>
@@ -497,8 +497,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/10/Linux中date命令的各种实用方法/" rel="prev" title="Linux中date命令的各种实用方法">
-                Linux中date命令的各种实用方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/29/使用meerkat进行服务监控和服务降级/" rel="prev" title="使用meerkat进行服务监控和服务降级">
+                使用meerkat进行服务监控和服务降级 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -581,7 +581,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -592,7 +592,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

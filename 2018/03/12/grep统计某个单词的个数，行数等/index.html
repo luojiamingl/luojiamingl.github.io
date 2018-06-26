@@ -384,13 +384,13 @@
 
       
         <p>文件内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">j@j:~$ cat hello.c</div><div class="line">#include&lt;stdio.h&gt;</div><div class="line">//include include</div><div class="line">int main()&#123;</div><div class="line">  printf(&quot;hello world/n&quot;);</div><div class="line">  exit(0);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">j@j:~$ cat hello.c</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">//include include</span><br><span class="line">int main()&#123;</span><br><span class="line">  printf(&quot;hello world/n&quot;);</span><br><span class="line">  exit(0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>grep命令查看include关键词</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">j@j:~$ grep -o include  hello.c</div><div class="line">include</div><div class="line">include</div><div class="line">include</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">j@j:~$ grep -o include  hello.c</span><br><span class="line">include</span><br><span class="line">include</span><br><span class="line">include</span><br></pre></td></tr></table></figure>
 <p>如上所示， 所有的include都显示出来了， 包括有两个include的行。</p>
-<p>命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grep -c -o include  hello.c</div></pre></td></tr></table></figure></p>
+<p>命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -c -o include  hello.c</span><br></pre></td></tr></table></figure></p>
 <p>的结果是2， -c参数只能统计行。如果要统计个数， 可以再来个重定向：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grep -o include hello.c| grep -c include</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -o include hello.c| grep -c include</span><br></pre></td></tr></table></figure>
 <p>得到include的个数 3</p>
 <h3 id="有问题可以联系博主。"><a href="#有问题可以联系博主。" class="headerlink" title="有问题可以联系博主。"></a><strong>有问题可以联系博主</strong>。</h3><h3 id="转载请注明出处，谢谢！"><a href="#转载请注明出处，谢谢！" class="headerlink" title="转载请注明出处，谢谢！"></a><strong>转载请注明出处，谢谢</strong>！</h3>
       
@@ -553,7 +553,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -564,7 +564,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
