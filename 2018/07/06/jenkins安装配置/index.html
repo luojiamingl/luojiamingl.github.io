@@ -57,7 +57,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python,jenkins," />
 
 
 
@@ -75,13 +75,22 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zero的博客">
-<meta property="og:url" content="http://luojiamingl.github.io/tags/linux/index.html">
+<meta name="description" content="环境：CentOS 6.8 + java 8 下载安装jenkins方式1: yum方式安装Jenkins，最简单方便yum的repos中默认是没有Jenkins的，需要先将Jenkins存储库添加到yum repos。12345sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenki">
+<meta name="keywords" content="Python,jenkins">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jenkins安装配置 linux">
+<meta property="og:url" content="http://luojiamingl.github.io/2018/07/06/jenkins安装配置/index.html">
 <meta property="og:site_name" content="Zero的博客">
+<meta property="og:description" content="环境：CentOS 6.8 + java 8 下载安装jenkins方式1: yum方式安装Jenkins，最简单方便yum的repos中默认是没有Jenkins的，需要先将Jenkins存储库添加到yum repos。12345sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenki">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://luojiamingl.github.io/2018/07/06/jenkins安装配置/1.png">
+<meta property="og:image" content="http://luojiamingl.github.io/2018/07/06/jenkins安装配置/2.png">
+<meta property="og:image" content="http://luojiamingl.github.io/2018/07/06/jenkins安装配置/3.png">
+<meta property="og:updated_time" content="2018-07-06T06:40:44.322Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zero的博客">
+<meta name="twitter:title" content="jenkins安装配置 linux">
+<meta name="twitter:description" content="环境：CentOS 6.8 + java 8 下载安装jenkins方式1: yum方式安装Jenkins，最简单方便yum的repos中默认是没有Jenkins的，需要先将Jenkins存储库添加到yum repos。12345sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenki">
+<meta name="twitter:image" content="http://luojiamingl.github.io/2018/07/06/jenkins安装配置/1.png">
 
 
 
@@ -111,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://luojiamingl.github.io/tags/linux/"/>
+  <link rel="canonical" href="http://luojiamingl.github.io/2018/07/06/jenkins安装配置/"/>
 
 
 
 
 
-  <title>标签: linux | Zero的博客</title>
+  <title>jenkins安装配置 linux | Zero的博客</title>
   
 
 
@@ -136,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -264,138 +273,283 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>linux<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://luojiamingl.github.io/2018/07/06/jenkins安装配置/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zero">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zero的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/03/12/grep统计某个单词的个数，行数等/" itemprop="url">
-              
-                <span itemprop="name">grep统计某个单词的个数，行数等</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">jenkins安装配置 linux</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-12T11:59:22+08:00"
-              content="2018-03-12" >
-          03-12
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T11:59:22+08:00">
+                2018-07-06
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jenkins/" itemprop="url" rel="index">
+                    <span itemprop="name">jenkins</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/07/06/jenkins安装配置/" class="leancloud_visitors" data-flag-title="jenkins安装配置 linux">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/10/Linux中date命令的各种实用方法/" itemprop="url">
-              
-                <span itemprop="name">Linux中date命令的各种实用方法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-10T19:59:22+08:00"
-              content="2018-01-10" >
-          01-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/10/shell 输出重定向（> >> 2>&1）/" itemprop="url">
-              
-                <span itemprop="name">shell 输出重定向（> >> 2>&1）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-10T19:59:22+08:00"
-              content="2018-01-10" >
-          01-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/10/shell中条件判断if中的-a到-z的意思/" itemprop="url">
-              
-                <span itemprop="name">shell中条件判断if中的-a到-z的意思</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-10T19:59:22+08:00"
-              content="2018-01-10" >
-          01-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+        <h3 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h3><p>CentOS 6.8 + java 8</p>
+<h1 id="下载安装jenkins"><a href="#下载安装jenkins" class="headerlink" title="下载安装jenkins"></a>下载安装jenkins</h1><p><strong>方式1:</strong></p>
+<p>yum方式安装Jenkins，最简单方便<br>yum的repos中默认是没有Jenkins的，需要先将Jenkins存储库添加到yum repos。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo</span><br><span class="line"></span><br><span class="line">sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key</span><br><span class="line"></span><br><span class="line">yum install jenkins</span><br></pre></td></tr></table></figure></p>
+<p>如果连接超时(内网虚机可能无法链接)<br>采用</p>
+<p><strong>方式2</strong>：</p>
+<p>直接下载war包jenkins.war，下载地址<br><a href="https://jenkins.io/download" target="_blank" rel="noopener">https://jenkins.io/download</a></p>
+<p>使用rpm包安装命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -ih jenkins-2.119-1.1.noarch.rpm</span><br></pre></td></tr></table></figure></p>
+<p>自动安装完成之后： </p>
+<p>/usr/lib/jenkins/jenkins.war    WAR包 </p>
+<p>/etc/sysconfig/jenkins       配置文件</p>
+<p>/var/lib/jenkins/       默认的JENKINS_HOME目录</p>
+<p>/var/log/jenkins/jenkins.log    Jenkins日志文件</p>
+<h1 id="启动jenkins"><a href="#启动jenkins" class="headerlink" title="启动jenkins"></a>启动jenkins</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service jenkins start</span><br></pre></td></tr></table></figure>
+<p><a href="http://IP:8080" target="_blank" rel="noopener">http://IP:8080</a>    登录jenkins<br><img src="1.png" alt="image"></p>
+<p>打开红色标记中的路径，取出password，填入上图，continue</p>
+<p>可能遇到Jenkenis报错：</p>
+<p>该jenkins实例似乎已离线</p>
+<p><strong>解决方法：</strong></p>
+<p>安装插件那个页面，就是提示你offline的那个页面，不要动。然后打开一个新的tab，输入网址</p>
+<p><a href="http://ip:8080/pluginManager/advanced。" target="_blank" rel="noopener">http://ip:8080/pluginManager/advanced。</a> </p>
+<p>这里面最底下有个【升级站点】，把其中的链接改成http的就好了，<a href="http://updates.jenkins.io/update-center.json。" target="_blank" rel="noopener">http://updates.jenkins.io/update-center.json。</a> 然后重启闭jenkins<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service jenkins restart</span><br></pre></td></tr></table></figure></p>
+<p>这样就能正常联网了</p>
+<p>如果还无法联网，可能是机器不能访问谷歌，因为jenkins检查网络是否连接。直接访问了谷歌</p>
+<p>最终解决方案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /var/lib/jenkins/updates/default.json</span><br></pre></td></tr></table></figure>
+<p>编辑、替换：</p>
+<p>将www.google.com替换成www.baidu.com</p>
+<p>重启jenkins</p>
+<p>至此  jenkins成功启动</p>
+<h1 id="Python安装"><a href="#Python安装" class="headerlink" title="Python安装"></a>Python安装</h1><p>参照 <a href="https://www.jianshu.com/p/58d106395e45" target="_blank" rel="noopener">https://www.jianshu.com/p/58d106395e45</a></p>
+<p>安装完成后可能出现下面问题</p>
+<p>error while loading shared libraries: libpython3.6m.so.1.0</p>
+<p>解决方案：</p>
+<p>查找一下文件的位置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find / -name &apos;libpython3.6m.so.1.0&apos;</span><br><span class="line">/usr/local/lib/libpython3.6m.so.1.0</span><br></pre></td></tr></table></figure></p>
+<p>之后在目录 /etc/ld.so.conf.d 下，建立 python3.conf<br>并在 python3.conf 中加入：也就是所在的目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/lib/</span><br></pre></td></tr></table></figure></p>
+<p>然后运行：ldconfig</p>
+<p>再运行python3 就可以啦</p>
+<h1 id="fabric安装"><a href="#fabric安装" class="headerlink" title="fabric安装"></a>fabric安装</h1><p>fabric有两个版本1和2，需使用1，不然会报错</p>
+<p>安装fabric通过yum安装即可，导入epel yum库</p>
+<p>安装fabric命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install fabric -y</span><br></pre></td></tr></table></figure></p>
+<p>pip命令使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip show fabric</span><br></pre></td></tr></table></figure></p>
+<p>查看fabric安装信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip uninstall fabric</span><br></pre></td></tr></table></figure></p>
+<p>#卸载fabric</p>
+<h1 id="maven安装"><a href="#maven安装" class="headerlink" title="maven安装"></a>maven安装</h1><h2 id="下载maven安装包"><a href="#下载maven安装包" class="headerlink" title="下载maven安装包"></a>下载maven安装包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirror.bit.edu.cn/apache/maven/maven-3/wget http://mirror.bit.edu.cn/apache/maven/maven-3/</span><br></pre></td></tr></table></figure>
+<h2 id="解压缩maven"><a href="#解压缩maven" class="headerlink" title="解压缩maven"></a>解压缩maven</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf apache-maven-3.5.2-bin.tar.gz</span><br></pre></td></tr></table></figure>
+<p>将maven解压缩之后的路径为：/var/local/lib</p>
+<h2 id="配置maven环境变量"><a href="#配置maven环境变量" class="headerlink" title="配置maven环境变量"></a>配置maven环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/profile</span><br></pre></td></tr></table></figure>
+<p>添加环境变量</p>
+<p>export MAVEN_HOME=/var/local/apache-maven-3.5.2</p>
+<p>export MAVEN_HOME</p>
+<p>export PATH=$PATH:$MAVEN_HOME/bin</p>
+<p>使配置生效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure></p>
+<h1 id="jenkins插件配置"><a href="#jenkins插件配置" class="headerlink" title="jenkins插件配置"></a>jenkins插件配置</h1><p>联网状态下</p>
+<p>系统管理–&gt;插件管理</p>
+<p>可以直接搜索Gitlab Hook Plugin等插件自动安装</p>
+<p>断网状态下</p>
+<p>jenkins官网下载插件</p>
+<p>然后高级</p>
+<p>上传.hpi文件<br><img src="2.png" alt="image"></p>
+<h1 id="环境变量配置"><a href="#环境变量配置" class="headerlink" title="环境变量配置"></a>环境变量配置</h1><p>如果虚机maven等工具安装没问题，jenkins执行脚本出现mvn:commond not found等错误，需配置jenkins环境变量</p>
+<p>1、控制台执行 echo $PATH</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@cartoon-jenkins-dev001-whdx ~]# echo $PATH</span><br><span class="line">/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/lib/apache-maven-3.5.2/bin:/usr/local/python3.6.0/bin:/root/bin:/usr/local/lib/apache-maven-3.5.2/bin</span><br></pre></td></tr></table></figure>
+<p>把输出的这句话复制</p>
+<p>2、jenkins-&gt;系统管理-&gt;系统设置<br><img src="3.png" alt="image"></p>
+<p>OK了！</p>
+<h3 id="有问题可以联系博主。"><a href="#有问题可以联系博主。" class="headerlink" title="有问题可以联系博主。"></a><strong>有问题可以联系博主</strong>。</h3><h3 id="转载请注明出处，谢谢！"><a href="#转载请注明出处，谢谢！" class="headerlink" title="转载请注明出处，谢谢！"></a><strong>转载请注明出处，谢谢</strong>！</h3>
       
     </div>
+    
+    
+    
 
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/gongzhonghao.jpg" alt="Zero wechat" style="width: 200px; max-width: 100%;"/>
+    <div>扫一扫上面的微信公众号,我们就有故事！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.jpeg" alt="Zero 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.jpeg" alt="Zero 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/jenkins/" rel="tag"># jenkins</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/26/Mac-Operation not permitted/" rel="next" title="Mac-Operation not permitted">
+                <i class="fa fa-chevron-left"></i> Mac-Operation not permitted
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -403,6 +557,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTA2My83NjEx"></div>
+    
+  </div>
+
 
         </div>
         
@@ -423,8 +583,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -522,6 +691,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境："><span class="nav-number">1.</span> <span class="nav-text">环境：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下载安装jenkins"><span class="nav-number"></span> <span class="nav-text">下载安装jenkins</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动jenkins"><span class="nav-number"></span> <span class="nav-text">启动jenkins</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python安装"><span class="nav-number"></span> <span class="nav-text">Python安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#fabric安装"><span class="nav-number"></span> <span class="nav-text">fabric安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#maven安装"><span class="nav-number"></span> <span class="nav-text">maven安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载maven安装包"><span class="nav-number"></span> <span class="nav-text">下载maven安装包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解压缩maven"><span class="nav-number"></span> <span class="nav-text">解压缩maven</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置maven环境变量"><span class="nav-number"></span> <span class="nav-text">配置maven环境变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jenkins插件配置"><span class="nav-number"></span> <span class="nav-text">jenkins插件配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境变量配置"><span class="nav-number"></span> <span class="nav-text">环境变量配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#有问题可以联系博主。"><span class="nav-number">1.</span> <span class="nav-text">有问题可以联系博主。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转载请注明出处，谢谢！"><span class="nav-number">2.</span> <span class="nav-text">转载请注明出处，谢谢！</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -676,6 +861,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
