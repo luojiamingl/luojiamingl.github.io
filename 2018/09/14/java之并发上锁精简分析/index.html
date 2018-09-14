@@ -57,7 +57,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="shell,linux," />
+  <meta name="keywords" content="java,并发," />
 
 
 
@@ -75,18 +75,26 @@
 
 
 
-<meta name="description" content="shell中条件判断if中的-a到-z的意思">
-<meta name="keywords" content="shell,linux">
+<meta name="description" content="“锁”在我们日常的生活工作中经常会用到，这充分保证了个人财产安全和隐私安全。 同样，在程序的世界里，也有一把锁，保证程序不会崩溃，保证我们手机钱包里的钱不会无缘无故变多变少。 这把锁（lock）作为用于保护临界区（critical section）的一种机制，被广泛应用在多线程程序中。比如 Java 应用程序出现的 synchronized 关键字，就是锁实现的一种方式。 下面我们从一个计数器的">
+<meta name="keywords" content="java,并发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shell中条件判断if中的-a到-z的意思">
-<meta property="og:url" content="http://luojiamingl.github.io/2018/01/10/shell中条件判断if中的-a到-z的意思/index.html">
+<meta property="og:title" content="java之并发上锁精简分析">
+<meta property="og:url" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/index.html">
 <meta property="og:site_name" content="Zero的博客">
-<meta property="og:description" content="shell中条件判断if中的-a到-z的意思">
+<meta property="og:description" content="“锁”在我们日常的生活工作中经常会用到，这充分保证了个人财产安全和隐私安全。 同样，在程序的世界里，也有一把锁，保证程序不会崩溃，保证我们手机钱包里的钱不会无缘无故变多变少。 这把锁（lock）作为用于保护临界区（critical section）的一种机制，被广泛应用在多线程程序中。比如 Java 应用程序出现的 synchronized 关键字，就是锁实现的一种方式。 下面我们从一个计数器的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-11T11:03:33.683Z">
+<meta property="og:image" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/1.png">
+<meta property="og:image" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/2.png">
+<meta property="og:image" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/3.png">
+<meta property="og:image" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/4.png">
+<meta property="og:image" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/5.png">
+<meta property="og:image" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/6.png">
+<meta property="og:image" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/7.png">
+<meta property="og:updated_time" content="2018-09-14T02:52:20.794Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shell中条件判断if中的-a到-z的意思">
-<meta name="twitter:description" content="shell中条件判断if中的-a到-z的意思">
+<meta name="twitter:title" content="java之并发上锁精简分析">
+<meta name="twitter:description" content="“锁”在我们日常的生活工作中经常会用到，这充分保证了个人财产安全和隐私安全。 同样，在程序的世界里，也有一把锁，保证程序不会崩溃，保证我们手机钱包里的钱不会无缘无故变多变少。 这把锁（lock）作为用于保护临界区（critical section）的一种机制，被广泛应用在多线程程序中。比如 Java 应用程序出现的 synchronized 关键字，就是锁实现的一种方式。 下面我们从一个计数器的">
+<meta name="twitter:image" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/1.png">
 
 
 
@@ -116,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://luojiamingl.github.io/2018/01/10/shell中条件判断if中的-a到-z的意思/"/>
+  <link rel="canonical" href="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/"/>
 
 
 
 
 
-  <title>shell中条件判断if中的-a到-z的意思 | Zero的博客</title>
+  <title>java之并发上锁精简分析 | Zero的博客</title>
   
 
 
@@ -283,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://luojiamingl.github.io/2018/01/10/shell中条件判断if中的-a到-z的意思/">
+    <link itemprop="mainEntityOfPage" href="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zero">
@@ -300,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">shell中条件判断if中的-a到-z的意思</h1>
+          <h1 class="post-title" itemprop="name headline">java之并发上锁精简分析</h1>
         
 
         <div class="post-meta">
@@ -312,8 +320,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-10T19:59:22+08:00">
-                2018-01-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-14T11:59:22+08:00">
+                2018-09-14
               </time>
             
 
@@ -335,8 +343,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/并发/" itemprop="url" rel="index">
+                    <span itemprop="name">并发</span>
                   </a>
                 </span>
 
@@ -352,7 +371,7 @@
 
           
           
-             <span id="/2018/01/10/shell中条件判断if中的-a到-z的意思/" class="leancloud_visitors" data-flag-title="shell中条件判断if中的-a到-z的意思">
+             <span id="/2018/09/14/java之并发上锁精简分析/" class="leancloud_visitors" data-flag-title="java之并发上锁精简分析">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -383,41 +402,24 @@
       
 
       
-        <p>shell中条件判断if中的-a到-z的意思</p>
-<a id="more"></a>
-<p>[-a file] 如果file存在则为真 </p>
-<p>[-b file] 如果file存在且是一个块特殊文件则为真 </p>
-<p>[-c file] 如果file存在且是一个字特殊文件则为真 </p>
-<p>[-d file] 如果file文件存在且是一个目录则为真<br>-d前的!是逻辑非<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if [ ! -d $lcd_path/$par_date ]</span><br></pre></td></tr></table></figure></p>
-<p>表示后面的那个目录不存在，则执行后面的then操作 </p>
-<p>[-e file] 如果file文件存在则为真 </p>
-<p>[-f file] 如果file存在且是一个普通文件则为真 </p>
-<p>[-g file] 如果file存在且已经设置了SGID则为真（SUID 是 Set User ID, SGID 是 Set Group ID的意思） </p>
-<p>[-h file] 如果file存在且是一个符号连接则为真 </p>
-<p>[-k file] 如果file存在且已经设置粘制位则为真<br>当一个目录被设置为”粘制位”(用chmod a+t),则该目录下的文件只能由<br>一、超级管理员删除<br>二、该目录的所有者删除<br>三、该文件的所有者删除<br>也就是说,即便该目录是任何人都可以写,但也只有文件的属主才可以删除文件。<br>具体例子如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#ls -dl /tmp </span><br><span class="line">drwxrwxrwt 4 root    root </span><br><span class="line">.........</span><br></pre></td></tr></table></figure></p>
-<p>注意other位置的t，这便是粘连位。 </p>
-<p>[-p file] 如果file存在且是一个名字管道（F如果O）则为真<br>管道是linux里面进程间通信的一种方式，其他的还有像信号（signal）、信号量、消息队列、共享内存、套接字（socket）等。</p>
-<p>[-r file] 如果file存在且是可读的则为真 </p>
-<p>[-s file] 如果file存在且大小不为0则为真</p>
-<p>[-t FD] 如果文件描述符FD打开且指向一个终端则为真 </p>
-<p>[-u file] 如果file存在且设置了SUID（set userID）则为真 </p>
-<p>[-w file] 如果file存在且是可写的则为真</p>
-<p>[-x file] 如果file存在且是可执行的则为真</p>
-<p>[-O file] 如果file存在且属有效用户ID则为真 </p>
-<p>[-G file] 如果file存在且属有效用户组则为真 </p>
-<p>[-L file] 如果file存在且是一个符号连接则为真 </p>
-<p>[-N file] 如果file存在and has been mod如果ied since it was last read则为真 </p>
-<p>[-S file] 如果file存在且是一个套接字则为真 </p>
-<p>[file1 –nt file2] 如果file1 has been changed more recently than file2或者file1 exists and file2 does not则为真 </p>
-<p>[file1 –ot file2] 如果file1比file2要老，或者file2存在且file1不存在则为真 </p>
-<p>[file1 –ef file2] 如果file1和file2指向相同的设备和节点号则为真 </p>
-<p>[-o optionname] 如果shell选项“optionname”开启则为真 </p>
-<p>[-z string] “string”的长度为零则为真 </p>
-<p>[-n string] or [string] “string”的长度为非零non-zero则为真 </p>
-<p>[sting1==string2] 如果2个字符串相同。“=”may be used instead of “==”for strict posix compliance则为真 </p>
-<p>[string1!=string2] 如果字符串不相等则为真<br>[string1&lt;string2] 如果“string1”sorts before“string2”lexicographically in the current locale则为真</p>
-<p>[arg1 OP arg2] “OP”is one of –eq,-ne,-lt,-le,-gt or –ge.These arithmetic binary oprators return true if “arg1”is equal to,not equal to,less than,less than or equal to,greater than,or greater than or equal to“agr2”,respectively.“arg1”and “agr2”are integers. </p>
-<p>参考资料<br><a href="http://blog.csdn.net/vergilgeekopen/article/details/69493321" target="_blank" rel="noopener">http://blog.csdn.net/vergilgeekopen/article/details/69493321</a></p>
+        <p><img src="1.png" alt="image"></p>
+<p>“锁”在我们日常的生活工作中经常会用到，这充分保证了个人财产安全和隐私安全。</p>
+<p>同样，在程序的世界里，也有一把锁，保证程序不会崩溃，保证我们手机钱包里的钱不会无缘无故变多变少。</p>
+<p>这把锁（lock）作为用于保护临界区（critical section）的一种机制，被广泛应用在多线程程序中。比如 Java 应用程序出现的 synchronized 关键字，就是锁实现的一种方式。</p>
+<p>下面我们从一个计数器的应用说起，分析下锁在 Java 程序中的应用。</p>
+<p><strong>一个计数器</strong></p>
+<p><img src="2.png" alt="image"></p>
+<p>非线程安全，value++ 不是原子性操作，状态不稳定，需要同步。</p>
+<h1 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h1><h2 id="锁定实例"><a href="#锁定实例" class="headerlink" title="锁定实例"></a>锁定实例</h2><p><img src="3.png" alt="image"></p>
+<p>线程安全，锁的对象是当前 SafeCounter 的实例，不会影响到另一个 SafeCounter 实例的 getNext() 方法。</p>
+<h2 id="锁定类"><a href="#锁定类" class="headerlink" title="锁定类"></a>锁定类</h2><p><img src="4.png" alt="image"></p>
+<p>线程安全，锁的对象是 SafeCounterWithClass 类，任何实例都会受锁的影响，一般不这么用。</p>
+<h2 id="lock"><a href="#lock" class="headerlink" title="lock"></a>lock</h2><p><img src="5.png" alt="image"></p>
+<p>线程安全，锁的对象是 lock，可以灵活控制，只锁真正需要同步的代码。注意 lock 不能是 null，也不能改变。</p>
+<h2 id="更好的-lock"><a href="#更好的-lock" class="headerlink" title="更好的 lock"></a>更好的 lock</h2><p><img src="6.png" alt="image"></p>
+<p>线程安全，灵活控制锁竞争时的处理，拥有更好的性能。</p>
+<h2 id="atomic"><a href="#atomic" class="headerlink" title="atomic"></a>atomic</h2><p><img src="7.png" alt="image"></p>
+<p>最佳实践：使用原子操作类，不阻塞，获得最好的性能。</p>
 <h3 id="有问题可以联系博主。"><a href="#有问题可以联系博主。" class="headerlink" title="有问题可以联系博主。"></a><strong>有问题可以联系博主</strong>。</h3><h3 id="转载请注明出处，谢谢！"><a href="#转载请注明出处，谢谢！" class="headerlink" title="转载请注明出处，谢谢！"></a><strong>转载请注明出处，谢谢</strong>！</h3>
       
     </div>
@@ -464,9 +466,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/shell/" rel="tag"># shell</a>
+            <a href="/tags/java/" rel="tag"># java</a>
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/并发/" rel="tag"># 并发</a>
           
         </div>
       
@@ -479,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/10/shell 输出重定向（> >> 2>&1）/" rel="next" title="shell 输出重定向（> >> 2>&1）">
-                <i class="fa fa-chevron-left"></i> shell 输出重定向（> >> 2>&1）
+              <a href="/2018/07/17/linux压缩解压/" rel="next" title="linux下解压命令大全">
+                <i class="fa fa-chevron-left"></i> linux下解压命令大全
               </a>
             
           </div>
@@ -488,10 +490,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/29/使用meerkat进行服务监控和服务降级/" rel="prev" title="使用meerkat进行服务监控和服务降级">
-                使用meerkat进行服务监控和服务降级 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -663,7 +661,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#有问题可以联系博主。"><span class="nav-number">1.</span> <span class="nav-text">有问题可以联系博主。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转载请注明出处，谢谢！"><span class="nav-number">2.</span> <span class="nav-text">转载请注明出处，谢谢！</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#同步方法"><span class="nav-number">1.</span> <span class="nav-text">同步方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#锁定实例"><span class="nav-number">1.1.</span> <span class="nav-text">锁定实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁定类"><span class="nav-number">1.2.</span> <span class="nav-text">锁定类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lock"><span class="nav-number">1.3.</span> <span class="nav-text">lock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更好的-lock"><span class="nav-number">1.4.</span> <span class="nav-text">更好的 lock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#atomic"><span class="nav-number">1.5.</span> <span class="nav-text">atomic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#有问题可以联系博主。"><span class="nav-number">1.5.1.</span> <span class="nav-text">有问题可以联系博主。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转载请注明出处，谢谢！"><span class="nav-number">1.5.2.</span> <span class="nav-text">转载请注明出处，谢谢！</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
