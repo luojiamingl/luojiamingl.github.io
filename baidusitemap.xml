@@ -4,6 +4,31 @@
 
     
   <url>
+    <loc>http://luojiamingl.github.io/2019/05/06/yum%E5%AE%89%E8%A3%85%E6%9B%B4%E6%96%B0java%20sdk/</loc>
+    <lastmod>2019-05-21T08:59:39.251Z</lastmod>
+    <data>
+        <display>
+        <title>yum安装更新java sdk</title>
+        <pubTime>2019-05-06T07:46:22.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://luojiamingl.github.io/categories/java/"/>
+          
+             
+              <breadCrumb title="linux" url="http://luojiamingl.github.io/categories/java/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://luojiamingl.github.io/2019/05/08/RestController%E5%92%8CController%E5%8C%BA%E5%88%AB/</loc>
     <lastmod>2019-05-08T09:08:51.301Z</lastmod>
     <data>
@@ -187,9 +212,9 @@
         <title>Python远程部署命令Fabric</title>
         <pubTime>2018-04-22T03:59:22.000Z</pubTime>
         
-        <tag>Shell</tag>
-         
         <tag>Python</tag>
+         
+        <tag>Shell</tag>
          
          
            
