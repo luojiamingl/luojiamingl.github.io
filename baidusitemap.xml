@@ -4,6 +4,31 @@
 
     
   <url>
+    <loc>http://luojiamingl.github.io/2019/06/17/ActiveMQ%E4%B9%8BVirtualTopic%E6%98%AF%E4%BB%80%E4%B9%88/</loc>
+    <lastmod>2019-06-17T07:42:34.420Z</lastmod>
+    <data>
+        <display>
+        <title>ActiveMQ之VirtualTopic</title>
+        <pubTime>2019-06-17T07:46:22.000Z</pubTime>
+        
+        <tag>MQ</tag>
+         
+        <tag>消息队列</tag>
+         
+         
+           
+             
+              <breadCrumb title="MQ" url="http://luojiamingl.github.io/categories/MQ/"/>
+          
+             
+              <breadCrumb title="消息队列" url="http://luojiamingl.github.io/categories/MQ/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://luojiamingl.github.io/2019/05/06/yum%E5%AE%89%E8%A3%85%E6%9B%B4%E6%96%B0java%20sdk/</loc>
     <lastmod>2019-05-21T08:59:39.251Z</lastmod>
     <data>
@@ -212,9 +237,9 @@
         <title>Python远程部署命令Fabric</title>
         <pubTime>2018-04-22T03:59:22.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>Shell</tag>
+         
+        <tag>Python</tag>
          
          
            

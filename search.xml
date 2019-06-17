@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ActiveMQ之VirtualTopic]]></title>
+    <url>%2F2019%2F06%2F17%2FActiveMQ%E4%B9%8BVirtualTopic%E6%98%AF%E4%BB%80%E4%B9%88%2F</url>
+    <content type="text"><![CDATA[一句话总结： VirtualTopic是为了解决持久化模式下多消费端同时接收同一条消息的问题。 Topic订阅模式缺点，虽然满足1对多同时接收，然而持久化模式下只能有一个持有clientID的消费者连接，不满足持久化需求 简单说来，就是将Topic和Queue相结合，各取所长。 VirtualTopic 就是这样一种存在，对生产者而言它是Topic，对消费者而言它是Queue，内部的处理机制就是由Broker将接收到的消息二次分发给每一个Queue，然后由不同的Queue对应不同的应用实现持久化，不同的消费端只关心并连接到自己的Queue接收消息即可。 VirtualTopic 因为不同消费者会同事收到所有消息，所以会存在重复消费的问题，如果业务上要求只消费一次，需要在业务上做幂等处理。 总结一下： 虚拟Topic是一种特殊命名的Topic，系统根据命名规则将该Topic内的消息分发给当前存在的名称对应的Queue，分发是非持久化的，新加入的Queue是接收不到过去的消息的。 虚拟Topic还是Topic，不是什么新的存在，具有普通Topic的所有功能，只是名字特殊而已。 虚拟Topic的功能完全是中间件本身额外附加的机制，对于生产者和消费者都是无感知的。 对于运维人员来说，还是正常监控队列即可，虚拟Topic是非持久化的，不存在积压。 有问题可以联系博主。转载请注明出处，谢谢！]]></content>
+      <categories>
+        <category>MQ</category>
+        <category>消息队列</category>
+      </categories>
+      <tags>
+        <tag>MQ</tag>
+        <tag>消息队列</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[RestController和Controller区别]]></title>
     <url>%2F2019%2F05%2F08%2FRestController%E5%92%8CController%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"><![CDATA[@RestController注解相当于@ResponseBody ＋ @Controller合在一起的作用。RestController使用的效果是将方法返回的对象直接在浏览器上展示成json格式，而如果单单使用@Controller会报错，需要ResponseBody配合使用。注意1、如果只是使用@RestController注解Controller类，则方法无法返回jsp页面，配置的视图解析器InternalResourceViewResolver不起作用，返回的内容就是Return 里的内容。例如：本来应该到success.jsp页面的，则其显示success.2、如果需要返回到指定页面，则需要用 @Controller配合视图解析器InternalResourceViewResolver才行。3、如果需要返回JSON，XML或自定义mediaType内容到页面，则需要在对应的方法上加上@ResponseBody注解。有问题可以联系博主。转载请注明出处，谢谢！]]></content>
@@ -9,18 +22,6 @@
       </categories>
       <tags>
         <tag>spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[idea破解]]></title>
-    <url>%2F2019%2F05%2F06%2FIDEA%E7%A0%B4%E8%A7%A3%2F</url>
-    <content type="text"><![CDATA[破解方法license server 填写 http://idea.toocruel.net/ 简单粗暴搞定 有问题可以联系博主。转载请注明出处，谢谢！]]></content>
-      <categories>
-        <category>软件破解</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-        <tag>软件破解</tag>
       </tags>
   </entry>
   <entry>
@@ -34,6 +35,18 @@
       <tags>
         <tag>linux</tag>
         <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[idea破解]]></title>
+    <url>%2F2019%2F05%2F06%2FIDEA%E7%A0%B4%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[破解方法license server 填写 http://idea.toocruel.net/ 简单粗暴搞定 有问题可以联系博主。转载请注明出处，谢谢！]]></content>
+      <categories>
+        <category>软件破解</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+        <tag>软件破解</tag>
       </tags>
   </entry>
   <entry>
@@ -104,8 +117,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Shell</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>

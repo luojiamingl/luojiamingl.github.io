@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://luojiamingl.github.io/"/>
-  <updated>2019-05-08T09:08:51.301Z</updated>
+  <updated>2019-06-17T07:42:34.420Z</updated>
   <id>http://luojiamingl.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ActiveMQ之VirtualTopic</title>
+    <link href="http://luojiamingl.github.io/2019/06/17/ActiveMQ%E4%B9%8BVirtualTopic%E6%98%AF%E4%BB%80%E4%B9%88/"/>
+    <id>http://luojiamingl.github.io/2019/06/17/ActiveMQ之VirtualTopic是什么/</id>
+    <published>2019-06-17T07:46:22.000Z</published>
+    <updated>2019-06-17T07:42:34.420Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><p>一句话总结： VirtualTopic是为了解决持久化模式下多消费端同时接收同一条消息的问题。</p><p>Topic订阅模式缺点，虽然满足1对多同时接收，然而持久化模式下只能有一个持有clientID的消费者连接，不满足持久化需求</p><p>简单说来，就是将Topic和Queue相结合，各取所长。</p><p>VirtualTopic 就是这样一种存在，对生产者而言它是Topic，对消费者而言它是Queue，内部的处理机制就是由Broker将接收到的消息二次分发给每一个Queue，然后由不同的Queue对应不同的应用实现持久化，不同的消费端只关心并连接到自己的Queue接收消息即可。</p><p><img src="mq.png" alt="image"></p><p>VirtualTopic 因为不同消费者会同事收到所有消息，所以会存在重复消费的问题，如果业务上要求只消费一次，需要在业务上做幂等处理。</p><p>总结一下：</p><ol><li>虚拟Topic是一种特殊命名的Topic，系统根据命名规则将该Topic内的消息分发给当前存在的名称对应的Queue，分发是非持久化的，新加入的Queue是接收不到过去的消息的。</li><li>虚拟Topic还是Topic，不是什么新的存在，具有普通Topic的所有功能，只是名字特殊而已。</li><li>虚拟Topic的功能完全是中间件本身额外附加的机制，对于生产者和消费者都是无感知的。</li><li>对于运维人员来说，还是正常监控队列即可，虚拟Topic是非持久化的，不存在积压。</li></ol><h3 id="有问题可以联系博主。"><a href="#有问题可以联系博主。" class="headerlink" title="有问题可以联系博主。"></a><strong>有问题可以联系博主</strong>。</h3><h3 id="转载请注明出处，谢谢！"><a href="#转载请注明出处，谢谢！" class="headerlink" title="转载请注明出处，谢谢！"></a><strong>转载请注明出处，谢谢</strong>！</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;一句话总结： VirtualTopic是为了解决持久化模式下多消费端同时接收同一条消息的问题。&lt;/p&gt;
+&lt;p&gt;Topic订阅模式缺点，虽然满足1对多同时接收，然而持久化模式下只能有一个持有clientID的消费者连接，不满足持久化需求&lt;/
+      
+    
+    </summary>
+    
+      <category term="MQ" scheme="http://luojiamingl.github.io/categories/MQ/"/>
+    
+      <category term="消息队列" scheme="http://luojiamingl.github.io/categories/MQ/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+    
+    
+      <category term="MQ" scheme="http://luojiamingl.github.io/tags/MQ/"/>
+    
+      <category term="消息队列" scheme="http://luojiamingl.github.io/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
   
   <entry>
     <title>RestController和Controller区别</title>
@@ -39,6 +70,35 @@
     
     
       <category term="spring" scheme="http://luojiamingl.github.io/tags/spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>yum安装更新java sdk</title>
+    <link href="http://luojiamingl.github.io/2019/05/06/yum%E5%AE%89%E8%A3%85%E6%9B%B4%E6%96%B0java%20sdk/"/>
+    <id>http://luojiamingl.github.io/2019/05/06/yum安装更新java sdk/</id>
+    <published>2019-05-06T07:46:22.000Z</published>
+    <updated>2019-05-21T08:59:39.251Z</updated>
+    
+    <content type="html"><![CDATA[<p>安装之前先检查一下系统有没有自带open-jdk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa |grep java </span><br><span class="line">rpm -qa |grep jdk </span><br><span class="line">rpm -qa |grep gcj</span><br></pre></td></tr></table></figure></p><p>如果没有输入信息表示没有安装。<br>如果安装可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep java | xargs rpm -e –nodeps</span><br></pre></td></tr></table></figure></p><p>(报错失败也无所谓 可以直接跳过)</p><p>批量卸载所有带有Java的文件 这句命令的关键字是java<br>首先检索包含java的列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list java*</span><br></pre></td></tr></table></figure></p><p>检索1.8的列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list java-1.8*</span><br></pre></td></tr></table></figure></p><p>安装1.8.0的所有文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install java-1.8.0-openjdk* -y</span><br></pre></td></tr></table></figure></p><p>使用命令检查是否安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure></p><p>到此安装结束了。这样安装有一个好处就是不需要对path进行设置，自动就设置好了</p><h3 id="有问题可以联系博主。"><a href="#有问题可以联系博主。" class="headerlink" title="有问题可以联系博主。"></a><strong>有问题可以联系博主</strong>。</h3><h3 id="转载请注明出处，谢谢！"><a href="#转载请注明出处，谢谢！" class="headerlink" title="转载请注明出处，谢谢！"></a><strong>转载请注明出处，谢谢</strong>！</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;安装之前先检查一下系统有没有自带open-jdk&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class
+      
+    
+    </summary>
+    
+      <category term="java" scheme="http://luojiamingl.github.io/categories/java/"/>
+    
+      <category term="linux" scheme="http://luojiamingl.github.io/categories/java/linux/"/>
+    
+    
+      <category term="linux" scheme="http://luojiamingl.github.io/tags/linux/"/>
+    
+      <category term="java" scheme="http://luojiamingl.github.io/tags/java/"/>
     
   </entry>
   
@@ -69,35 +129,6 @@
       <category term="idea" scheme="http://luojiamingl.github.io/tags/idea/"/>
     
       <category term="软件破解" scheme="http://luojiamingl.github.io/tags/%E8%BD%AF%E4%BB%B6%E7%A0%B4%E8%A7%A3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>yum安装更新java sdk</title>
-    <link href="http://luojiamingl.github.io/2019/05/06/yum%E5%AE%89%E8%A3%85%E6%9B%B4%E6%96%B0java%20sdk/"/>
-    <id>http://luojiamingl.github.io/2019/05/06/yum安装更新java sdk/</id>
-    <published>2019-05-06T07:46:22.000Z</published>
-    <updated>2019-05-21T08:59:39.251Z</updated>
-    
-    <content type="html"><![CDATA[<p>安装之前先检查一下系统有没有自带open-jdk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa |grep java </span><br><span class="line">rpm -qa |grep jdk </span><br><span class="line">rpm -qa |grep gcj</span><br></pre></td></tr></table></figure></p><p>如果没有输入信息表示没有安装。<br>如果安装可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep java | xargs rpm -e –nodeps</span><br></pre></td></tr></table></figure></p><p>(报错失败也无所谓 可以直接跳过)</p><p>批量卸载所有带有Java的文件 这句命令的关键字是java<br>首先检索包含java的列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list java*</span><br></pre></td></tr></table></figure></p><p>检索1.8的列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list java-1.8*</span><br></pre></td></tr></table></figure></p><p>安装1.8.0的所有文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install java-1.8.0-openjdk* -y</span><br></pre></td></tr></table></figure></p><p>使用命令检查是否安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure></p><p>到此安装结束了。这样安装有一个好处就是不需要对path进行设置，自动就设置好了</p><h3 id="有问题可以联系博主。"><a href="#有问题可以联系博主。" class="headerlink" title="有问题可以联系博主。"></a><strong>有问题可以联系博主</strong>。</h3><h3 id="转载请注明出处，谢谢！"><a href="#转载请注明出处，谢谢！" class="headerlink" title="转载请注明出处，谢谢！"></a><strong>转载请注明出处，谢谢</strong>！</h3>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;安装之前先检查一下系统有没有自带open-jdk&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class
-      
-    
-    </summary>
-    
-      <category term="java" scheme="http://luojiamingl.github.io/categories/java/"/>
-    
-      <category term="linux" scheme="http://luojiamingl.github.io/categories/java/linux/"/>
-    
-    
-      <category term="linux" scheme="http://luojiamingl.github.io/tags/linux/"/>
-    
-      <category term="java" scheme="http://luojiamingl.github.io/tags/java/"/>
     
   </entry>
   
@@ -267,9 +298,9 @@
       <category term="Python" scheme="http://luojiamingl.github.io/categories/Python/"/>
     
     
-      <category term="Python" scheme="http://luojiamingl.github.io/tags/Python/"/>
-    
       <category term="Shell" scheme="http://luojiamingl.github.io/tags/Shell/"/>
+    
+      <category term="Python" scheme="http://luojiamingl.github.io/tags/Python/"/>
     
   </entry>
   
