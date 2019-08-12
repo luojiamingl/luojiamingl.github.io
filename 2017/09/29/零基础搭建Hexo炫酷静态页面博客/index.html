@@ -63,7 +63,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Zero的博客" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="王也道长" type="application/atom+xml" />
 
 
 
@@ -80,13 +80,13 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="零基础搭建Hexo炫酷静态页面博客">
 <meta property="og:url" content="http://luojiamingl.github.io/2017/09/29/零基础搭建Hexo炫酷静态页面博客/index.html">
-<meta property="og:site_name" content="Zero的博客">
+<meta property="og:site_name" content="王也道长">
 <meta property="og:description" content="Hexo - 快速、简洁且高效的博客框架">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://luojiamingl.github.io/2017/09/29/零基础搭建Hexo炫酷静态页面博客/blok.png">
 <meta property="og:image" content="http://luojiamingl.github.io/2017/09/29/零基础搭建Hexo炫酷静态页面博客/githubkey1.png">
 <meta property="og:image" content="http://luojiamingl.github.io/2017/09/29/零基础搭建Hexo炫酷静态页面博客/githubkey2.png">
-<meta property="og:updated_time" content="2018-12-20T02:09:14.545Z">
+<meta property="og:updated_time" content="2019-08-12T12:45:31.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="零基础搭建Hexo炫酷静态页面博客">
 <meta name="twitter:description" content="Hexo - 快速、简洁且高效的博客框架">
@@ -126,7 +126,7 @@
 
 
 
-  <title>零基础搭建Hexo炫酷静态页面博客 | Zero的博客</title>
+  <title>零基础搭建Hexo炫酷静态页面博客 | 王也道长</title>
   
 
 
@@ -156,7 +156,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Zero的博客</span>
+        <span class="site-title">王也道长</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -290,13 +290,13 @@
     <link itemprop="mainEntityOfPage" href="http://luojiamingl.github.io/2017/09/29/零基础搭建Hexo炫酷静态页面博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zero">
+      <meta itemprop="name" content="王也道长">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/touxiang.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zero的博客">
+      <meta itemprop="name" content="王也道长">
     </span>
 
     
@@ -407,7 +407,7 @@
 <h2 id="下载git"><a href="#下载git" class="headerlink" title="下载git"></a>下载git</h2><p><a href="https://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" target="_blank" rel="noopener"><font color="blue">文档说明</font></a>，上面有各个平台的git下载安装步骤，按照步骤安装即可</p>
 <h2 id="本地关联github仓库"><a href="#本地关联github仓库" class="headerlink" title="本地关联github仓库"></a>本地关联github仓库</h2><p>git下载安装完成之后，需要跟你的github仓库关联起来，你需要一个私钥和公钥，首先查看本地有没有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ git:(master) ✗ cd ~/.ssh </span><br><span class="line">➜  .ssh git:(master) ✗ ls</span><br><span class="line">config      id_rsa      id_rsa.pub  known_hosts</span><br><span class="line">➜  .ssh git:(master) ✗</span><br></pre></td></tr></table></figure></p>
 <p>如果没有id_rsa（私钥）和id_rsa.pub（公钥）就需要手动生成一个，执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ git:(master) ✗ ssh-keygen</span><br></pre></td></tr></table></figure></p>
-<p>生成双钥，然后把公钥放到github仓库上，点击头像选择settings<br><img src="githubkey1.png" alt="image"><br>左侧找到SSH，然后点击New SSH key，把公钥的文本内容粘贴进去，就可以了<br><img src="githubkey2.png" alt="image"></p>
+<p>生成双钥，然后把公钥放到github仓库上，点击头像选择settings<br><img src="githubkey1.png" alt="image">d<br>左侧找到SSH，然后点击New SSH key，把公钥的文本内容粘贴进去，就可以了<br><img src="githubkey2.png" alt="image"></p>
 <h1 id="部署hexo"><a href="#部署hexo" class="headerlink" title="部署hexo"></a>部署hexo</h1><h2 id="命令介绍"><a href="#命令介绍" class="headerlink" title="命令介绍"></a>命令介绍</h2><p>准备工作完成，就可以部署看一下博客界面效果了,先介绍一下hexo常用命令</p>
 <ul>
 <li>hexo clean 清除编辑后生成的静态文件，一般部署前都会执行一遍，防止上次部署结果影响新的文件内容</li>
@@ -446,14 +446,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/weixin.jpeg" alt="Zero 微信支付"/>
+        <img id="wechat_qr" src="/images/weixin.jpeg" alt="王也道长 微信支付"/>
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/zhifubao.jpeg" alt="Zero 支付宝"/>
+        <img id="alipay_qr" src="/images/zhifubao.jpeg" alt="王也道长 支付宝"/>
         <p>支付宝</p>
       </div>
     
@@ -564,9 +564,9 @@
           
             <img class="site-author-image" itemprop="image"
               src="/images/touxiang.jpeg"
-              alt="Zero" />
+              alt="王也道长" />
           
-            <p class="site-author-name" itemprop="name">Zero</p>
+            <p class="site-author-name" itemprop="name">王也道长</p>
             <p class="site-description motion-element" itemprop="description"></p>
         </div>
 
@@ -691,13 +691,13 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Zero</span>
+  <span class="author" itemprop="copyrightHolder">王也道长</span>
 
   
 </div>
 
 
-  <div class="powered-by">遇见你</div>
+  <div class="powered-by">随缘惜缘不攀缘</div>
 
 
 
