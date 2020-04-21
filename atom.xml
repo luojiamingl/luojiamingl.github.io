@@ -160,6 +160,35 @@
   </entry>
   
   <entry>
+    <title>yum安装更新java sdk</title>
+    <link href="http://luojiamingl.github.io/2019/05/06/yum%E5%AE%89%E8%A3%85%E6%9B%B4%E6%96%B0java%20sdk/"/>
+    <id>http://luojiamingl.github.io/2019/05/06/yum安装更新java sdk/</id>
+    <published>2019-05-06T07:46:22.000Z</published>
+    <updated>2019-05-21T08:59:39.251Z</updated>
+    
+    <content type="html"><![CDATA[<p>安装之前先检查一下系统有没有自带open-jdk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa |grep java </span><br><span class="line">rpm -qa |grep jdk </span><br><span class="line">rpm -qa |grep gcj</span><br></pre></td></tr></table></figure></p><p>如果没有输入信息表示没有安装。<br>如果安装可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep java | xargs rpm -e –nodeps</span><br></pre></td></tr></table></figure></p><p>(报错失败也无所谓 可以直接跳过)</p><p>批量卸载所有带有Java的文件 这句命令的关键字是java<br>首先检索包含java的列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list java*</span><br></pre></td></tr></table></figure></p><p>检索1.8的列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list java-1.8*</span><br></pre></td></tr></table></figure></p><p>安装1.8.0的所有文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install java-1.8.0-openjdk* -y</span><br></pre></td></tr></table></figure></p><p>使用命令检查是否安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure></p><p>到此安装结束了。这样安装有一个好处就是不需要对path进行设置，自动就设置好了</p><h3 id="有问题可以联系博主。"><a href="#有问题可以联系博主。" class="headerlink" title="有问题可以联系博主。"></a><strong>有问题可以联系博主</strong>。</h3><h3 id="转载请注明出处，谢谢！"><a href="#转载请注明出处，谢谢！" class="headerlink" title="转载请注明出处，谢谢！"></a><strong>转载请注明出处，谢谢</strong>！</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;安装之前先检查一下系统有没有自带open-jdk&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class
+      
+    
+    </summary>
+    
+      <category term="java" scheme="http://luojiamingl.github.io/categories/java/"/>
+    
+      <category term="linux" scheme="http://luojiamingl.github.io/categories/java/linux/"/>
+    
+    
+      <category term="linux" scheme="http://luojiamingl.github.io/tags/linux/"/>
+    
+      <category term="java" scheme="http://luojiamingl.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>idea破解</title>
     <link href="http://luojiamingl.github.io/2019/05/06/IDEA%E7%A0%B4%E8%A7%A3/"/>
     <id>http://luojiamingl.github.io/2019/05/06/IDEA破解/</id>
@@ -186,35 +215,6 @@
       <category term="idea" scheme="http://luojiamingl.github.io/tags/idea/"/>
     
       <category term="软件破解" scheme="http://luojiamingl.github.io/tags/%E8%BD%AF%E4%BB%B6%E7%A0%B4%E8%A7%A3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>yum安装更新java sdk</title>
-    <link href="http://luojiamingl.github.io/2019/05/06/yum%E5%AE%89%E8%A3%85%E6%9B%B4%E6%96%B0java%20sdk/"/>
-    <id>http://luojiamingl.github.io/2019/05/06/yum安装更新java sdk/</id>
-    <published>2019-05-06T07:46:22.000Z</published>
-    <updated>2019-05-21T08:59:39.251Z</updated>
-    
-    <content type="html"><![CDATA[<p>安装之前先检查一下系统有没有自带open-jdk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa |grep java </span><br><span class="line">rpm -qa |grep jdk </span><br><span class="line">rpm -qa |grep gcj</span><br></pre></td></tr></table></figure></p><p>如果没有输入信息表示没有安装。<br>如果安装可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep java | xargs rpm -e –nodeps</span><br></pre></td></tr></table></figure></p><p>(报错失败也无所谓 可以直接跳过)</p><p>批量卸载所有带有Java的文件 这句命令的关键字是java<br>首先检索包含java的列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list java*</span><br></pre></td></tr></table></figure></p><p>检索1.8的列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list java-1.8*</span><br></pre></td></tr></table></figure></p><p>安装1.8.0的所有文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install java-1.8.0-openjdk* -y</span><br></pre></td></tr></table></figure></p><p>使用命令检查是否安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure></p><p>到此安装结束了。这样安装有一个好处就是不需要对path进行设置，自动就设置好了</p><h3 id="有问题可以联系博主。"><a href="#有问题可以联系博主。" class="headerlink" title="有问题可以联系博主。"></a><strong>有问题可以联系博主</strong>。</h3><h3 id="转载请注明出处，谢谢！"><a href="#转载请注明出处，谢谢！" class="headerlink" title="转载请注明出处，谢谢！"></a><strong>转载请注明出处，谢谢</strong>！</h3>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;安装之前先检查一下系统有没有自带open-jdk&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class
-      
-    
-    </summary>
-    
-      <category term="java" scheme="http://luojiamingl.github.io/categories/java/"/>
-    
-      <category term="linux" scheme="http://luojiamingl.github.io/categories/java/linux/"/>
-    
-    
-      <category term="linux" scheme="http://luojiamingl.github.io/tags/linux/"/>
-    
-      <category term="java" scheme="http://luojiamingl.github.io/tags/java/"/>
     
   </entry>
   
@@ -384,9 +384,9 @@
       <category term="Python" scheme="http://luojiamingl.github.io/categories/Python/"/>
     
     
-      <category term="Python" scheme="http://luojiamingl.github.io/tags/Python/"/>
-    
       <category term="Shell" scheme="http://luojiamingl.github.io/tags/Shell/"/>
+    
+      <category term="Python" scheme="http://luojiamingl.github.io/tags/Python/"/>
     
   </entry>
   

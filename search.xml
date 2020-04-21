@@ -60,18 +60,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[idea破解]]></title>
-    <url>%2F2019%2F05%2F06%2FIDEA%E7%A0%B4%E8%A7%A3%2F</url>
-    <content type="text"><![CDATA[破解方法license server 填写 http://idea.toocruel.net/ 简单粗暴搞定 有问题可以联系博主。转载请注明出处，谢谢！]]></content>
-      <categories>
-        <category>软件破解</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-        <tag>软件破解</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[yum安装更新java sdk]]></title>
     <url>%2F2019%2F05%2F06%2Fyum%E5%AE%89%E8%A3%85%E6%9B%B4%E6%96%B0java%20sdk%2F</url>
     <content type="text"><![CDATA[安装之前先检查一下系统有没有自带open-jdk123rpm -qa |grep java rpm -qa |grep jdk rpm -qa |grep gcj 如果没有输入信息表示没有安装。如果安装可以使用1rpm -qa | grep java | xargs rpm -e –nodeps (报错失败也无所谓 可以直接跳过) 批量卸载所有带有Java的文件 这句命令的关键字是java首先检索包含java的列表1yum list java* 检索1.8的列表1yum list java-1.8* 安装1.8.0的所有文件1yum install java-1.8.0-openjdk* -y 使用命令检查是否安装成功1java -version 到此安装结束了。这样安装有一个好处就是不需要对path进行设置，自动就设置好了 有问题可以联系博主。转载请注明出处，谢谢！]]></content>
@@ -82,6 +70,18 @@
       <tags>
         <tag>linux</tag>
         <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[idea破解]]></title>
+    <url>%2F2019%2F05%2F06%2FIDEA%E7%A0%B4%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[破解方法license server 填写 http://idea.toocruel.net/ 简单粗暴搞定 有问题可以联系博主。转载请注明出处，谢谢！]]></content>
+      <categories>
+        <category>软件破解</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+        <tag>软件破解</tag>
       </tags>
   </entry>
   <entry>
@@ -152,8 +152,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Shell</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
