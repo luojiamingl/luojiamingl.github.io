@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://luojiamingl.github.io/2020/04/21/nginx%E4%B8%8B%E5%90%8E%E7%AB%AF%E8%8A%82%E7%82%B9realserverweb%E5%81%A5%E5%BA%B7%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9D%97ngx_http_upstream_check_module/</loc>
+    
+    <lastmod>2020-04-21T07:29:01.956Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://luojiamingl.github.io/2020/01/01/%E6%9F%A5%E7%9C%8Blinux%E4%B8%AD%E7%9A%84TCP%E8%BF%9E%E6%8E%A5%E6%95%B0/</loc>
     
     <lastmod>2020-01-02T03:32:44.000Z</lastmod>
