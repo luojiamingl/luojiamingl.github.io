@@ -79,16 +79,16 @@
 <meta name="keywords" content="java,熔断">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用meerkat进行服务监控和服务降级">
-<meta property="og:url" content="http://luojiamingl.github.io/2018/01/29/使用meerkat进行服务监控和服务降级/index.html">
+<meta property="og:url" content="https://luojiamingl.github.io/2018/01/29/使用meerkat进行服务监控和服务降级/index.html">
 <meta property="og:site_name" content="王也道长">
 <meta property="og:description" content="meerkat进行服务监控和服务降级meerkat 是用于服务监控以及服务降级基础组件，主要为了解决调用外部接口的时候进行成功率，响应时间，QPS指标的监控，同时在成功率下降到预设的阈值以下的时候自动切断外部接口的调用，外部接口成功率恢复后自动恢复请求。本文将对使用方式以及进阶特性进行介绍。 项目主页： https://github.com/ChanningBJ… 为什么要进行监控和熔断在我们的J">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/01/29/使用meerkat进行服务监控和服务降级/alert.png">
-<meta property="og:updated_time" content="2018-04-11T11:03:33.656Z">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/01/29/使用meerkat进行服务监控和服务降级/alert.png">
+<meta property="og:updated_time" content="2020-04-21T09:35:42.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用meerkat进行服务监控和服务降级">
 <meta name="twitter:description" content="meerkat进行服务监控和服务降级meerkat 是用于服务监控以及服务降级基础组件，主要为了解决调用外部接口的时候进行成功率，响应时间，QPS指标的监控，同时在成功率下降到预设的阈值以下的时候自动切断外部接口的调用，外部接口成功率恢复后自动恢复请求。本文将对使用方式以及进阶特性进行介绍。 项目主页： https://github.com/ChanningBJ… 为什么要进行监控和熔断在我们的J">
-<meta name="twitter:image" content="http://luojiamingl.github.io/2018/01/29/使用meerkat进行服务监控和服务降级/alert.png">
+<meta name="twitter:image" content="https://luojiamingl.github.io/2018/01/29/使用meerkat进行服务监控和服务降级/alert.png">
 
 
 
@@ -118,7 +118,7 @@
 
 
 
-  <link rel="canonical" href="http://luojiamingl.github.io/2018/01/29/使用meerkat进行服务监控和服务降级/"/>
+  <link rel="canonical" href="https://luojiamingl.github.io/2018/01/29/使用meerkat进行服务监控和服务降级/"/>
 
 
 
@@ -136,7 +136,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="https://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -146,7 +146,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="https://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -280,20 +280,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="https://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://luojiamingl.github.io/2018/01/29/使用meerkat进行服务监控和服务降级/">
+    <link itemprop="mainEntityOfPage" href="https://luojiamingl.github.io/2018/01/29/使用meerkat进行服务监控和服务降级/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="https://schema.org/Person">
       <meta itemprop="name" content="王也道长">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/touxiang.jpeg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
       <meta itemprop="name" content="王也道长">
     </span>
 
@@ -336,7 +336,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/java/" itemprop="url" rel="index">
                     <span itemprop="name">java</span>
                   </a>
@@ -395,7 +395,7 @@
 <h2 id="查看统计结果"><a href="#查看统计结果" class="headerlink" title="查看统计结果"></a>查看统计结果</h2><p>统计结果会以熔断命令类名为进行分组。例如前面我们定义的 GetPlayCountCommand 类,package name 是 com.test，那么在日志中的输出将会是这个样子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type=GAUGE, name=com.test.GetPlayCountCommand.normal-rate, value=0.0</span><br><span class="line">type=GAUGE, name=com.test.GetPlayCountCommand.success-rate, value=61.0</span><br><span class="line">type=TIMER, name=com.test.GetPlayCountCommand.time, count=25866500, min=0.0, max=0.001, mean=3.963926781047921E-5, stddev=1.951102156677818E-4, median=0.0, p75=0.0, p95=0.0, p98=0.001, p99=0.001, p999=0.001, mean_rate=649806.0831335272, m1=1665370.7316699813, m5=2315813.300713087, m15=2446572.324069477, rate_unit=events/second, duration_unit=milliseconds</span><br></pre></td></tr></table></figure>
 <h2 id="单独使用监控功能"><a href="#单独使用监控功能" class="headerlink" title="单独使用监控功能"></a>单独使用监控功能</h2><p>如果不想使用熔断功能，只是想监控Java方法调用的耗时和成功率，可以直接使用 OperationMeter 进行实现，只需要在函数调用的前后添加开始和结束的调用即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//创建一个操作的计数器</span><br><span class="line">    OperationMeter meter = MeterCenter.INSTANCE.getOrCreateMeter(OperationMeterTest.class, OperationMeter.class);</span><br><span class="line"></span><br><span class="line">    //模拟成功率60%</span><br><span class="line">    for(int k=0; k&lt;100; k++)&#123;</span><br><span class="line">        Timer.Context context = meter.startOperation();</span><br><span class="line">        if(k%10&lt;6)&#123;</span><br><span class="line">            meter.endOperation(context, OperationMeter.Result.SUCCESS);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            meter.endOperation(context, OperationMeter.Result.FAILURE);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="开启熔断并配置阀值和持续时间"><a href="#开启熔断并配置阀值和持续时间" class="headerlink" title="开启熔断并配置阀值和持续时间"></a>开启熔断并配置阀值和持续时间</h2><p>首先创建一个接口，继承自FusingConfig，用于指定配置文件的加载路径，同时还可以设定配置文件的刷新时间，具体定义方法请参照 <a href="http://owner.aeonbits.org/" target="_blank" rel="noopener">++owner++</a> 文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Config.Sources(&quot;classpath:app_config.properties&quot;)</span><br><span class="line">@Config.HotReload(</span><br><span class="line">        value = 1, unit = java.util.concurrent.TimeUnit.MINUTES,</span><br><span class="line">        type = Config.HotReloadType.ASYNC)</span><br><span class="line">public interface APPFusingConfig extends FusingConfig &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="开启熔断并配置阀值和持续时间"><a href="#开启熔断并配置阀值和持续时间" class="headerlink" title="开启熔断并配置阀值和持续时间"></a>开启熔断并配置阀值和持续时间</h2><p>首先创建一个接口，继承自FusingConfig，用于指定配置文件的加载路径，同时还可以设定配置文件的刷新时间，具体定义方法请参照 <a href="https://owner.aeonbits.org/" target="_blank" rel="noopener">++owner++</a> 文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Config.Sources(&quot;classpath:app_config.properties&quot;)</span><br><span class="line">@Config.HotReload(</span><br><span class="line">        value = 1, unit = java.util.concurrent.TimeUnit.MINUTES,</span><br><span class="line">        type = Config.HotReloadType.ASYNC)</span><br><span class="line">public interface APPFusingConfig extends FusingConfig &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>创建查询Command的时候在构造函数中传入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class GetPlayCountCommand extends FusingCommand&lt;Long&gt; &#123;</span><br><span class="line"></span><br><span class="line">    private final Long videoID;</span><br><span class="line"></span><br><span class="line">    public GetPlayCountCommand(Long videoID) &#123;</span><br><span class="line">        super( APPFusingConfig.class);  //设定配置文件</span><br><span class="line">        this.videoID = videoID;</span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    protected Optional&lt;Long&gt; run() &#123;</span><br><span class="line">        Long result = 0l;</span><br><span class="line">        // 调用HTTP接口获取视频的播放次数信息</span><br><span class="line">        // 如果调用失败，返回 null 或者抛出异常，会将这次操作记录为失败</span><br><span class="line">        // 如果ID非法，返回 Optional.absent(),会将这次操作记录为成功</span><br><span class="line">        return Optional.fromNullable(result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>配置文件内容如下：</p>
 <table>
@@ -426,7 +426,7 @@
 </table>
 <p>配置文件中的 CommandClassName 是每个操作类的名称，可以为每个操作单独设置上述参数。同时，这个配置文件支持动态加载，乐意通过修改fusing.[CommandClassName].mode 手工触发或者关闭熔断。</p>
 <h2 id="监控指标上报Graphite"><a href="#监控指标上报Graphite" class="headerlink" title="监控指标上报Graphite"></a>监控指标上报Graphite</h2><p>我们的服务中使用的是Metric+Graphite+Gafana进行监控数据的采集存储和展现，下面将介绍如何配置监控数据上报Grafana，关于Graphite+Grafana的配置，可以参考文章：使用<a href="https://segmentfault.com/a/1190000007540752" target="_blank" rel="noopener">graphite和grafana进行应用程序监控</a></p>
-<h2 id="定义配置文件"><a href="#定义配置文件" class="headerlink" title="定义配置文件"></a>定义配置文件</h2><p>首先定义一个接口，继承自GraphiteReporterConfig，通过这个接口定义配置文件的加载路径。配置文件路径的定义方法请参照 <a href="http://owner.aeonbits.org/" target="_blank" rel="noopener">++owner++</a>  文档, 下面是一个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Config.Sources(&quot;classpath:config.properties&quot;)</span><br><span class="line">public interface MyConfig extends GraphiteReporterConfig &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="定义配置文件"><a href="#定义配置文件" class="headerlink" title="定义配置文件"></a>定义配置文件</h2><p>首先定义一个接口，继承自GraphiteReporterConfig，通过这个接口定义配置文件的加载路径。配置文件路径的定义方法请参照 <a href="https://owner.aeonbits.org/" target="_blank" rel="noopener">++owner++</a>  文档, 下面是一个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Config.Sources(&quot;classpath:config.properties&quot;)</span><br><span class="line">public interface MyConfig extends GraphiteReporterConfig &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>配置文件中需要定义下列内容：</p>
 <table>
 <thead>
@@ -485,7 +485,7 @@
 </tbody>
 </table>
 <p>在Grafanna中可以看到下面的监控图：<br><img src="alert.png" alt="image"></p>
-<h2 id="自定义监控上报"><a href="#自定义监控上报" class="headerlink" title="自定义监控上报"></a>自定义监控上报</h2><p>meerkat使用<a href="http://metrics.dropwizard.io/" target="_blank" rel="noopener">++Metrics++</a>进行监控数据的统计，因此可以使用Metrics支持的所有reporter进行上报。添加一种上报的时候，只需要实现 EnablingReporter 并在 MeterCenter 初始化之前进行调用即可。下面是log reporter的实现，可以作为参考<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class EnablingLogReporter implements EnablingReporter &#123;</span><br><span class="line">    private String loggername;</span><br><span class="line"></span><br><span class="line">    public EnablingLogReporter(String loggername) &#123;</span><br><span class="line">        this.loggername = loggername;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void invoke(MetricRegistry metricRegistry, long period, TimeUnit timeUnit) &#123;</span><br><span class="line">        Slf4jReporter.forRegistry(metricRegistry)</span><br><span class="line">                .outputTo(LoggerFactory.getLogger(loggername))</span><br><span class="line">                .convertRatesTo(java.util.concurrent.TimeUnit.SECONDS)</span><br><span class="line">                .convertDurationsTo(java.util.concurrent.TimeUnit.MILLISECONDS)</span><br><span class="line">                .build().start(period, timeUnit);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="自定义监控上报"><a href="#自定义监控上报" class="headerlink" title="自定义监控上报"></a>自定义监控上报</h2><p>meerkat使用<a href="https://metrics.dropwizard.io/" target="_blank" rel="noopener">++Metrics++</a>进行监控数据的统计，因此可以使用Metrics支持的所有reporter进行上报。添加一种上报的时候，只需要实现 EnablingReporter 并在 MeterCenter 初始化之前进行调用即可。下面是log reporter的实现，可以作为参考<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class EnablingLogReporter implements EnablingReporter &#123;</span><br><span class="line">    private String loggername;</span><br><span class="line"></span><br><span class="line">    public EnablingLogReporter(String loggername) &#123;</span><br><span class="line">        this.loggername = loggername;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void invoke(MetricRegistry metricRegistry, long period, TimeUnit timeUnit) &#123;</span><br><span class="line">        Slf4jReporter.forRegistry(metricRegistry)</span><br><span class="line">                .outputTo(LoggerFactory.getLogger(loggername))</span><br><span class="line">                .convertRatesTo(java.util.concurrent.TimeUnit.SECONDS)</span><br><span class="line">                .convertDurationsTo(java.util.concurrent.TimeUnit.MILLISECONDS)</span><br><span class="line">                .build().start(period, timeUnit);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>MeterCenter 初始化的时候开启reporter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MeterCenter.INSTANCE</span><br><span class="line">    .enableReporter(new EnablingLogReporter(&quot;org.apache.log4j.RollingFileAppender&quot;))</span><br><span class="line">    .init();</span><br></pre></td></tr></table></figure></p>
 <h2 id="多实例监控"><a href="#多实例监控" class="headerlink" title="多实例监控"></a>多实例监控</h2><p>多实例监控主要是为了解决一个被监控操作的实现类需要根据输入参数的不同分别进行监控和熔断的情况，通过定义实例的名称进行实现。例如获取视频播放次数的例子，获取视频播放次数的接口对于不同的视频类型而言请求逻辑是一样的，所以使用同一个类进行实现；但是对于不同的视频类型，接口实现的复杂程度不同导致成功率不同，当用户上传的视频的播次接口大量失败的时候我们不希望同时熔断电影电视剧这类视频的播放次数获取，这时就需要使用多实例这种特性进行监控和熔断。</p>
 <p>下面是一个单实例的实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class GetPlayCountCommand extends FusingCommand&lt;Long&gt; &#123;</span><br><span class="line"></span><br><span class="line">    private final Long videoID;</span><br><span class="line"></span><br><span class="line">    public GetPlayCountCommand(Long videoID) &#123;</span><br><span class="line">        super( APPFusingConfig.class);</span><br><span class="line">        this.videoID = videoID;</span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    protected Optional&lt;Long&gt; run() &#123;</span><br><span class="line">        Long result = 0l;</span><br><span class="line">        // 调用HTTP接口获取视频的播放次数信息</span><br><span class="line">        // 如果调用失败，返回 null 或者抛出异常，会将这次操作记录为失败</span><br><span class="line">        // 如果ID非法，返回 Optional.absent(),会将这次操作记录为成功</span><br><span class="line">        return Optional.fromNullable(result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -633,7 +633,7 @@
       
 
       <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="https://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
               src="/images/touxiang.jpeg"
@@ -705,7 +705,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://weibo.com/6326279102/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                <a href="https://weibo.com/6326279102/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
                   
                     <i class="fa fa-fw fa-globe"></i>Weibo</a>
               </span>

@@ -79,22 +79,22 @@
 <meta name="keywords" content="java,并发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java之并发上锁精简分析">
-<meta property="og:url" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/index.html">
+<meta property="og:url" content="https://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/index.html">
 <meta property="og:site_name" content="王也道长">
 <meta property="og:description" content="“锁”在我们日常的生活工作中经常会用到，这充分保证了个人财产安全和隐私安全。 同样，在程序的世界里，也有一把锁，保证程序不会崩溃，保证我们手机钱包里的钱不会无缘无故变多变少。 这把锁（lock）作为用于保护临界区（critical section）的一种机制，被广泛应用在多线程程序中。比如 Java 应用程序出现的 synchronized 关键字，就是锁实现的一种方式。 下面我们从一个计数器的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/1.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/2.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/3.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/4.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/5.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/6.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/7.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/1.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/2.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/3.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/4.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/5.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/6.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/7.png">
 <meta property="og:updated_time" content="2018-09-14T02:52:20.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java之并发上锁精简分析">
 <meta name="twitter:description" content="“锁”在我们日常的生活工作中经常会用到，这充分保证了个人财产安全和隐私安全。 同样，在程序的世界里，也有一把锁，保证程序不会崩溃，保证我们手机钱包里的钱不会无缘无故变多变少。 这把锁（lock）作为用于保护临界区（critical section）的一种机制，被广泛应用在多线程程序中。比如 Java 应用程序出现的 synchronized 关键字，就是锁实现的一种方式。 下面我们从一个计数器的">
-<meta name="twitter:image" content="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/1.png">
+<meta name="twitter:image" content="https://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/1.png">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/"/>
+  <link rel="canonical" href="https://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/"/>
 
 
 
@@ -142,7 +142,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="https://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -152,7 +152,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="https://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -286,20 +286,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="https://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/">
+    <link itemprop="mainEntityOfPage" href="https://luojiamingl.github.io/2018/09/14/java之并发上锁精简分析/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="https://schema.org/Person">
       <meta itemprop="name" content="王也道长">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/touxiang.jpeg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
       <meta itemprop="name" content="王也道长">
     </span>
 
@@ -342,7 +342,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/java/" itemprop="url" rel="index">
                     <span itemprop="name">java</span>
                   </a>
@@ -353,7 +353,7 @@
                   ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/java/并发/" itemprop="url" rel="index">
                     <span itemprop="name">并发</span>
                   </a>
@@ -558,7 +558,7 @@
       
 
       <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="https://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
               src="/images/touxiang.jpeg"
@@ -630,7 +630,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://weibo.com/6326279102/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                <a href="https://weibo.com/6326279102/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
                   
                     <i class="fa fa-fw fa-globe"></i>Weibo</a>
               </span>

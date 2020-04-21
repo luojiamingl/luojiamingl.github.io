@@ -79,29 +79,29 @@
 <meta name="keywords" content="nginx,ipv6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nginx添加ipv6模块并配置ipv6端口监听">
-<meta property="og:url" content="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/index.html">
+<meta property="og:url" content="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/index.html">
 <meta property="og:site_name" content="王也道长">
 <meta property="og:description" content="一为Nginx添加ipv6模块一：检查nginx是否已经包含ipv6模块1[root@iz2ze3oyrjbxg32wecre15z /]# /alidata/server/nginx/sbin/nginx -V  从结果看出，输出结果没有 ipv6支持 如果支持ipv6，则输出结果会包含 “–with-ipv6”。 如果各位同学的环境已经支持，则可以不用往下看啦！ 二：准备nginx源码1、本文">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/1.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/2.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/3.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/4.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/5.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/6.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/7.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/8.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/9.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/10.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/11.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/13.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/14.png">
-<meta property="og:image" content="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/12.png">
-<meta property="og:updated_time" content="2018-12-20T02:06:28.847Z">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/1.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/2.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/3.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/4.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/5.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/6.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/7.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/8.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/9.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/10.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/11.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/13.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/14.png">
+<meta property="og:image" content="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/12.png">
+<meta property="og:updated_time" content="2020-04-21T09:35:40.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx添加ipv6模块并配置ipv6端口监听">
 <meta name="twitter:description" content="一为Nginx添加ipv6模块一：检查nginx是否已经包含ipv6模块1[root@iz2ze3oyrjbxg32wecre15z /]# /alidata/server/nginx/sbin/nginx -V  从结果看出，输出结果没有 ipv6支持 如果支持ipv6，则输出结果会包含 “–with-ipv6”。 如果各位同学的环境已经支持，则可以不用往下看啦！ 二：准备nginx源码1、本文">
-<meta name="twitter:image" content="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/1.png">
+<meta name="twitter:image" content="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/1.png">
 
 
 
@@ -131,7 +131,7 @@
 
 
 
-  <link rel="canonical" href="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/"/>
+  <link rel="canonical" href="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/"/>
 
 
 
@@ -149,7 +149,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="https://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -159,7 +159,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="https://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -293,20 +293,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="https://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/">
+    <link itemprop="mainEntityOfPage" href="https://luojiamingl.github.io/2018/12/20/nginx添加ipv6模块并配置ipv6端口监听/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="https://schema.org/Person">
       <meta itemprop="name" content="王也道长">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/touxiang.jpeg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
       <meta itemprop="name" content="王也道长">
     </span>
 
@@ -349,7 +349,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/nginx/" itemprop="url" rel="index">
                     <span itemprop="name">nginx</span>
                   </a>
@@ -360,7 +360,7 @@
                   ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/nginx/ipv6/" itemprop="url" rel="index">
                     <span itemprop="name">ipv6</span>
                   </a>
@@ -415,7 +415,7 @@
 <p>如果支持ipv6，则输出结果会包含 “–with-ipv6”。<br><img src="2.png" alt="image"></p>
 <p>如果各位同学的环境已经支持，则可以不用往下看啦！</p>
 <h2 id="二：准备nginx源码"><a href="#二：准备nginx源码" class="headerlink" title="二：准备nginx源码"></a>二：准备nginx源码</h2><p>1、本文以1.4.4版本为例，其他版本没有测试，不过我想基本类似，具体请各位同学亲测。</p>
-<p>2、如果本地没有源码，则需要到如下地址下载：<a href="http://nginx.org/download/nginx-1.4.4.tar.gz其他版本，也可以在http://nginx.org下载，上面会列出所有版本以供下载。" target="_blank" rel="noopener">http://nginx.org/download/nginx-1.4.4.tar.gz其他版本，也可以在http://nginx.org下载，上面会列出所有版本以供下载。</a></p>
+<p>2、如果本地没有源码，则需要到如下地址下载：<a href="https://nginx.org/download/nginx-1.4.4.tar.gz其他版本，也可以在https://nginx.org下载，上面会列出所有版本以供下载。" target="_blank" rel="noopener">https://nginx.org/download/nginx-1.4.4.tar.gz其他版本，也可以在https://nginx.org下载，上面会列出所有版本以供下载。</a></p>
 <p>3、将下载的源码上传到linux</p>
 <p>在root 根目录新建 tmp目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@iz2ze3oyrjbxg32wecre15z /]# cd /root</span><br><span class="line"></span><br><span class="line">[root@iz2ze3oyrjbxg32wecre15z /]# mkdir tmp</span><br></pre></td></tr></table></figure></p>
 <p>将安装包上传到该目录，上传工具推荐同学们使用Xftp</p>
@@ -454,7 +454,7 @@
 <p>2、如果想监听指定ipv6地址，则将中括号中的::换成 指定ipv6地址即可。</p>
 <p><img src="14.png" alt="image"></p>
 <p>3、在前面的配置中，很多同学看到有监听443端口，这个是对ssl的监听，监听方式和默认80监听类似，大家可以举一反三嘛！</p>
-<h2 id="四、我们使用ipv6网站来测试是否已经可以正常访问"><a href="#四、我们使用ipv6网站来测试是否已经可以正常访问" class="headerlink" title="四、我们使用ipv6网站来测试是否已经可以正常访问"></a>四、我们使用ipv6网站来测试是否已经可以正常访问</h2><p>我们常用的网站是：<a href="http://ipv6-test.com/validate.php" target="_blank" rel="noopener">http://ipv6-test.com/validate.php</a></p>
+<h2 id="四、我们使用ipv6网站来测试是否已经可以正常访问"><a href="#四、我们使用ipv6网站来测试是否已经可以正常访问" class="headerlink" title="四、我们使用ipv6网站来测试是否已经可以正常访问"></a>四、我们使用ipv6网站来测试是否已经可以正常访问</h2><p>我们常用的网站是：<a href="https://ipv6-test.com/validate.php" target="_blank" rel="noopener">https://ipv6-test.com/validate.php</a></p>
 <p><img src="12.png" alt="image"></p>
 <p>结果显示，已经正确访问到网站。</p>
 <h3 id="转载请注明出处，谢谢！"><a href="#转载请注明出处，谢谢！" class="headerlink" title="转载请注明出处，谢谢！"></a><strong>转载请注明出处，谢谢</strong>！</h3><p>参考：<a href="https://blog.csdn.net/shenxianfeng/article/details/72859830！" target="_blank" rel="noopener">https://blog.csdn.net/shenxianfeng/article/details/72859830！</a></p>
@@ -596,7 +596,7 @@
       
 
       <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="https://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
               src="/images/touxiang.jpeg"
@@ -668,7 +668,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://weibo.com/6326279102/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                <a href="https://weibo.com/6326279102/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
                   
                     <i class="fa fa-fw fa-globe"></i>Weibo</a>
               </span>
