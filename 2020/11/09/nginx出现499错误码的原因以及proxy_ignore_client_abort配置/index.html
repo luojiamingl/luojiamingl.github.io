@@ -57,7 +57,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="nginx," />
 
 
 
@@ -75,13 +75,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="王也道长">
-<meta property="og:url" content="https://luojiamingl.github.io/archives/2017/09/index.html">
+<meta name="description" content="400-499 用于指出客户端的错误。  495 ：https certificate error 496 ：https no certificate 497 ：http to https 498 ：canceled 499 ：client has closed connection 即499错误是客户端主动断开了连接。 如何关闭报499这个错误码呢？可以通过配置：proxy_ignore_cli">
+<meta name="keywords" content="nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx出现499错误码的原因以及proxy_ignore_client_abort配置">
+<meta property="og:url" content="https://luojiamingl.github.io/2020/11/09/nginx出现499错误码的原因以及proxy_ignore_client_abort配置/index.html">
 <meta property="og:site_name" content="王也道长">
+<meta property="og:description" content="400-499 用于指出客户端的错误。  495 ：https certificate error 496 ：https no certificate 497 ：http to https 498 ：canceled 499 ：client has closed connection 即499错误是客户端主动断开了连接。 如何关闭报499这个错误码呢？可以通过配置：proxy_ignore_cli">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-11-09T08:12:03.644Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="王也道长">
+<meta name="twitter:title" content="nginx出现499错误码的原因以及proxy_ignore_client_abort配置">
+<meta name="twitter:description" content="400-499 用于指出客户端的错误。  495 ：https certificate error 496 ：https no certificate 497 ：http to https 498 ：canceled 499 ：client has closed connection 即499错误是客户端主动断开了连接。 如何关闭报499这个错误码呢？可以通过配置：proxy_ignore_cli">
 
 
 
@@ -111,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="https://luojiamingl.github.io/archives/2017/09/"/>
+  <link rel="canonical" href="https://luojiamingl.github.io/2020/11/09/nginx出现499错误码的原因以及proxy_ignore_client_abort配置/"/>
 
 
 
 
 
-  <title>归档 | 王也道长</title>
+  <title>nginx出现499错误码的原因以及proxy_ignore_client_abort配置 | 王也道长</title>
   
 
 
@@ -136,7 +141,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="https://schema.org/WPHeader">
@@ -264,111 +269,220 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 26 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="https://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://luojiamingl.github.io/2020/11/09/nginx出现499错误码的原因以及proxy_ignore_client_abort配置/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="https://schema.org/Person">
+      <meta itemprop="name" content="王也道长">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+      <meta itemprop="name" content="王也道长">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/09/30/sublime破解及关闭自动更新/" itemprop="url">
-              
-                <span itemprop="name">sublime注册码破解及关闭自动更新</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">nginx出现499错误码的原因以及proxy_ignore_client_abort配置</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-30T15:46:22+08:00"
-              content="2017-09-30" >
-          09-30
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-11-09T11:59:22+08:00">
+                2020-11-09
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/11/09/nginx出现499错误码的原因以及proxy_ignore_client_abort配置/" class="leancloud_visitors" data-flag-title="nginx出现499错误码的原因以及proxy_ignore_client_abort配置">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="https://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/29/零基础搭建Hexo炫酷静态页面博客/" itemprop="url">
-              
-                <span itemprop="name">零基础搭建Hexo炫酷静态页面博客</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-29T19:59:22+08:00"
-              content="2017-09-29" >
-          09-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <p>400-499 用于指出客户端的错误。 </p>
+<p>495 ：https certificate error</p>
+<p>496 ：https no certificate</p>
+<p>497 ：http to https</p>
+<p>498 ：canceled</p>
+<p>499 ：client has closed connection</p>
+<p>即499错误是客户端主动断开了连接。 如何关闭报499这个错误码呢？可以通过配置：proxy_ignore_client_abort来处理。<br>    proxy_ignore_client_abort：是否开启proxy忽略客户端中断。</p>
+<p>即如果此项设置为on开启，则服务器会忽略客户端中断，一直等着代理服务执行返回。并且如果执行没有发生错误，记录的日志是200日志。如果超时则会记录504。如果设置为off，则客户端中断后服务器端nginx立即记录499日志，但要注意，此时代理端的PHP程序会依然继续执行。</p>
+<p>nginx的proxy_ignore_client_abort默认是关闭的，即请求过程中如果客户端端主动关闭请求或者客户端网络断掉，那么Nginx会记录499。所以如果不想看到499报错，可以修改配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy_ignore_client_abort on ;</span><br></pre></td></tr></table></figure></p>
+<p>这样来说，499错误并不是一个问题，如果出现了大量的499的话，需要考虑为什么发生了这么多的客户端中断的问题。</p>
+<p>另外需要注意的一项是：proxy_ignore_client_abort配置只会对代理的配置，如果请求的是当前nginx服务器，直接执行PHP程序返回。则设置proxy_ignore_client_abort为on也不会起作用，仍会是记录499日志。proxy_ignore_client_abort的配置是配置在代理处理时用。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location =/b.php &#123; </span><br><span class="line">  proxy_ignore_client_abort   on; </span><br><span class="line">  proxy_pass  http://service_backends;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="转载请注明出处，谢谢！"><a href="#转载请注明出处，谢谢！" class="headerlink" title="转载请注明出处，谢谢！"></a><strong>转载请注明出处，谢谢</strong>！</h3>
+      
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.jpeg" alt="王也道长 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.jpeg" alt="王也道长 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/11/09/nginx负载均衡&&安全常用配置/" rel="next" title="nginx出现499错误码的原因以及proxy_ignore_client_abort配置">
+                <i class="fa fa-chevron-left"></i> nginx出现499错误码的原因以及proxy_ignore_client_abort配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -376,6 +490,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTA2My83NjEx"></div>
+    
+  </div>
+
 
         </div>
         
@@ -396,8 +516,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="https://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -495,6 +624,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#转载请注明出处，谢谢！"><span class="nav-number">1.</span> <span class="nav-text">转载请注明出处，谢谢！</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -649,6 +794,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
