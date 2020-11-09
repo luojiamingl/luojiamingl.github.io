@@ -12,7 +12,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[nginx出现499错误码的原因以及proxy_ignore_client_abort配置]]></title>
+    <title><![CDATA[nginx负载均衡&&安全常用配置]]></title>
     <url>%2F2020%2F11%2F09%2Fnginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%26%26%E5%AE%89%E5%85%A8%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[Nginx获取用户真实Ip配置12proxy_set_header X-Forwarded-For $remote_addr;proxy_set_header Host $host; 拦截 server节点配置123if($http_user_agent ~* (apachebench|spider|robot|wget|WinHttpRequest))&#123; return 403;&#125; 每5秒一次显示进程号为12538的java进成的GC情况1jstat -gc 12538 5000 转载请注明出处，谢谢！]]></content>
       <categories>
