@@ -24,9 +24,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[nginx出现499错误码的原因以及proxy_ignore_client_abort配置]]></title>
-    <url>%2F2020%2F11%2F09%2Fnginx%E5%87%BA%E7%8E%B0499%E9%94%99%E8%AF%AF%E7%A0%81%E7%9A%84%E5%8E%9F%E5%9B%A0%E4%BB%A5%E5%8F%8Aproxy_ignore_client_abort%E9%85%8D%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[400-499 用于指出客户端的错误。 495 ：https certificate error 496 ：https no certificate 497 ：http to https 498 ：canceled 499 ：client has closed connection 即499错误是客户端主动断开了连接。 如何关闭报499这个错误码呢？可以通过配置：proxy_ignore_client_abort来处理。 proxy_ignore_client_abort：是否开启proxy忽略客户端中断。 即如果此项设置为on开启，则服务器会忽略客户端中断，一直等着代理服务执行返回。并且如果执行没有发生错误，记录的日志是200日志。如果超时则会记录504。如果设置为off，则客户端中断后服务器端nginx立即记录499日志，但要注意，此时代理端的PHP程序会依然继续执行。 nginx的proxy_ignore_client_abort默认是关闭的，即请求过程中如果客户端端主动关闭请求或者客户端网络断掉，那么Nginx会记录499。所以如果不想看到499报错，可以修改配置：1proxy_ignore_client_abort on ; 这样来说，499错误并不是一个问题，如果出现了大量的499的话，需要考虑为什么发生了这么多的客户端中断的问题。 另外需要注意的一项是：proxy_ignore_client_abort配置只会对代理的配置，如果请求的是当前nginx服务器，直接执行PHP程序返回。则设置proxy_ignore_client_abort为on也不会起作用，仍会是记录499日志。proxy_ignore_client_abort的配置是配置在代理处理时用。如下： 1234location =/b.php &#123; proxy_ignore_client_abort on; proxy_pass http://service_backends;&#125; 转载请注明出处，谢谢！]]></content>
+    <title><![CDATA[nginx负载均衡&&安全常用配置]]></title>
+    <url>%2F2020%2F11%2F09%2Fnginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%26%26%E5%AE%89%E5%85%A8%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[Nginx获取用户真实Ip配置12proxy_set_header X-Forwarded-For $remote_addr;proxy_set_header Host $host; 拦截 server节点配置123if($http_user_agent ~* (apachebench|spider|robot|wget|WinHttpRequest))&#123; return 403;&#125; 每5秒一次显示进程号为12538的java进成的GC情况1jstat -gc 12538 5000 转载请注明出处，谢谢！]]></content>
       <categories>
         <category>nginx</category>
       </categories>
@@ -35,9 +35,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[nginx负载均衡&&安全常用配置]]></title>
-    <url>%2F2020%2F11%2F09%2Fnginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%26%26%E5%AE%89%E5%85%A8%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[Nginx获取用户真实Ip配置12proxy_set_header X-Forwarded-For $remote_addr;proxy_set_header Host $host; 拦截 server节点配置123if($http_user_agent ~* (apachebench|spider|robot|wget|WinHttpRequest))&#123; return 403;&#125; 每5秒一次显示进程号为12538的java进成的GC情况1jstat -gc 12538 5000 转载请注明出处，谢谢！]]></content>
+    <title><![CDATA[nginx出现499错误码的原因以及proxy_ignore_client_abort配置]]></title>
+    <url>%2F2020%2F11%2F09%2Fnginx%E5%87%BA%E7%8E%B0499%E9%94%99%E8%AF%AF%E7%A0%81%E7%9A%84%E5%8E%9F%E5%9B%A0%E4%BB%A5%E5%8F%8Aproxy_ignore_client_abort%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[400-499 用于指出客户端的错误。 495 ：https certificate error 496 ：https no certificate 497 ：http to https 498 ：canceled 499 ：client has closed connection 即499错误是客户端主动断开了连接。 如何关闭报499这个错误码呢？可以通过配置：proxy_ignore_client_abort来处理。 proxy_ignore_client_abort：是否开启proxy忽略客户端中断。 即如果此项设置为on开启，则服务器会忽略客户端中断，一直等着代理服务执行返回。并且如果执行没有发生错误，记录的日志是200日志。如果超时则会记录504。如果设置为off，则客户端中断后服务器端nginx立即记录499日志，但要注意，此时代理端的PHP程序会依然继续执行。 nginx的proxy_ignore_client_abort默认是关闭的，即请求过程中如果客户端端主动关闭请求或者客户端网络断掉，那么Nginx会记录499。所以如果不想看到499报错，可以修改配置：1proxy_ignore_client_abort on ; 这样来说，499错误并不是一个问题，如果出现了大量的499的话，需要考虑为什么发生了这么多的客户端中断的问题。 另外需要注意的一项是：proxy_ignore_client_abort配置只会对代理的配置，如果请求的是当前nginx服务器，直接执行PHP程序返回。则设置proxy_ignore_client_abort为on也不会起作用，仍会是记录499日志。proxy_ignore_client_abort的配置是配置在代理处理时用。如下： 1234location =/b.php &#123; proxy_ignore_client_abort on; proxy_pass http://service_backends;&#125; 转载请注明出处，谢谢！]]></content>
       <categories>
         <category>nginx</category>
       </categories>
@@ -208,8 +208,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Shell</tag>
         <tag>Python</tag>
+        <tag>Shell</tag>
       </tags>
   </entry>
   <entry>
