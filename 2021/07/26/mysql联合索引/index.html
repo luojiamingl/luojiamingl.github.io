@@ -84,7 +84,7 @@
 <meta property="og:description" content="1、最左匹配原理所谓最左原则指的就是如果你的 SQL 语句中用到了联合索引中的最左边的索引，那么这条 SQL 语句就可以利用这个联合索引去进行匹配，值得注意的是，当遇到范围查询(&amp;gt;、&amp;lt;、between、like)就会停止匹配。 假设，我们对(a,b)字段建立一个索引，也就是说，你where后条件为 12a = 1a = 1 and b = 2 都是可以匹配索引的。但是要注意的是~你执行">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://luojiamingl.github.io/2021/07/26/mysql联合索引/1.png">
-<meta property="og:updated_time" content="2021-07-26T10:21:29.718Z">
+<meta property="og:updated_time" content="2021-07-26T10:27:54.131Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql联合索引">
 <meta name="twitter:description" content="1、最左匹配原理所谓最左原则指的就是如果你的 SQL 语句中用到了联合索引中的最左边的索引，那么这条 SQL 语句就可以利用这个联合索引去进行匹配，值得注意的是，当遇到范围查询(&amp;gt;、&amp;lt;、between、like)就会停止匹配。 假设，我们对(a,b)字段建立一个索引，也就是说，你where后条件为 12a = 1a = 1 and b = 2 都是可以匹配索引的。但是要注意的是~你执行">
@@ -397,9 +397,9 @@
 <p><img src="1.png" alt="image"></p>
 <p>如图所示他们是按照a来进行排序，在a相等的情况下，才按b来排序。</p>
 <p>因此，我们可以看到a是有序的1，1，2，2，3，3。而b是一种全局无序，局部相对有序状态!</p>
-<p>==什么意思呢？==</p>
+<p><strong>什么意思呢？</strong></p>
 <p>从全局来看，b的值为1，2，1，4，1，2，是无序的，因此直接执行b = 2这种查询条件没有办法利用索引。</p>
-<p>从局部来看，当a的值确定的时候，b是有序的。例如a = 1时，b值为1，2是有序的状态。当a=2时候，b的值为1,4也是有序状态。<br>因此，你执行==a = 1 and b = 2==是a,b字段能用到索引的。而你执行==a &gt; 1 and b = 2==时，a字段能用到索引，b字段用不到索引。因为a的值此时是一个范围，不是固定的，在这个范围内b值不是有序的，因此b字段用不上索引。</p>
+<p>从局部来看，当a的值确定的时候，b是有序的。例如a = 1时，b值为1，2是有序的状态。当a=2时候，b的值为1,4也是有序状态。<br>因此，你执行<strong>a = 1 and b = 2</strong>是a,b字段能用到索引的。而你执行<strong>a &gt; 1 and b = 2</strong>时，a字段能用到索引，b字段用不到索引。因为a的值此时是一个范围，不是固定的，在这个范围内b值不是有序的，因此b字段用不上索引。</p>
 <p>综上所示，最左匹配原则，在遇到范围查询的时候，就会停止匹配。</p>
 <h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h2 id="题型一"><a href="#题型一" class="headerlink" title="题型一"></a>题型一</h2><p>如果sql为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM table WHERE a = 1 and b = 2 and c = 3;</span><br></pre></td></tr></table></figure></p>
 <p>如何建立索引?<br>如果此题回答为对(a,b,c)建立索引，那都可以回去等通知了。<br>此题正确答法是，(a,b,c)或者(c,b,a)或者(b,a,c)都可以，重点要的是将区分度高的字段放在前面，区分度低的字段放后面。像性别、状态这种字段区分度就很低，我们一般放后面。</p>
