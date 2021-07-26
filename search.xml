@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mysql联合索引]]></title>
+    <url>%2F2021%2F07%2F26%2Fmysql%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95%2F</url>
+    <content type="text"><![CDATA[1、最左匹配原理所谓最左原则指的就是如果你的 SQL 语句中用到了联合索引中的最左边的索引，那么这条 SQL 语句就可以利用这个联合索引去进行匹配，值得注意的是，当遇到范围查询(&gt;、&lt;、between、like)就会停止匹配。 假设，我们对(a,b)字段建立一个索引，也就是说，你where后条件为 12a = 1a = 1 and b = 2 都是可以匹配索引的。但是要注意的是~你执行1b= 2 and a =1 也是能匹配到索引的，因为Mysql有优化器会自动调整a,b的顺序与索引顺序一致。相反的，你执行1b = 2 就匹配不到索引了。 假设，你对(a,b,c,d)建立索引,where后条件为1a = 1 and b = 2 and c &gt; 3 and d = 4 那么，a,b,c三个字段能用到索引，而d就匹配不到。因为遇到了范围查询！ 原理如下，假设，我们对(a,b)字段建立索引，那么入下图所示 如图所示他们是按照a来进行排序，在a相等的情况下，才按b来排序。 因此，我们可以看到a是有序的1，1，2，2，3，3。而b是一种全局无序，局部相对有序状态! ==什么意思呢？== 从全局来看，b的值为1，2，1，4，1，2，是无序的，因此直接执行b = 2这种查询条件没有办法利用索引。 从局部来看，当a的值确定的时候，b是有序的。例如a = 1时，b值为1，2是有序的状态。当a=2时候，b的值为1,4也是有序状态。因此，你执行==a = 1 and b = 2==是a,b字段能用到索引的。而你执行==a &gt; 1 and b = 2==时，a字段能用到索引，b字段用不到索引。因为a的值此时是一个范围，不是固定的，在这个范围内b值不是有序的，因此b字段用不上索引。 综上所示，最左匹配原则，在遇到范围查询的时候，就会停止匹配。 实战题型一如果sql为1SELECT * FROM table WHERE a = 1 and b = 2 and c = 3; 如何建立索引?如果此题回答为对(a,b,c)建立索引，那都可以回去等通知了。此题正确答法是，(a,b,c)或者(c,b,a)或者(b,a,c)都可以，重点要的是将区分度高的字段放在前面，区分度低的字段放后面。像性别、状态这种字段区分度就很低，我们一般放后面。 例如假设区分度由大到小为b,a,c。那么我们就对(b,a,c)建立索引。在执行sql的时候，优化器会 帮我们调整where后a,b,c的顺序，让我们用上索引。 题型二如果sql为1SELECT * FROM table WHERE a &gt; 1 and b = 2; 如果此题回答为对(a,b)建立索引，那都可以回去等通知了。此题正确答法是，对(b,a)建立索引。如果你建立的是(a,b)索引，那么只有a字段能用得上索引，毕竟最左匹配原则遇到范围查询就停止匹配。如果对(b,a)建立索引那么两个字段都能用上，优化器会帮我们调整where后a,b的顺序，让我们用上索引。 题型三如果sql为1SELECT * FROM `table` WHERE a &gt; 1 and b = 2 and c &gt; 3; 如何建立索引?此题回答也是不一定，(b,a)或者(b,c)都可以，要结合具体情况具体分析。 题型四1SELECT * FROM `table` WHERE a = 1 ORDER BY b; 对(a,b)建索引，当a = 1的时候，b相对有序，可以避免再次排序！1SELECT * FROM `table` WHERE a &gt; 1 ORDER BY b; 如何建立索引？对(a)建立索引，因为a的值是一个范围，这个范围内b值是无序的，没有必要对(a,b)建立索引。 题型五1SELECT * FROM `table` WHERE a IN (1,2,3) and b &gt; 1; 还是对(a，b)建立索引，因为IN在这里可以视为等值引用，不会中止索引匹配，所以还是(a,b)! 参考：https://www.cnblogs.com/rjzheng/p/12557314.html]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[IDEA破解-2020最新方案-适用于所有版本]]></title>
     <url>%2F2021%2F01%2F18%2FIDEA%E7%A0%B4%E8%A7%A3%EF%BC%8C2020%E6%9C%80%E6%96%B0%E6%96%B9%E6%A1%88%EF%BC%8C%E9%80%82%E7%94%A8%E4%BA%8E%E6%89%80%E6%9C%89%E7%89%88%E6%9C%AC%2F</url>
     <content type="text"><![CDATA[1、方案目前网上的方案都是 jetbrains-agent 插件 的方式，它是通过激活码或 License Server 达到长期使用的目的，但是jetbrains-agent 项目已经停止，本文是提供重置试用时间来实现永久免费 下面以2020版本为例（实际适用于所有版本） 1、检查更新升级你的IDEA或者去官网下载最新版本 2、安装IDE Eval Reset插件安装非常简单，将以下 zip 文件拖到 IDE 里即可安装，安装成功会有提示。 ide-eval-resetter-2.1.6.zip 、提取码：53tj 3、设置自动延长试用期点击菜单栏 Help –&gt; Eval Reset，会看到两个按钮一个选项。 按钮 Reload 是用来刷新界面上显示的试用信息。UNTIL 对于的值就是试用期结束的时间。 按钮 Reset 点击后会询问是否重置试用信息并重启IDE。选择 Yes 则执行重置操作并重启IDE生效，选择 No则什么也不做。这是手动重置的方式。 选项 Auto reset before per restart 如果勾选了，那么勾选后每次重启/退出 IDE 时会自动重置试用信息，你无需做额外的事情。这种操作是静默无感知的，是自动重置的方式。 我设置了自动重置，这样未来无需再管试用过期的问题，一劳永逸。 重启 IDE 重新加载了下试用信息，UNTIL 信息告诉我可以继续试用到下一个月了~ 参考资料 : https://mp.weixin.qq.com/s/iE8IDRYyR53tQFSRD_CGrA 有问题可以联系博主。转载请注明出处，谢谢！]]></content>
@@ -219,8 +230,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Shell</tag>
         <tag>Python</tag>
+        <tag>Shell</tag>
       </tags>
   </entry>
   <entry>

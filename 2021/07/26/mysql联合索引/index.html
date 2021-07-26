@@ -57,7 +57,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="mysql," />
 
 
 
@@ -75,13 +75,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="王也道长">
-<meta property="og:url" content="https://luojiamingl.github.io/categories/java/linux/index.html">
+<meta name="description" content="1、最左匹配原理所谓最左原则指的就是如果你的 SQL 语句中用到了联合索引中的最左边的索引，那么这条 SQL 语句就可以利用这个联合索引去进行匹配，值得注意的是，当遇到范围查询(&amp;gt;、&amp;lt;、between、like)就会停止匹配。 假设，我们对(a,b)字段建立一个索引，也就是说，你where后条件为 12a = 1a = 1 and b = 2 都是可以匹配索引的。但是要注意的是~你执行">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql联合索引">
+<meta property="og:url" content="https://luojiamingl.github.io/2021/07/26/mysql联合索引/index.html">
 <meta property="og:site_name" content="王也道长">
+<meta property="og:description" content="1、最左匹配原理所谓最左原则指的就是如果你的 SQL 语句中用到了联合索引中的最左边的索引，那么这条 SQL 语句就可以利用这个联合索引去进行匹配，值得注意的是，当遇到范围查询(&amp;gt;、&amp;lt;、between、like)就会停止匹配。 假设，我们对(a,b)字段建立一个索引，也就是说，你where后条件为 12a = 1a = 1 and b = 2 都是可以匹配索引的。但是要注意的是~你执行">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://luojiamingl.github.io/2021/07/26/mysql联合索引/1.png">
+<meta property="og:updated_time" content="2021-07-26T10:21:29.718Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="王也道长">
+<meta name="twitter:title" content="mysql联合索引">
+<meta name="twitter:description" content="1、最左匹配原理所谓最左原则指的就是如果你的 SQL 语句中用到了联合索引中的最左边的索引，那么这条 SQL 语句就可以利用这个联合索引去进行匹配，值得注意的是，当遇到范围查询(&amp;gt;、&amp;lt;、between、like)就会停止匹配。 假设，我们对(a,b)字段建立一个索引，也就是说，你where后条件为 12a = 1a = 1 and b = 2 都是可以匹配索引的。但是要注意的是~你执行">
+<meta name="twitter:image" content="https://luojiamingl.github.io/2021/07/26/mysql联合索引/1.png">
 
 
 
@@ -111,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="https://luojiamingl.github.io/categories/java/linux/"/>
+  <link rel="canonical" href="https://luojiamingl.github.io/2021/07/26/mysql联合索引/"/>
 
 
 
 
 
-  <title>分类: linux | 王也道长</title>
+  <title>mysql联合索引 | 王也道长</title>
   
 
 
@@ -136,7 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="https://schema.org/WPHeader">
@@ -264,55 +271,237 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>linux<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="https://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://luojiamingl.github.io/2021/07/26/mysql联合索引/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="https://schema.org/Person">
+      <meta itemprop="name" content="王也道长">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+      <meta itemprop="name" content="王也道长">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/05/06/yum安装更新java sdk/" itemprop="url">
-              
-                <span itemprop="name">yum安装更新java sdk</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">mysql联合索引</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-05-06T15:46:22+08:00"
-              content="2019-05-06" >
-          05-06
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-07-26T10:22:22+08:00">
+                2021-07-26
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/07/26/mysql联合索引/" class="leancloud_visitors" data-flag-title="mysql联合索引">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1、最左匹配原理"><a href="#1、最左匹配原理" class="headerlink" title="1、最左匹配原理"></a>1、最左匹配原理</h1><p>所谓最左原则指的就是如果你的 SQL 语句中用到了联合索引中的最左边的索引，那么这条 SQL 语句就可以利用这个联合索引去进行匹配，值得注意的是，当遇到范围查询(&gt;、&lt;、between、like)就会停止匹配。</p>
+<p>假设，我们对(a,b)字段建立一个索引，也就是说，你where后条件为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = 1</span><br><span class="line">a = 1 and b = 2</span><br></pre></td></tr></table></figure>
+<p>都是可以匹配索引的。但是要注意的是~你执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b= 2 and a =1</span><br></pre></td></tr></table></figure></p>
+<p>也是能匹配到索引的，因为Mysql有优化器会自动调整a,b的顺序与索引顺序一致。<br>相反的，你执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b = 2</span><br></pre></td></tr></table></figure></p>
+<p>就匹配不到索引了。</p>
+<p>假设，你对(a,b,c,d)建立索引,where后条件为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = 1 and b = 2 and c &gt; 3 and d = 4</span><br></pre></td></tr></table></figure></p>
+<p>那么，a,b,c三个字段能用到索引，而d就匹配不到。因为遇到了范围查询！</p>
+<p>原理如下，假设，我们对(a,b)字段建立索引，那么入下图所示</p>
+<p><img src="1.png" alt="image"></p>
+<p>如图所示他们是按照a来进行排序，在a相等的情况下，才按b来排序。</p>
+<p>因此，我们可以看到a是有序的1，1，2，2，3，3。而b是一种全局无序，局部相对有序状态!</p>
+<p>==什么意思呢？==</p>
+<p>从全局来看，b的值为1，2，1，4，1，2，是无序的，因此直接执行b = 2这种查询条件没有办法利用索引。</p>
+<p>从局部来看，当a的值确定的时候，b是有序的。例如a = 1时，b值为1，2是有序的状态。当a=2时候，b的值为1,4也是有序状态。<br>因此，你执行==a = 1 and b = 2==是a,b字段能用到索引的。而你执行==a &gt; 1 and b = 2==时，a字段能用到索引，b字段用不到索引。因为a的值此时是一个范围，不是固定的，在这个范围内b值不是有序的，因此b字段用不上索引。</p>
+<p>综上所示，最左匹配原则，在遇到范围查询的时候，就会停止匹配。</p>
+<h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h2 id="题型一"><a href="#题型一" class="headerlink" title="题型一"></a>题型一</h2><p>如果sql为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM table WHERE a = 1 and b = 2 and c = 3;</span><br></pre></td></tr></table></figure></p>
+<p>如何建立索引?<br>如果此题回答为对(a,b,c)建立索引，那都可以回去等通知了。<br>此题正确答法是，(a,b,c)或者(c,b,a)或者(b,a,c)都可以，重点要的是将区分度高的字段放在前面，区分度低的字段放后面。像性别、状态这种字段区分度就很低，我们一般放后面。</p>
+<p>例如假设区分度由大到小为b,a,c。那么我们就对(b,a,c)建立索引。在执行sql的时候，优化器会 帮我们调整where后a,b,c的顺序，让我们用上索引。</p>
+<h2 id="题型二"><a href="#题型二" class="headerlink" title="题型二"></a>题型二</h2><p>如果sql为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM table WHERE a &gt; 1 and b = 2;</span><br></pre></td></tr></table></figure></p>
+<p>如果此题回答为对(a,b)建立索引，那都可以回去等通知了。<br>此题正确答法是，对(b,a)建立索引。如果你建立的是(a,b)索引，那么只有a字段能用得上索引，毕竟最左匹配原则遇到范围查询就停止匹配。<br>如果对(b,a)建立索引那么两个字段都能用上，优化器会帮我们调整where后a,b的顺序，让我们用上索引。</p>
+<h2 id="题型三"><a href="#题型三" class="headerlink" title="题型三"></a>题型三</h2><p>如果sql为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM `table` WHERE a &gt; 1 and b = 2 and c &gt; 3;</span><br></pre></td></tr></table></figure></p>
+<p>如何建立索引?<br>此题回答也是不一定，(b,a)或者(b,c)都可以，要结合具体情况具体分析。</p>
+<h2 id="题型四"><a href="#题型四" class="headerlink" title="题型四"></a>题型四</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM `table` WHERE a = 1 ORDER BY b;</span><br></pre></td></tr></table></figure>
+<p>对(a,b)建索引，当a = 1的时候，b相对有序，可以避免再次排序！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM `table` WHERE a &gt; 1 ORDER BY b;</span><br></pre></td></tr></table></figure></p>
+<p>如何建立索引？<br>对(a)建立索引，因为a的值是一个范围，这个范围内b值是无序的，没有必要对(a,b)建立索引。</p>
+<h2 id="题型五"><a href="#题型五" class="headerlink" title="题型五"></a>题型五</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM `table` WHERE a IN (1,2,3) and b &gt; 1;</span><br></pre></td></tr></table></figure>
+<p>还是对(a，b)建立索引，因为IN在这里可以视为等值引用，不会中止索引匹配，所以还是(a,b)!</p>
+<p>参考：<a href="https://www.cnblogs.com/rjzheng/p/12557314.html" target="_blank" rel="noopener">https://www.cnblogs.com/rjzheng/p/12557314.html</a></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.jpeg" alt="王也道长 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.jpeg" alt="王也道长 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/01/18/IDEA破解，2020最新方案，适用于所有版本/" rel="next" title="IDEA破解-2020最新方案-适用于所有版本">
+                <i class="fa fa-chevron-left"></i> IDEA破解-2020最新方案-适用于所有版本
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -320,6 +509,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTA2My83NjEx"></div>
+    
+  </div>
+
 
         </div>
         
@@ -340,8 +535,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="https://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -439,6 +643,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1、最左匹配原理"><span class="nav-number">1.</span> <span class="nav-text">1、最左匹配原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实战"><span class="nav-number">2.</span> <span class="nav-text">实战</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题型一"><span class="nav-number">2.1.</span> <span class="nav-text">题型一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题型二"><span class="nav-number">2.2.</span> <span class="nav-text">题型二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题型三"><span class="nav-number">2.3.</span> <span class="nav-text">题型三</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题型四"><span class="nav-number">2.4.</span> <span class="nav-text">题型四</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题型五"><span class="nav-number">2.5.</span> <span class="nav-text">题型五</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -593,6 +813,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
